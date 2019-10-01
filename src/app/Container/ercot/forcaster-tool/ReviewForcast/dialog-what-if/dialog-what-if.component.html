@@ -1,0 +1,116 @@
+<!-- <form class="row">
+  <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+    <input [min]="start" #abc [max]="end" matInput [matDatepicker]="picker1" placeholder="Search" (dateChange)="applyFilter($event.target.value)">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Customer Profile" formControlName="customerprofile">
+      <mat-option *ngFor="let x of timeZone" [value]="x.value">
+        {{x.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Weather Zone" formControlName="weatherzone">
+      <mat-option *ngFor="let x of timeZone" [value]="x.value">
+        {{x.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Load Zone" formControlName="loadzone">
+      <mat-option *ngFor="let x of timeZone" [value]="x.value">
+        {{x.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form> -->
+
+<!-- <mat-card class="filter mat-elevation-z8"> -->
+<!-- <div class="d-flex">
+  <div class="ml-auto p-2">
+    <mat-slide-toggle (change)="onValChange($event.value)">Slide me!</mat-slide-toggle>
+  </div>
+</div> -->
+
+<div class="d-flex card-header col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div>
+    <h5> Customer Count Adjustment</h5>
+  </div>
+  <div class="ml-auto p-2">
+    <mat-slide-toggle (change)="onValChange($event)" [checked]="toggle">Drop/Add Customer</mat-slide-toggle>
+  </div>
+</div>
+<form [formGroup]="form">
+  <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <input matInput [matDatepicker]="picker2" placeholder="From" formControlName="from">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+    <mat-error>
+      required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <input matInput [matDatepicker]="picker1" placeholder="To" formControlName="to">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+    <mat-error>
+      required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <mat-select placeholder="Customer Profile" formControlName="customerprofile">
+      <mat-option *ngFor="let x of timeZone" [value]="x.value">
+        {{x.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <mat-select placeholder="Weather Zone" formControlName="weatherzone">
+      <mat-option *ngFor="let x of timeZone" [value]="x.value">
+        {{x.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <mat-select placeholder="Load Zone" formControlName="loadzone">
+      <mat-option *ngFor="let x of timeZone" [value]="x.value">
+        {{x.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field *ngIf="toggle==true" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <input matInput placeholder="Customer to Add" formControlName="addcustomer">
+  </mat-form-field>
+  <mat-form-field *ngIf="toggle==false" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <input matInput placeholder="Customer to Drop" formControlName="dropcustomer">
+  </mat-form-field>
+  <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <input matInput placeholder="Historical Usage (MWh)" formControlName="historicalUsage">
+  </mat-form-field>
+  <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <mat-select placeholder="Load Zone" formControlName="period">
+      <mat-option *ngFor="let x of timeZone" [value]="x.value">
+        {{x.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <mat-select placeholder="Proxy Factor Source" formControlName="proxyfactor">
+      <mat-option *ngFor="let x of timeZone" [value]="x.value">
+        {{x.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <input matInput placeholder="Weather Adjustment" formControlName="weatheradjustment">
+  </mat-form-field>
+
+  <div style="text-align:center" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <button mat-raised-button type="submit" class="btn-search font-styling">Apply Adjustment</button>
+    <button mat-raised-button type="button" class="btn2 font-styling">Cancel</button>
+  </div>
+</form>
+<!-- </mat-card> -->

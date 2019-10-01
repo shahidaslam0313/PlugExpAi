@@ -1,0 +1,23 @@
+
+<div class="ack-alert" *ngFor="let item of list">
+  <div class="heading font-styling">
+    <h5>{{item.Message}}</h5></div>
+  <div class="heading">
+    <div class="label font-styling" [ngClass]="{'positive': item.Priority=='INFO','negative': item.Priority=='ERROR'}">
+      {{item.Priority}}
+    </div>
+    <div class="label font-styling">
+      {{item.Message}} at {{item.Timestamp}}
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+
+  <div class="dialog-footer">
+    <div>
+      <button mat-raised-button class="btn1 font-styling">Acknowledge this alert</button>
+    </div>
+    <div>
+      <button mat-raised-button (click)="closeDialog()" class="btn2 font-styling">Close</button>
+    </div>
+  </div>
+</div>

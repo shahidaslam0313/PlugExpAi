@@ -1,0 +1,307 @@
+<!-- <div class="background">
+    <mat-card class="mainCard">
+        <mat-card>
+            <h3>Sign In to Your Account</h3>
+        </mat-card>
+        <div *ngIf="invalid==true" style="font-weight: bold;text-align: center;color:red">
+            <p>Invalid Email or Passward*</p>
+        </div>
+        <form>
+            <div class="inputFields">
+
+                <mat-form-field>
+                    <input matInput [(ngModel)]="email" [formControl]="validate_email" required>
+                    <mat-error *ngIf="validate_email.invalid">{{getErrorMessageEmail()}}</mat-error>
+                    <mat-placeholder>Enter Email </mat-placeholder>
+                </mat-form-field>
+                <mat-form-field hintLabel="Max 12 Min 8 characters">
+                <mat-form-field>
+                    <input matInput [(ngModel)]="password" [type]="hide ? 'password' : 'text'" required [formControl]="validate_password" #input
+                        maxlength="12">
+                    <mat-error *ngIf="validate_password.invalid">{{getErrorMessagePassword()}}</mat-error>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                    <mat-placeholder>Enter Password </mat-placeholder>
+                </mat-form-field>
+                <div class="Captcha">
+                    <div class="StaySignIn">
+                        <mat-slide-toggle style="font-weight:bold;" [(ngModel)]="checked" (click)="remeberMe()" [ngModelOptions]="{standalone: true}">Stay Signed In</mat-slide-toggle>
+                        <span class="forgotpass" style="font-size:14px;" >Forgot password</span>
+                    </div>
+                    <div>
+                        <app-recapcha></app-recapcha>
+                        <p class="error">{{cap_result}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="spinner" *ngIf="showSpinner==true">
+                <img src="../../../assets/img/fidget_red.gif" width="100" height="100" alt="logo">
+            </div>
+            <button mat-button (click)="Login()" class="button">SIGN IN</button>
+
+
+            <div style="text-align:center">
+                <button type="submit" class="btn btn-lg btn-block signIn" (click)="signIn()">Sign In</button>
+            </div>
+            <div class="PriPolTOS">
+                <a target="_blank">Privacy Policy</a>
+                <a target="_blank">Term Of Service</a>
+            </div>
+        </form>
+    </mat-card>
+</div> -->
+
+
+
+
+<div class="background">
+    <mat-card class="mainCard">
+        <mat-card class="mat-head-card">
+            <h3>Sign In to Your Account</h3>
+            <div class="g-f-login text-center">
+                <a href="#">
+                    <img src="assets/img/icon-facebook.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="assets/img/icon-Google.png" alt="">
+                </a>
+            </div>
+        </mat-card>
+        <div *ngIf="invalid==true" style="font-weight: bold;text-align: center;color:red">
+            <p>Invalid Email or Passward*</p>
+        </div>
+        <form class="sh-signup-form-fix">
+            <div class="inputFields">
+
+                <mat-form-field class="mb-10px">
+                    <input matInput [(ngModel)]="email" [formControl]="validate_email" required>
+                    <mat-error *ngIf="validate_email.invalid">{{getErrorMessageEmail()}}</mat-error>
+                    <mat-placeholder>Email </mat-placeholder>
+                </mat-form-field>
+                <!-- <mat-form-field hintLabel="Max 12 Min 8 characters"> -->
+                <mat-form-field>
+                    <input matInput [(ngModel)]="password" [type]="hide ? 'password' : 'text'" required [formControl]="validate_password" #input
+                        maxlength="12">
+                    <mat-error *ngIf="validate_password.invalid">{{getErrorMessagePassword()}}</mat-error>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                    <mat-placeholder>Password </mat-placeholder>
+                </mat-form-field>
+                <div class="Captcha">
+                    <div class="checkbox">
+                        <mat-slide-toggle style="font-weight:bold;" [(ngModel)]="checked" (click)="remeberMe()" [ngModelOptions]="{standalone: true}">Stay Signed In</mat-slide-toggle>
+                        <span class="forgotpass">Forgot password?</span>
+                    </div>
+                    <div>
+                        <app-recapcha></app-recapcha>
+                        <p class="error">{{cap_result}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="spinner" *ngIf="showSpinner==true">
+                <img src="../../../assets/img/fidget_red.gif" width="100" height="100" alt="logo">
+            </div> -->
+            <!-- <button mat-button (click)="Login()" class="button">SIGN IN</button> -->
+            <div style="text-align:center">
+                <button type="submit" class="btn btn-lg btn-block signIn" (click)="signIn()">Sign In</button>
+            </div>
+            <div  class="text-center">
+                <span class="no_account">No Account Yet? <a  class="blue-color" routerlink="">Sign Up</a>
+                </span>
+            </div>
+            <div class="PriPolTOS">
+                <a target="_blank" >Privacy Policy</a>
+                <a target="_blank" >Terms Of Use</a>
+            </div>
+        </form>
+    </mat-card>
+</div>
+
+
+<!-- Footer -->
+
+<div class="footer-upper" id="footer">
+    <div class=" footer-container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12 w-r-w">
+                <h2>Who Are We?</h2>
+                <ul class="list-contact">
+                    <li>
+                        <a routerLink="">
+                            <i aria-hidden="true" class="fa fa-chevron-right"></i>What is WattExpertAI?</a>
+                    </li>
+                    <li>
+                        <a routerLink="">
+                            <i aria-hidden="true" class="fa fa-chevron-right"></i>How it Works?</a>
+                    </li>
+                    <li>
+                        <a routerLink="">
+                            <i aria-hidden="true" class="fa fa-chevron-right"></i>Establish Contact</a>
+                    </li>
+                </ul>
+                <ul class="list-social">
+                    <h2>Stalk Us</h2>
+                    <li>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                            Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-pinterest"></i>
+                            Pinterest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-md-6 col-lg-6 col-xs-12 q-l">
+                <h2 class="sh-h2-resources" style="text-align:center">Quick Links</h2>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <ul class="list-contact">
+                            <li>
+                                <a class="appio-scroll" [routerLink]="['/']">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="" class="appio-scroll">
+                                    <i class="fa fa-plus"></i>
+                                    Who Are We?
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="" class="appio-scroll">
+                                    <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                    Pricing
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="" class="appio-scroll">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    Find WattExpertAI
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">
+                                    <i class="material-icons">slow_motion_video</i>
+                                    Demo
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="" class="appio-scroll">
+                                    <i class="material-icons">supervised_user_circle</i>
+                                    Partnership
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <ul class="list-contact">
+                            <li>
+                                <a routerLink="" class="appio-scroll">
+                                    <i class="fab fa-leanpub"></i>
+                                    FAQs
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="" class="appio-scroll">
+                                    <i class="material-icons">insert_chart</i>
+                                    Features Comparison
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="" class="appio-scroll">
+                                    <i class="material-icons">
+                                        assignment
+                                    </i>
+                                    WattExpertAI as a Service
+                                </a>
+                            </li>
+                            <li>
+                                <a routerLink="/" class="appio-scroll">
+                                    <i class="material-icons">fingerprint</i>
+                                    Sign in
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="material-icons">lock_open</i>
+                                    Signup
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-stores-img">
+                    <h2>Download and experience our Super-Cool Next-Generation Mobile App Now.</h2>
+                    <a target="_blank" href="#">
+                        <img src="../../assets/img/apple-store.png" />
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="../../assets/img/google-play.png" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xs-12 subscribe">
+                <h2>What is WattExpertAI?</h2>
+                <!-- <p>Hundreds Of Thousands RFPs: RFPGurus is the most comprehensive source of Government RFPs, RFIs, RFBs, RFTs
+                    and RFQs making Searching, Matching and Bidding on Government Contracts a breeze. The Industry's most
+                    comprehensive Feature Set - One Platform: RFPGurus propels the business workforce in bidding and contract
+                    opportunities to a whole new level. With its proprietary Machine Learning (ML) engine, RFPGurus provides
+                    a next generation Artificially Intelligent Platform to connect Vendors with Nationwide Federal, State,
+                    County, City & Local RFPs. Unbeatable Pricing. One-Package-Includes-All. Every Feature/RFP Included Nationwide.
+                    No Gimmicks. No Hidden Fees. Next generation Web, iOS & Android Mobile Apps. RFPGurus is your essential
+                    WINNING Partner in Government RFP Bidding.</p> -->
+                <p>
+                    WattExpert.AI is a Deep Learning Artificial Intelligence (AI) platform engineered from the grounds up with a singular goal:
+                    Help Energy Providers maximize their Sales Revenue! With an AI that is unrivaled in features and performance,WattExpert.AI
+                    crunches data with a remarkable degree of accuracy to yield real-time predictive decisions. SalesGainsAI
+                    offers a comprehensive portfolio of Machine Learning (ML) and Artificial Intelligence (AI) to boost your
+                    organization’s Sales Revenues with bleeding edge Business Insight & Predictive Analytics.
+                </p>
+                <!-- <div > -->
+                <form class="input-group sh-subscribe ">
+                    <!-- <mat-form-field> -->
+                    <input class="form-control " placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text" formControlName="email">
+                    <button class="btn btn-rose " type="submit">
+                        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                        <!-- <i class="fa fa-paper-plane" aria-hidden="true"></i> -->
+
+                    </button>
+                    <!-- <p *ngIf="email.touched && !email.valid">
+                        <span *ngIf="form.controls.email.errors.pattern" class="alert alert-danger">
+                            Invalid Email Address.
+                        </span></p> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer footer-text ptb-10 clearfix">
+    <div class=" footer-container">
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <p class="">
+                    Copyright © 2019, WattExpert. All rights reserved.
+                </p>
+            </div>
+            <div class=" col-lg-7 col-md-87 col-sm-7 col-xs-12">
+                <div class="social-link pull-right">
+                    <a [routerLink]="['/terms']" target="_blank" class="footer-link-border">Terms of Use</a>
+                    <a [routerLink]="['/privacy-policy']" target="_blank" class="">Privacy Policy</a>
+                    <!-- <a href="#" class="">Intellectual Property</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

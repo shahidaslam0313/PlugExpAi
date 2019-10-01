@@ -1,0 +1,935 @@
+<form [formGroup]="hourly" (ngSubmit)="onSubmit()">
+    <!-- <mat-card> -->
+    <!-- <div style="margin:0 auto;" class="row"> -->
+    <div class="row">
+        <!-- <mat-form-field class="col-lg-5 col-md-5 col-sm-5 col-xs-12"> -->
+        <mat-form-field class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+            <mat-select placeholder="granularity">
+                <mat-option *ngFor="let x of  hourlyGranularity" [value]="x.value">
+                    {{x.viewValue}}
+                </mat-option>
+            </mat-select>
+            <mat-error>
+                required
+            </mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
+        <mat-form-field class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+            <input [max]="hourly.controls.start_date?.value" matInput [matDatepicker]="picker1" placeholder="To" formControlName="start_date">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error>
+                required
+            </mat-error>
+        </mat-form-field>
+        <!-- <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
+        <mat-form-field class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+            <input [min]="hourly.controls.end_date?.value" matInput [matDatepicker]="picker2" placeholder="From" formControlName="end_date">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-error>
+                <span *ngIf="differenceActive==false">required</span>
+                <span *ngIf="differenceActive==true">max 7 days</span>
+            </mat-error>
+        </mat-form-field>
+
+
+        <!-- <div style="text-align:center" class="col-lg-1 col-md-1 col-sm-6 col-xs-12">
+            <button style="margin-top:10px;" type="submit" mat-raised-button class="btn-search font-styling">Search</button>
+        </div> -->
+
+        <!-- <button type="submit" mat-raised-button class="col-lg-3 col-md-3 col-sm-6 col-xs-12 btn-search font-styling">Search</button> -->
+        <button (click)="toggle()" class="col-lg-1 col-md-1 col-sm-1 col-xs-1 btn-search font-styling" mat-raised-button>Search</button>
+    </div>
+    <!-- </mat-card> -->
+</form>
+
+<mat-tab-group class="vertical-tabs">
+    <mat-tab *ngFor="let date of setDates">
+        <ng-template mat-tab-label>
+            <p>{{date.predicted_date | date}}</p>
+        </ng-template>
+        <mat-card>
+            <div class="my-table">
+                <table mat-table [dataSource]="DataSource1" class="abc">
+                    <!-- <ng-container matColumnDef="1" sticky>
+            <th mat-header-cell *matHeaderCellDef> Time zone </th>
+            <td mat-cell *matCellDef="let element"> {{element?.time_zone ? element?.time_zone :'--' }} </td>
+          </ng-container> -->
+                    <ng-container matColumnDef="2" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Predicted Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.predicted_date ? element?.predicted_date :'--' }} </td>
+                    </ng-container>
+                    <!-- <ng-container matColumnDef="3">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element"> {{(element?.date| date) ? (element?.date | date) :'--' }} </td>
+          </ng-container> -->
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Ercot Load Zone </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.ercot_load_zone ? element?.ercot_load_zone :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="4">
+                        <th mat-header-cell *matHeaderCellDef> 1hr </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_1 | number : '1.22' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="5">
+                        <th mat-header-cell *matHeaderCellDef> 2h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_2 ? element?.hour_2 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="6">
+                        <th mat-header-cell *matHeaderCellDef> 3h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_3 ? element?.hour_3 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="7">
+                        <th mat-header-cell *matHeaderCellDef> 4h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_4 ? element?.hour_4 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="8">
+                        <th mat-header-cell *matHeaderCellDef> 5h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_5 ? element?.hour_5 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="9">
+                        <th mat-header-cell *matHeaderCellDef> 6h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_6 ? element?.hour_6 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="10">
+                        <th mat-header-cell *matHeaderCellDef> 7h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_7 ? element?.hour_7 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="11">
+                        <th mat-header-cell *matHeaderCellDef> 8h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_8 ? element?.hour_8 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="12">
+                        <th mat-header-cell *matHeaderCellDef> 9h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_9 ? element?.hour_9 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="13">
+                        <th mat-header-cell *matHeaderCellDef> 10h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_10 ? element?.hour_10 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="14">
+                        <th mat-header-cell *matHeaderCellDef> 11h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_11 ? element?.hour_11 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="15">
+                        <th mat-header-cell *matHeaderCellDef> 12h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_12 ? element?.hour_12 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="16">
+                        <th mat-header-cell *matHeaderCellDef> 13h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_13 ? element?.hour_13 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="17">
+                        <th mat-header-cell *matHeaderCellDef> 14h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_14 ? element?.hour_14 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="18">
+                        <th mat-header-cell *matHeaderCellDef> 15h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_15 ? element?.hour_15 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="19">
+                        <th mat-header-cell *matHeaderCellDef> 16h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_16 ? element?.hour_16 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="20">
+                        <th mat-header-cell *matHeaderCellDef> 17h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_17 ? element?.hour_17 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="21">
+                        <th mat-header-cell *matHeaderCellDef> 18h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_18 ? element?.hour_18 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="22">
+                        <th mat-header-cell *matHeaderCellDef> 19h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_19 ? element?.hour_19 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="23">
+                        <th mat-header-cell *matHeaderCellDef> 20h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_20 ? element?.hour_20 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="24">
+                        <th mat-header-cell *matHeaderCellDef> 21h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_21 ? element?.hour_21 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="25">
+                        <th mat-header-cell *matHeaderCellDef> 22h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_22 ? element?.hour_22 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="26">
+                        <th mat-header-cell *matHeaderCellDef> 23h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_23 ? element?.hour_23 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="27">
+                        <th mat-header-cell *matHeaderCellDef> 24h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_24 ? element?.hour_24 :'--' }}</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="DisplayedColumns1; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: DisplayedColumns1;"></tr>
+                </table>
+
+                <h4 *ngIf="error1">{{error1}}</h4>
+            </div>
+        </mat-card>
+    </mat-tab>
+    <mat-tab *ngIf="day2==true">
+        <ng-template mat-tab-label>
+            <p>{{date2 | date}}</p>
+        </ng-template>
+        <mat-card>
+
+            <div class="my-table">
+                <table mat-table [dataSource]="DataSource2" class="abc">
+                    <!-- <ng-container matColumnDef="1" sticky>
+            <th mat-header-cell *matHeaderCellDef> Time zone </th>
+            <td mat-cell *matCellDef="let element"> {{element?.time_zone ? element?.time_zone :'--' }} </td>
+          </ng-container> -->
+                    <ng-container matColumnDef="2" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Predicted Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.predicted_date ? element?.predicted_date :'--' }} </td>
+                    </ng-container>
+                    <!-- <ng-container matColumnDef="3">
+<th mat-header-cell *matHeaderCellDef> Date </th>
+<td mat-cell *matCellDef="let element"> {{(element?.date| date) ? (element?.date | date) :'--' }} </td>
+</ng-container> -->
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Ercot Load Zone </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.ercot_load_zone ? element?.ercot_load_zone :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="4">
+                        <th mat-header-cell *matHeaderCellDef> 1h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_1 ? element?.hour_1 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="5">
+                        <th mat-header-cell *matHeaderCellDef> 2h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_2 ? element?.hour_2 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="6">
+                        <th mat-header-cell *matHeaderCellDef> 3h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_3 ? element?.hour_3 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="7">
+                        <th mat-header-cell *matHeaderCellDef> 4h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_4 ? element?.hour_4 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="8">
+                        <th mat-header-cell *matHeaderCellDef> 5h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_5 ? element?.hour_5 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="9">
+                        <th mat-header-cell *matHeaderCellDef> 6h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_6 ? element?.hour_6 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="10">
+                        <th mat-header-cell *matHeaderCellDef> 7h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_7 ? element?.hour_7 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="11">
+                        <th mat-header-cell *matHeaderCellDef> 8h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_8 ? element?.hour_8 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="12">
+                        <th mat-header-cell *matHeaderCellDef> 9h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_9 ? element?.hour_9 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="13">
+                        <th mat-header-cell *matHeaderCellDef> 10h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_10 ? element?.hour_10 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="14">
+                        <th mat-header-cell *matHeaderCellDef> 11h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_11 ? element?.hour_11 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="15">
+                        <th mat-header-cell *matHeaderCellDef> 12h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_12 ? element?.hour_12 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="16">
+                        <th mat-header-cell *matHeaderCellDef> 13h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_13 ? element?.hour_13 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="17">
+                        <th mat-header-cell *matHeaderCellDef> 14h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_14 ? element?.hour_14 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="18">
+                        <th mat-header-cell *matHeaderCellDef> 15h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_15 ? element?.hour_15 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="19">
+                        <th mat-header-cell *matHeaderCellDef> 16h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_16 ? element?.hour_16 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="20">
+                        <th mat-header-cell *matHeaderCellDef> 17h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_17 ? element?.hour_17 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="21">
+                        <th mat-header-cell *matHeaderCellDef> 18h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_18 ? element?.hour_18 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="22">
+                        <th mat-header-cell *matHeaderCellDef> 19h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_19 ? element?.hour_19 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="23">
+                        <th mat-header-cell *matHeaderCellDef> 20h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_20 ? element?.hour_20 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="24">
+                        <th mat-header-cell *matHeaderCellDef> 21h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_21 ? element?.hour_21 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="25">
+                        <th mat-header-cell *matHeaderCellDef> 22h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_22 ? element?.hour_22 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="26">
+                        <th mat-header-cell *matHeaderCellDef> 23h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_23 ? element?.hour_23 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="27">
+                        <th mat-header-cell *matHeaderCellDef> 24h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_24 ? element?.hour_24 :'--' }}</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="DisplayedColumns2; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: DisplayedColumns2;"></tr>
+                </table>
+                <h4 *ngIf="error2">{{error2}}</h4>
+            </div>
+        </mat-card>
+    </mat-tab>
+    <mat-tab *ngIf="day3==true">
+        <ng-template mat-tab-label>
+            <p>{{date3 | date}}</p>
+        </ng-template>
+        <mat-card>
+            <div class="my-table">
+                <table mat-table [dataSource]="DataSource3" class="abc">
+                    <!-- <ng-container matColumnDef="1" sticky>
+            <th mat-header-cell *matHeaderCellDef> Time zone </th>
+            <td mat-cell *matCellDef="let element"> {{element?.time_zone ? element?.time_zone :'--' }} </td>
+          </ng-container> -->
+                    <ng-container matColumnDef="2" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Predicted Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.predicted_date ? element?.predicted_date :'--' }} </td>
+                    </ng-container>
+                    <!-- <ng-container matColumnDef="3">
+<th mat-header-cell *matHeaderCellDef> Date </th>
+<td mat-cell *matCellDef="let element"> {{(element?.date| date) ? (element?.date | date) :'--' }} </td>
+</ng-container> -->
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Ercot Load Zone </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.ercot_load_zone ? element?.ercot_load_zone :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="4">
+                        <th mat-header-cell *matHeaderCellDef> 1h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_1 ? element?.hour_1 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="5">
+                        <th mat-header-cell *matHeaderCellDef> 2h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_2 ? element?.hour_2 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="6">
+                        <th mat-header-cell *matHeaderCellDef> 3h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_3 ? element?.hour_3 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="7">
+                        <th mat-header-cell *matHeaderCellDef> 4h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_4 ? element?.hour_4 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="8">
+                        <th mat-header-cell *matHeaderCellDef> 5h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_5 ? element?.hour_5 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="9">
+                        <th mat-header-cell *matHeaderCellDef> 6h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_6 ? element?.hour_6 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="10">
+                        <th mat-header-cell *matHeaderCellDef> 7h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_7 ? element?.hour_7 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="11">
+                        <th mat-header-cell *matHeaderCellDef> 8h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_8 ? element?.hour_8 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="12">
+                        <th mat-header-cell *matHeaderCellDef> 9h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_9 ? element?.hour_9 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="13">
+                        <th mat-header-cell *matHeaderCellDef> 10h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_10 ? element?.hour_10 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="14">
+                        <th mat-header-cell *matHeaderCellDef> 11h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_11 ? element?.hour_11 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="15">
+                        <th mat-header-cell *matHeaderCellDef> 12h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_12 ? element?.hour_12 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="16">
+                        <th mat-header-cell *matHeaderCellDef> 13h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_13 ? element?.hour_13 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="17">
+                        <th mat-header-cell *matHeaderCellDef> 14h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_14 ? element?.hour_14 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="18">
+                        <th mat-header-cell *matHeaderCellDef> 15h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_15 ? element?.hour_15 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="19">
+                        <th mat-header-cell *matHeaderCellDef> 16h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_16 ? element?.hour_16 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="20">
+                        <th mat-header-cell *matHeaderCellDef> 17h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_17 ? element?.hour_17 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="21">
+                        <th mat-header-cell *matHeaderCellDef> 18h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_18 ? element?.hour_18 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="22">
+                        <th mat-header-cell *matHeaderCellDef> 19h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_19 ? element?.hour_19 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="23">
+                        <th mat-header-cell *matHeaderCellDef> 20h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_20 ? element?.hour_20 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="24">
+                        <th mat-header-cell *matHeaderCellDef> 21h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_21 ? element?.hour_21 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="25">
+                        <th mat-header-cell *matHeaderCellDef> 22h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_22 ? element?.hour_22 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="26">
+                        <th mat-header-cell *matHeaderCellDef> 23h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_23 ? element?.hour_23 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="27">
+                        <th mat-header-cell *matHeaderCellDef> 24h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_24 ? element?.hour_24 :'--' }}</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="DisplayedColumns3; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: DisplayedColumns3;"></tr>
+                </table>
+                <h4 *ngIf="error3">{{error3}}</h4>
+            </div>
+        </mat-card>
+    </mat-tab>
+    <mat-tab *ngIf="day4==true">
+        <ng-template mat-tab-label>
+            <p>{{date4 | date}}</p>
+        </ng-template>
+        <mat-card>
+            <div class="my-table">
+                <table mat-table [dataSource]="DataSource4" class="abc">
+                    <!-- <ng-container matColumnDef="1" sticky>
+            <th mat-header-cell *matHeaderCellDef> Time zone </th>
+            <td mat-cell *matCellDef="let element"> {{element?.time_zone ? element?.time_zone :'--' }} </td>
+          </ng-container> -->
+                    <ng-container matColumnDef="2" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Predicted Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.predicted_date ? element?.predicted_date :'--' }} </td>
+                    </ng-container>
+                    <!-- <ng-container matColumnDef="3">
+<th mat-header-cell *matHeaderCellDef> Date </th>
+<td mat-cell *matCellDef="let element"> {{(element?.date| date) ? (element?.date | date) :'--' }} </td>
+</ng-container> -->
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Ercot Load Zone </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.ercot_load_zone ? element?.ercot_load_zone :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="4">
+                        <th mat-header-cell *matHeaderCellDef> 1h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_1 ? element?.hour_1 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="5">
+                        <th mat-header-cell *matHeaderCellDef> 2h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_2 ? element?.hour_2 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="6">
+                        <th mat-header-cell *matHeaderCellDef> 3h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_3 ? element?.hour_3 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="7">
+                        <th mat-header-cell *matHeaderCellDef> 4h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_4 ? element?.hour_4 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="8">
+                        <th mat-header-cell *matHeaderCellDef> 5h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_5 ? element?.hour_5 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="9">
+                        <th mat-header-cell *matHeaderCellDef> 6h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_6 ? element?.hour_6 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="10">
+                        <th mat-header-cell *matHeaderCellDef> 7h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_7 ? element?.hour_7 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="11">
+                        <th mat-header-cell *matHeaderCellDef> 8h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_8 ? element?.hour_8 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="12">
+                        <th mat-header-cell *matHeaderCellDef> 9h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_9 ? element?.hour_9 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="13">
+                        <th mat-header-cell *matHeaderCellDef> 10h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_10 ? element?.hour_10 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="14">
+                        <th mat-header-cell *matHeaderCellDef> 11h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_11 ? element?.hour_11 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="15">
+                        <th mat-header-cell *matHeaderCellDef> 12h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_12 ? element?.hour_12 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="16">
+                        <th mat-header-cell *matHeaderCellDef> 13h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_13 ? element?.hour_13 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="17">
+                        <th mat-header-cell *matHeaderCellDef> 14h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_14 ? element?.hour_14 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="18">
+                        <th mat-header-cell *matHeaderCellDef> 15h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_15 ? element?.hour_15 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="19">
+                        <th mat-header-cell *matHeaderCellDef> 16h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_16 ? element?.hour_16 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="20">
+                        <th mat-header-cell *matHeaderCellDef> 17h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_17 ? element?.hour_17 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="21">
+                        <th mat-header-cell *matHeaderCellDef> 18h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_18 ? element?.hour_18 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="22">
+                        <th mat-header-cell *matHeaderCellDef> 19h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_19 ? element?.hour_19 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="23">
+                        <th mat-header-cell *matHeaderCellDef> 20h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_20 ? element?.hour_20 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="24">
+                        <th mat-header-cell *matHeaderCellDef> 21h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_21 ? element?.hour_21 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="25">
+                        <th mat-header-cell *matHeaderCellDef> 22h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_22 ? element?.hour_22 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="26">
+                        <th mat-header-cell *matHeaderCellDef> 23h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_23 ? element?.hour_23 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="27">
+                        <th mat-header-cell *matHeaderCellDef> 24h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_24 ? element?.hour_24 :'--' }}</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="DisplayedColumns4; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: DisplayedColumns4;"></tr>
+                </table>
+                <h4 *ngIf="error4">{{error4}}</h4>
+            </div>
+        </mat-card>
+    </mat-tab>
+
+    <mat-tab *ngIf="day5==true">
+        <ng-template mat-tab-label>
+            <p>{{date5 | date}}</p>
+        </ng-template>
+        <mat-card>
+            <div class="my-table">
+                <table mat-table [dataSource]="DataSource5" class="abc">
+                    <!-- <ng-container matColumnDef="1" sticky>
+            <th mat-header-cell *matHeaderCellDef> Time zone </th>
+            <td mat-cell *matCellDef="let element"> {{element?.time_zone ? element?.time_zone :'--' }} </td>
+          </ng-container> -->
+                    <ng-container matColumnDef="2" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Predicted Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.predicted_date ? element?.predicted_date :'--' }} </td>
+                    </ng-container>
+                    <!-- <ng-container matColumnDef="3">
+<th mat-header-cell *matHeaderCellDef> Date </th>
+<td mat-cell *matCellDef="let element"> {{(element?.date| date) ? (element?.date | date) :'--' }} </td>
+</ng-container> -->
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Ercot Load Zone </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.ercot_load_zone ? element?.ercot_load_zone :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="4">
+                        <th mat-header-cell *matHeaderCellDef> 1h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_1 ? element?.hour_1 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="5">
+                        <th mat-header-cell *matHeaderCellDef> 2h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_2 ? element?.hour_2 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="6">
+                        <th mat-header-cell *matHeaderCellDef> 3h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_3 ? element?.hour_3 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="7">
+                        <th mat-header-cell *matHeaderCellDef> 4h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_4 ? element?.hour_4 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="8">
+                        <th mat-header-cell *matHeaderCellDef> 5h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_5 ? element?.hour_5 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="9">
+                        <th mat-header-cell *matHeaderCellDef> 6h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_6 ? element?.hour_6 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="10">
+                        <th mat-header-cell *matHeaderCellDef> 7h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_7 ? element?.hour_7 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="11">
+                        <th mat-header-cell *matHeaderCellDef> 8h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_8 ? element?.hour_8 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="12">
+                        <th mat-header-cell *matHeaderCellDef> 9h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_9 ? element?.hour_9 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="13">
+                        <th mat-header-cell *matHeaderCellDef> 10h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_10 ? element?.hour_10 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="14">
+                        <th mat-header-cell *matHeaderCellDef> 11h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_11 ? element?.hour_11 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="15">
+                        <th mat-header-cell *matHeaderCellDef> 12h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_12 ? element?.hour_12 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="16">
+                        <th mat-header-cell *matHeaderCellDef> 13h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_13 ? element?.hour_13 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="17">
+                        <th mat-header-cell *matHeaderCellDef> 14h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_14 ? element?.hour_14 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="18">
+                        <th mat-header-cell *matHeaderCellDef> 15h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_15 ? element?.hour_15 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="19">
+                        <th mat-header-cell *matHeaderCellDef> 16h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_16 ? element?.hour_16 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="20">
+                        <th mat-header-cell *matHeaderCellDef> 17h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_17 ? element?.hour_17 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="21">
+                        <th mat-header-cell *matHeaderCellDef> 18h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_18 ? element?.hour_18 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="22">
+                        <th mat-header-cell *matHeaderCellDef> 19h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_19 ? element?.hour_19 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="23">
+                        <th mat-header-cell *matHeaderCellDef> 20h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_20 ? element?.hour_20 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="24">
+                        <th mat-header-cell *matHeaderCellDef> 21h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_21 ? element?.hour_21 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="25">
+                        <th mat-header-cell *matHeaderCellDef> 22h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_22 ? element?.hour_22 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="26">
+                        <th mat-header-cell *matHeaderCellDef> 23h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_23 ? element?.hour_23 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="27">
+                        <th mat-header-cell *matHeaderCellDef> 24h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_24 ? element?.hour_24 :'--' }}</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="DisplayedColumns5; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: DisplayedColumns5;"></tr>
+                </table>
+                <h4 *ngIf="error5">{{error5}}</h4>
+            </div>
+        </mat-card>
+    </mat-tab>
+
+    <mat-tab *ngIf="day6==true">
+        <ng-template mat-tab-label>
+            <p>{{date6 | date}}</p>
+        </ng-template>
+        <mat-card>
+            <div class="my-table">
+                <table mat-table [dataSource]="DataSource6" class="abc">
+                    <!-- <ng-container matColumnDef="1" sticky>
+            <th mat-header-cell *matHeaderCellDef> Time zone </th>
+            <td mat-cell *matCellDef="let element"> {{element?.time_zone ? element?.time_zone :'--' }} </td>
+          </ng-container> -->
+                    <ng-container matColumnDef="2" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Predicted Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.predicted_date ? element?.predicted_date :'--' }} </td>
+                    </ng-container>
+                    <!-- <ng-container matColumnDef="3">
+<th mat-header-cell *matHeaderCellDef> Date </th>
+<td mat-cell *matCellDef="let element"> {{(element?.date| date) ? (element?.date | date) :'--' }} </td>
+</ng-container> -->
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Ercot Load Zone </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.ercot_load_zone ? element?.ercot_load_zone :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="4">
+                        <th mat-header-cell *matHeaderCellDef> 1h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_1 ? element?.hour_1 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="5">
+                        <th mat-header-cell *matHeaderCellDef> 2h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_2 ? element?.hour_2 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="6">
+                        <th mat-header-cell *matHeaderCellDef> 3h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_3 ? element?.hour_3 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="7">
+                        <th mat-header-cell *matHeaderCellDef> 4h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_4 ? element?.hour_4 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="8">
+                        <th mat-header-cell *matHeaderCellDef> 5h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_5 ? element?.hour_5 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="9">
+                        <th mat-header-cell *matHeaderCellDef> 6h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_6 ? element?.hour_6 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="10">
+                        <th mat-header-cell *matHeaderCellDef> 7h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_7 ? element?.hour_7 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="11">
+                        <th mat-header-cell *matHeaderCellDef> 8h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_8 ? element?.hour_8 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="12">
+                        <th mat-header-cell *matHeaderCellDef> 9h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_9 ? element?.hour_9 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="13">
+                        <th mat-header-cell *matHeaderCellDef> 10h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_10 ? element?.hour_10 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="14">
+                        <th mat-header-cell *matHeaderCellDef> 11h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_11 ? element?.hour_11 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="15">
+                        <th mat-header-cell *matHeaderCellDef> 12h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_12 ? element?.hour_12 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="16">
+                        <th mat-header-cell *matHeaderCellDef> 13h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_13 ? element?.hour_13 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="17">
+                        <th mat-header-cell *matHeaderCellDef> 14h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_14 ? element?.hour_14 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="18">
+                        <th mat-header-cell *matHeaderCellDef> 15h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_15 ? element?.hour_15 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="19">
+                        <th mat-header-cell *matHeaderCellDef> 16h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_16 ? element?.hour_16 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="20">
+                        <th mat-header-cell *matHeaderCellDef> 17h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_17 ? element?.hour_17 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="21">
+                        <th mat-header-cell *matHeaderCellDef> 18h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_18 ? element?.hour_18 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="22">
+                        <th mat-header-cell *matHeaderCellDef> 19h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_19 ? element?.hour_19 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="23">
+                        <th mat-header-cell *matHeaderCellDef> 20h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_20 ? element?.hour_20 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="24">
+                        <th mat-header-cell *matHeaderCellDef> 21h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_21 ? element?.hour_21 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="25">
+                        <th mat-header-cell *matHeaderCellDef> 22h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_22 ? element?.hour_22 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="26">
+                        <th mat-header-cell *matHeaderCellDef> 23h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_23 ? element?.hour_23 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="27">
+                        <th mat-header-cell *matHeaderCellDef> 24h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_24 ? element?.hour_24 :'--' }}</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="DisplayedColumns6; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: DisplayedColumns6;"></tr>
+                </table>
+                <h4 *ngIf="error6">{{error6}}</h4>
+            </div>
+        </mat-card>
+    </mat-tab>
+
+    <mat-tab *ngIf="day7==true">
+        <ng-template mat-tab-label>
+            <p>{{date7 | date}}</p>
+        </ng-template>
+        <mat-card>
+            <div class="my-table">
+                <table mat-table [dataSource]="DataSource7" class="abc">
+                    <!-- <ng-container matColumnDef="1" sticky>
+            <th mat-header-cell *matHeaderCellDef> Time zone </th>
+            <td mat-cell *matCellDef="let element"> {{element?.time_zone ? element?.time_zone :'--' }} </td>
+          </ng-container> -->
+                    <ng-container matColumnDef="2" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Predicted Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.predicted_date ? element?.predicted_date :'--' }} </td>
+                    </ng-container>
+                    <!-- <ng-container matColumnDef="3">
+<th mat-header-cell *matHeaderCellDef> Date </th>
+<td mat-cell *matCellDef="let element"> {{(element?.date| date) ? (element?.date | date) :'--' }} </td>
+</ng-container> -->
+                    <ng-container matColumnDef="total">
+                        <th mat-header-cell *matHeaderCellDef> Ercot Load Zone </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.ercot_load_zone ? element?.ercot_load_zone :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="4">
+                        <th mat-header-cell *matHeaderCellDef> 1h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_1 ? element?.hour_1 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="5">
+                        <th mat-header-cell *matHeaderCellDef> 2h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_2 ? element?.hour_2 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="6">
+                        <th mat-header-cell *matHeaderCellDef> 3h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_3 ? element?.hour_3 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="7">
+                        <th mat-header-cell *matHeaderCellDef> 4h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_4 ? element?.hour_4 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="8">
+                        <th mat-header-cell *matHeaderCellDef> 5h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_5 ? element?.hour_5 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="9">
+                        <th mat-header-cell *matHeaderCellDef> 6h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_6 ? element?.hour_6 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="10">
+                        <th mat-header-cell *matHeaderCellDef> 7h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_7 ? element?.hour_7 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="11">
+                        <th mat-header-cell *matHeaderCellDef> 8h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_8 ? element?.hour_8 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="12">
+                        <th mat-header-cell *matHeaderCellDef> 9h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_9 ? element?.hour_9 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="13">
+                        <th mat-header-cell *matHeaderCellDef> 10h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_10 ? element?.hour_10 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="14">
+                        <th mat-header-cell *matHeaderCellDef> 11h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_11 ? element?.hour_11 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="15">
+                        <th mat-header-cell *matHeaderCellDef> 12h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_12 ? element?.hour_12 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="16">
+                        <th mat-header-cell *matHeaderCellDef> 13h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_13 ? element?.hour_13 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="17">
+                        <th mat-header-cell *matHeaderCellDef> 14h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_14 ? element?.hour_14 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="18">
+                        <th mat-header-cell *matHeaderCellDef> 15h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_15 ? element?.hour_15 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="19">
+                        <th mat-header-cell *matHeaderCellDef> 16h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_16 ? element?.hour_16 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="20">
+                        <th mat-header-cell *matHeaderCellDef> 17h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_17 ? element?.hour_17 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="21">
+                        <th mat-header-cell *matHeaderCellDef> 18h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_18 ? element?.hour_18 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="22">
+                        <th mat-header-cell *matHeaderCellDef> 19h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_19 ? element?.hour_19 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="23">
+                        <th mat-header-cell *matHeaderCellDef> 20h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_20 ? element?.hour_20 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="24">
+                        <th mat-header-cell *matHeaderCellDef> 21h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_21 ? element?.hour_21 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="25">
+                        <th mat-header-cell *matHeaderCellDef> 22h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_22 ? element?.hour_22 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="26">
+                        <th mat-header-cell *matHeaderCellDef> 23h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_23 ? element?.hour_23 :'--' }}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="27">
+                        <th mat-header-cell *matHeaderCellDef> 24h </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.hour_24 ? element?.hour_24 :'--' }}</td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="DisplayedColumns7; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: DisplayedColumns7;"></tr>
+                </table>
+                <h4 *ngIf="error7">{{error7}}</h4>
+            </div>
+        </mat-card>
+    </mat-tab>
+</mat-tab-group>

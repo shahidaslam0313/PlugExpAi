@@ -1,0 +1,73 @@
+<div class="upload">
+
+  <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+  <!-- <button mat-raised-button>Browse</button> -->
+  <button mat-raised-button>Upload the selected forward prices file</button>
+
+</div>
+<mat-card>
+  <h2>File Format Instructions</h2>
+  <p>The following is an example of a file uploading forward prices for seven curves. Values for Henry Hub and NYMEX
+    Futures are absolute.
+    The values for TGT Zone 1, REX Lebanon, PEPL OK, and REX Opal are a basis from Henry Hub. Values for Chicago are a
+    basis from NYMEX Futures.</p>
+  <!-- <img src="./assets/img/file-instruct.png" class="mat-elevation-z8"> -->
+<mat-card >
+  <p>
+    The file to be imported must be in comma-separated value (CSV) format, and it can contain values for one or more
+    price curves.
+    The curve values can be specified as absolute prices or as basis differences.
+    The file must contain two header lines, and each subsequent line then provides the price values for a specific time
+    period.
+    Every line must have the same number of columns -- the first column designates the time period, and each of the
+    remaining columns provides price values for a single price curve.
+  </p>
+  <p>
+    The first line of the file must contain the column headings.
+    The first column heading must be the word "Start of Hour", "Date", or "Month". There must be one additional column
+    heading per price curve included in the file, and the column heading must be a "Curve Name" configured in either the
+    "Maintain Power Price Curve Sets" or the "Maintain Natural Gas Price Curve Sets" maintenance screen, for forward
+    curves, or an index price name for index price curves.
+
+  </p>
+  <p>
+    The second line of the file specifies whether each price curve is an absolute price or is a basis from some other
+    curve provided in the file. The value in the first column must be "Forward Curve", "Power Index", or "Natural Gas
+    Index"; all other columns specify the type of prices in the corresponding curve.
+  </p>
+
+
+
+  <p class="list"> If the curve's prices are specified as absolute values, the value in the second line must be the word "ABSOLUTE".
+  </p>
+
+  <p class="list">If the curve's prices are specified as basis values, the value in the second line must be the name
+    of the curve to which the basis is applied.</p>
+
+
+  <p>Subsequent lines must contain the beginning time for a time period, followed by one value for each curve being
+    sent, either an absolute price or a basis offset.
+
+  </p>
+  <p> For hourly price curves, the time must be formatted "m/d/yyyy hh:mi" . meaning the month as a number from 1-12,
+    then the day of month as a number from 1-31, then the four-digit year, then the one- or two-digit hour in 24-hour
+    time (so 5:00am can be 5:00 or 05:00, 5:00pm must be 17:00), and finally the two-digit minute (always :00). The
+    values will be stored for the hour that starts at the specified time.</p>
+
+  <p>Daylight Savings Time transition days are handled as follows.</p>
+
+  <p class="list"> On the "Spring Forward" day, there is no hour beginning at 02:00, and so if there is a line in the file specifying
+    price values for the hour starting at 02:00 on a spring-forward day, that line will be ignored.</p>
+
+
+  <p class="list">On the "Fall Back" day, there are two hours beginning at 01:00, and so if the file contains two lines beginning at
+    01:00 on a fall-back day, the first line's values will be used in the first hour, and the second line's values will
+    be used in the second hour. If the file contains only one line beginning at 01:00 on a
+    fall-back day, the values on that line will be used in both of the hours that start at 01:00.</p>
+
+
+  <p>For daily or monthly curves, each time value specified must be the start of a day (i.e. the hh:mi portion must be
+    "00:00"), and each line will be stored for the entire day or month.
+  </p>
+</mat-card>
+</mat-card>

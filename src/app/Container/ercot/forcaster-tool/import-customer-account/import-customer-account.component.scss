@@ -1,0 +1,36 @@
+.upload{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+p{
+    text-align: justify;
+    font-family: 'Open Sans', sans-serif;
+}
+.list{
+    margin-left: 25px;
+}
+mat-card{
+    margin:5px 0px;
+}
+table{
+    overflow: scroll;
+}
+.abc{
+    max-width:100%;
+    min-width:1400px;
+}
+
+table {
+    width: 100%;
+}
+.my-table {
+    background-color: white;
+    overflow: auto;
+    .mat-form-field {
+        width: 100%;
+        padding: 10px 10px 0px 10px;
+    }
+}

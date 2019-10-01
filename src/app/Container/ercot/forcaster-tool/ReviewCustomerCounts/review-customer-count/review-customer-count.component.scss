@@ -1,0 +1,47 @@
+.row {
+    margin: 0px;
+}
+
+.Monthly {
+    padding: 5px 5px;
+    .LoadType {
+        .Items {
+            display: flex;
+            flex-direction: column;
+            .Heading {
+                font-weight: bold;
+                font-size: 18px;
+                display: flex;
+                justify-content: space-between;
+                font-family: 'Open Sans', sans-serif;
+                  // border: 1px solid #eaeaea;
+                align-items: center;
+                height: 55px;
+                span {
+                    display: flex;
+                    width: 100%;
+                    background-color: #fff;
+                    border: none;
+                }
+            }
+            span {
+                background-color: #d1def2;
+                border: 1px solid #eaeaea;
+                padding: 4px 10px;
+            }
+        }
+    }
+}
+mat-card{
+    margin-top:10px;
+}
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: #000;
+  }
+  ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: #000 !important;
+  }
+.mat-checkbox {
+    font-weight: bold;
+    color: #333;
+}

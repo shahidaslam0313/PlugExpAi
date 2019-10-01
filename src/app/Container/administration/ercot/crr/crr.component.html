@@ -1,0 +1,107 @@
+<!-- <app-crrs></app-crrs> -->
+<mat-card>
+
+  <form>
+    <div class="HourItem">
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="CRR">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="CRR Type">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <input matInput placeholder="Category">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <input matInput [matDatepicker]="picker1" placeholder="Flow Time Start">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <input matInput [matDatepicker]="picker2" placeholder="Flow Time End">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Class">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Flowgate">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Hedge Type">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Holder ID">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="MW">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Shadow Price">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Sink Point">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Source Point">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Time Of Use">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Trading Book Ref">
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <div style="text-align:right" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <button style="text-align:center" type="submit" mat-raised-button class="btn-search font-styling">Search</button>
+      </div>
+    </div>
+  </form>
+</mat-card>

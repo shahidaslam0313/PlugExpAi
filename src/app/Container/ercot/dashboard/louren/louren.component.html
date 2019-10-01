@@ -1,0 +1,32 @@
+<mat-card>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="chartData1?.barChartData.length > 0">
+            <canvas *ngIf="chartData1.barChartData" width="650" height="350" baseChart [datasets]="chartData1.barChartData" [labels]="chartData1.barChartLabels" [options]="chartData1.barChartOptions" [colors]="chartData1.barChartColors" [chartType]="chartData1.barChartType"></canvas>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="chartData2?.barChartData.length > 0">
+            <canvas *ngIf="chartData2.barChartData" width="650" height="350" baseChart [datasets]="chartData2.barChartData" [labels]="chartData2.barChartLabels" [options]="chartData2.barChartOptions" [colors]="chartData2.barChartColors" [chartType]="chartData2.barChartType"></canvas>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="chartData3?.barChartData.length > 0">
+            <canvas *ngIf="chartData3.barChartData" width="650" height="350" baseChart [datasets]="chartData3.barChartData" [labels]="chartData3.barChartLabels" [options]="chartData3.barChartOptions" [colors]="chartData3.barChartColors" [chartType]="chartData3.barChartType"></canvas>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="chartData4?.barChartData.length > 0">
+            <canvas *ngIf="chartData4.barChartData" width="650" height="350" baseChart [datasets]="chartData4.barChartData" [labels]="chartData4.barChartLabels" [options]="chartData4.barChartOptions" [colors]="chartData4.barChartColors" [chartType]="chartData4.barChartType"></canvas>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="chartData5?.barChartData.length > 0">
+            <canvas *ngIf="chartData5.barChartData" width="650" height="350" baseChart [datasets]="chartData5.barChartData" [labels]="chartData5.barChartLabels" [options]="chartData5.barChartOptions" [colors]="chartData5.barChartColors" [chartType]="chartData5.barChartType"></canvas>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="chartData6?.barChartData.length > 0">
+            <canvas *ngIf="chartData6.barChartData" width="650" height="350" baseChart [datasets]="chartData6.barChartData" [labels]="chartData6.barChartLabels" [options]="chartData6.barChartOptions" [colors]="chartData6.barChartColors" [chartType]="chartData6.barChartType"></canvas>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="chartData7?.barChartData.length > 0">
+            <canvas *ngIf="chartData7.barChartData" width="650" height="350" baseChart [datasets]="chartData7.barChartData" [labels]="chartData7.barChartLabels" [options]="chartData7.barChartOptions" [colors]="chartData7.barChartColors" [chartType]="chartData7.barChartType"></canvas>
+        </div>
+
+    </div>
+</mat-card>

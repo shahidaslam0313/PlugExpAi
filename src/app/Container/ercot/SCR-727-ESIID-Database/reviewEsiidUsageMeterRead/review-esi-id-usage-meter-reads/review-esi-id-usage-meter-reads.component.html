@@ -1,0 +1,171 @@
+<div class="my-container">
+  <!-- <mat-card> -->
+    <form [formGroup]="Form" (ngSubmit)="searchValue()">
+      <div class="row">
+        <mat-form-field class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <input matInput placeholder="ESIID" formControlName="esiid">
+        </mat-form-field>
+        <mat-form-field class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <input matInput placeholder="Meter type" formControlName="metertype">
+        </mat-form-field>
+        <mat-form-field class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+          <input matInput placeholder="Read status" formControlName="readstatus">
+        </mat-form-field>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
+          <button class="btn-search font-styling" mat-raised-button>Search</button>
+        </div>
+      </div>
+    </form>
+    <mat-card>
+    <!-- <div class="outer-container">
+      <button mat-icon-button class="bts">
+        <i class="material-icons">
+          refresh
+        </i>
+      </button>
+      <button mat-icon-button class="bts">
+        <i class="material-icons">
+          file_copy
+        </i>
+      </button>
+      <button mat-raised-button class="btn1 font-styling">Export Data</button>
+      <button mat-raised-button class="btn1 font-styling">Restore Grid</button>
+      <button mat-raised-button class="btn1 font-styling" (click)="openSelectionDialog()">Selection Criteria
+      </button>dialo
+    </div> -->
+
+    <!-- <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <button mat-icon-button class="bts">
+          <i class="material-icons">
+            refresh
+          </i>
+        </button>
+        <button mat-icon-button class="bts">
+          <i class="material-icons">
+            file_copy
+          </i>
+        </button>
+        <button mat-raised-button class="btn1 font-styling">Export Data</button>
+        <button mat-raised-button class="btn1 font-styling">Restore Grid</button>
+        <button mat-raised-button class="btn1 font-styling" (click)="openSelectionDialog()">Selection Criteria
+        </button>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12"> -->
+        <mat-paginator #Paginator [pageSizeOptions]="[20, 40]" showFirstLastButtons></mat-paginator>
+      <!-- </div>
+    </div> -->
+
+    <div class="my-table">
+      <div class="table-container">
+        <table mat-table [dataSource]="DataSource" class="abc">
+          <ng-container matColumnDef="1">
+            <th mat-header-cell *matHeaderCellDef> UID ESIID </th>
+            <td mat-cell *matCellDef="let element">{{element?.uidesiid ? element?.uidesiid : '--'}} </td>
+          </ng-container>
+          <ng-container matColumnDef="2">
+            <th mat-header-cell *matHeaderCellDef> ESIID </th>
+            <td mat-cell *matCellDef="let element"> {{element?.esiid ? element?.esiid : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="3">
+            <th mat-header-cell *matHeaderCellDef> Start time </th>
+            <td mat-cell *matCellDef="let element">{{(element?.starttime | date) ? (element?.starttime | date) : '--'}} </td>
+          </ng-container>
+          <ng-container matColumnDef="4">
+            <th mat-header-cell *matHeaderCellDef> Stop Time </th>
+            <td mat-cell *matCellDef="let element"> {{(element?.stoptime | date) ? (element?.stoptime | date) : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="5">
+            <th mat-header-cell *matHeaderCellDef> Bill Month </th>
+            <td mat-cell *matCellDef="let element">{{element?.billmonth ? element?.billmonth : '--'}} </td>
+          </ng-container>
+          <ng-container matColumnDef="6">
+            <th mat-header-cell *matHeaderCellDef>Meter type </th>
+            <td mat-cell *matCellDef="let element"> {{element?.metertype ? element?.metertype : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="7">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element?.readstatus ? element?.readstatus : '--'}} </td>
+          </ng-container>
+          <ng-container matColumnDef="8">
+            <th mat-header-cell *matHeaderCellDef> Average Daily Usage</th>
+            <td mat-cell *matCellDef="let element"> {{element?.avgdailyusg ? element?.avgdailyusg : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="9">
+            <th mat-header-cell *matHeaderCellDef>On peak </th>
+            <td mat-cell *matCellDef="let element"> {{element?.onpk ? element?.onpk : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="10">
+            <th mat-header-cell *matHeaderCellDef> Off peak</th>
+            <td mat-cell *matCellDef="let element"> {{element?.offpk ? element?.offpk : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="11">
+            <th mat-header-cell *matHeaderCellDef>Mid peak </th>
+            <td mat-cell *matCellDef="let element"> {{element?.mdpk ? element?.mdpk : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="12">
+            <th mat-header-cell *matHeaderCellDef>Super peak </th>
+            <td mat-cell *matCellDef="let element"> {{element?.spk ? element?.spk : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="13">
+            <th mat-header-cell *matHeaderCellDef> Avg On peak yusage</th>
+            <td mat-cell *matCellDef="let element"> {{element?.onpkadu ? element?.onpkadu : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="14">
+            <th mat-header-cell *matHeaderCellDef> Avg Off peak usage</th>
+            <td mat-cell *matCellDef="let element"> {{element?.offpkadu ? element?.offpkadu : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="15">
+            <th mat-header-cell *matHeaderCellDef> Avg Mid peak usage</th>
+            <td mat-cell *matCellDef="let element"> {{element?.mdpkadu ? element?.mdpkadu : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="16">
+            <th mat-header-cell *matHeaderCellDef>Avg Super peak usage </th>
+            <td mat-cell *matCellDef="let element"> {{element?.spkadu ? element?.spkadu : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="17">
+            <th mat-header-cell *matHeaderCellDef>Global Process ID </th>
+            <td mat-cell *matCellDef="let element"> {{element?.globprocid ? element?.globprocid : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="18">
+            <th mat-header-cell *matHeaderCellDef> Total usage</th>
+            <td mat-cell *matCellDef="let element"> {{element?.total ? element?.total : '--'}}</td>
+          </ng-container>
+          <!-- <ng-container matColumnDef="17">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> {{element?.addtime ? element?.addtime : '--'}}</td>
+          </ng-container> -->
+          <!-- <ng-container matColumnDef="19">
+            <th mat-header-cell *matHeaderCellDef>  </th>
+            <td mat-cell *matCellDef="let element"> {{element?.timestamp ? element?.timestamp : '--'}}</td>
+          </ng-container> -->
+          <!--          <ng-container matColumnDef="21">
+            <th mat-header-cell *matHeaderCellDef> Unique ID</th>
+            <td mat-cell *matCellDef="let element"> {{element?. ? element?. : '--'}}</td>
+          </ng-container> -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <table class="tab-animate" *ngIf="loading==true">
+          <tbody>
+            <tr>
+              <td class="td">
+                <span></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="td">
+                <span></span>
+              </td>
+            </tr>
+            <tr>
+              <td class="td">
+                <span></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-card>
+</div>

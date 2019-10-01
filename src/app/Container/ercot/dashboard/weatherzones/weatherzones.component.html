@@ -1,0 +1,36 @@
+<mat-card>
+  <p>
+    <b>10 Day Weather Forecast</b>
+  </p>
+  <div class="example-button-row ">
+    <!-- <div class="button-group"> -->
+    <button class="btn1" (click)="coastHouston()" mat-raised-button>Coast/Houston</button>
+    <button class="btn1" (click)="eastRusk()" mat-raised-button>East/Rusk</button>
+    <button class="btn1" (click)="WestMidland()" mat-raised-button>Far West/Midland</button>
+    <button class="btn1" (click)="NorthWichitaFalls()" mat-raised-button>North/Wichita Falls</button>
+    <button class="btn1" (click)="NorthCentralDallas()" mat-raised-button>North Central/Dallas</button>
+    <button class="btn1" (click)="SouthCorpus()" mat-raised-button>South/Corpus</button>
+    <button class="btn1" (click)="SouthCentralAustin()" mat-raised-button>South Central/Austin</button>
+    <button class="btn1" (click)="WestSanAngelo()" mat-raised-button>West/San Angelo</button>
+    <!-- </div> -->
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align: center">
+      <p>Congestion Zones</p>
+      <img src="../../../assets/img/Map1.png" width="100%" height="450px" alt="congestion zones map">
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align: center">
+      <p>Weather Zones</p>
+      <img src="../../../assets/img/Map2.png" width="100%" height="450px" usemap="#map" alt="weather zones map">
+    </div>
+  </div>
+  <!-- <div>
+    <div style="width:100%">
+      <img src="../../../assets/img/weatherzone2.jpg" alt="Weather Map" usemap="#map" width="950" height="476">
+      <map name="map">
+        <area shape="poly" coords="654,165,654,109,699,60,705,102,799,124,887,129,888,142,752,144,721,147,721,164,654,165" alt="North (Wichita Falls)"
+          (click)="coastHouston()">
+      </map>
+    </div> 
+  </div>-->
+</mat-card>

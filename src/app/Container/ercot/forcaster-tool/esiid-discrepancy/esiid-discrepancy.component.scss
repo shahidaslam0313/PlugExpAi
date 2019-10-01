@@ -1,0 +1,7 @@
+.abc{
+    min-width: 100%;
+    max-width: 100%;
+}
+.tab-animate{
+    @extend .abc
+}

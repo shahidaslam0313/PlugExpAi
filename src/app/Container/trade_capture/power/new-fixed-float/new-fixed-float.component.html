@@ -1,0 +1,274 @@
+<form [formGroup]="Form" (ngSubmit)="onSubmit()">
+  <div class="row container-fluid">
+    <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+      <div class="flexx">
+        <!-- <mat-radio-group [(ngModel)]="buySell"> -->
+        <mat-radio-group formControlName="buy_sell" required>
+          <label>Buy/Sell:</label>
+          <mat-radio-button *ngFor="let s of buysell" [value]="s.value">
+            {{s.viewValue}}
+          </mat-radio-button>
+          <!-- <mat-error>
+            required
+          </mat-error> -->
+        </mat-radio-group>
+        <!-- <mat-radio-group [(ngModel)]="validWahtif"> -->
+        <mat-radio-group>
+          <label>Status:</label>
+          <mat-radio-button *ngFor="let s of status" [value]="s.value">
+            {{s.viewValue}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field style="width:100%">
+        <input matInput placeholder="Reason" formControlName="reason">
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card class="col-lg-6 col-md-12 col-sm-12 col-xs-12 abc">
+      <mat-card-header>Trade Information</mat-card-header>
+      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <input matInput placeholder="Trade Name" formControlName="trade_name">
+      </mat-form-field>
+      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <input matInput [matDatepicker]="picker1" placeholder="Trade Date" formControlName="trade_date">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <mat-select placeholder="Trading Book" formControlName="trading_book">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <mat-select placeholder="Trader Name" formControlName="trader_name">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <textarea matInput placeholder="Comments" formControlName="comments"></textarea>
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card class="col-lg-6 col-md-12 col-sm-12 col-xs-12 abc">
+      <mat-card-header>Trade Terms</mat-card-header>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+        <!-- <mat-select placeholder="Counterparty" formControlName="counter_party">
+          <mat-option value="option">Option</mat-option>
+        </mat-select> -->
+        <mat-select placeholder="Counterparty" formControlName="counter_party">
+          <mat-option *ngFor="let x of counterparty" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+        <!-- <mat-select placeholder="Agreement" formControlName="agreement">
+          <mat-option value="option">Option</mat-option>
+        </mat-select> -->
+        <mat-select placeholder="Agreement" formControlName="agreement">
+          <mat-option *ngFor="let x of agreement" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <textarea matInput placeholder="Special Terms" formControlName="special_terms"></textarea>
+      </mat-form-field>
+    </mat-card>
+    <mat-card class="col-lg-8 col-md-12 col-sm-12 col-xs-12 abc">
+      <mat-card-header>Power Delivery</mat-card-header>
+      <mat-form-field class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
+        <!-- <mat-select placeholder="Location" formControlName="location">
+          <mat-option value="option">Option</mat-option>
+        </mat-select> -->
+        <mat-select placeholder="Location" formControlName="location">
+          <mat-option *ngFor="let x of location" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
+        <!-- <mat-select placeholder="Shape" formControlName="shape">
+          <mat-option value="option">Option</mat-option>
+        </mat-select> -->
+        <mat-select placeholder="Shape" formControlName="shape">
+          <mat-option *ngFor="let x of shape" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
+        <!-- <mat-select placeholder="Time Zone" formControlName="time_zone">
+          <mat-option value="option">Option</mat-option>
+        </mat-select> -->
+        <mat-select placeholder="Time Zone" formControlName="time_zone">
+          <mat-option *ngFor="let x of timezone" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
+        <input matInput placeholder="Ranking Number" formControlName="ranking" type="number">
+      </mat-form-field>
+      <mat-form-field class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
+        <input matInput [matDatepicker]="picker2" placeholder="First Date" formControlName="first_date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
+        <input matInput [matDatepicker]="picker3" placeholder="Last Date" formControlName="last_date">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card class="col-lg-4 col-md-12 col-sm-12 col-xs-12 abc">
+      <mat-card-header>Hedge Allocation</mat-card-header>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <!-- <mat-select #option placeholder="Select Location">
+        <mat-option value="option">Option</mat-option>
+      </mat-select> -->
+        <mat-select #option placeholder="Select Location">
+          <mat-option *ngFor="let x of location" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <input #mw matInput placeholder="MW">
+      </mat-form-field>
+      <button mat-raised-button type="button" (click)="addHedge(option.value,mw.value)" class="btn1 font-styling col-lg-12 col-md-12 col-sm-12 col-xs-12">Add</button>
+
+      <div>
+        <div *ngFor="let a of hedgevalues">
+          <mat-form-field class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <input value="{{a.location}}" matInput placeholder="Location" disabled>
+          </mat-form-field>
+          <mat-form-field class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <input value="{{a.mw}}" matInput placeholder="MW" disabled>
+          </mat-form-field>
+          <mat-icon (click)="deleteHedge(a)">delete_forever</mat-icon>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+      <mat-card-header>Pricing Information</mat-card-header>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <mat-select placeholder="US$/MWh" formControlName="currency_mwh">
+          <!-- <mat-option value="option">Option</mat-option> -->
+          <mat-option *ngFor="let x of usValue" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Fixed Price" formControlName="fixed_price" type="number">
+      </mat-form-field>
+
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Offset" formControlName="offset" type='number'>
+      </mat-form-field>
+      <!-- <mat-checkbox [(ngModel)]="checked" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">Weighted</mat-checkbox> -->
+      <mat-checkbox class="col-lg-3 col-md-3 col-sm-6 col-xs-12">Weighted</mat-checkbox>
+
+      <mat-form-field class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
+        <mat-select #index placeholder="Index">
+          <mat-option *ngFor="let x of indexValue" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span *ngIf="checked">
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
+          <input #weight matInput placeholder="Weight" type="number">
+        </mat-form-field>
+        <button mat-raised-button type="button" (click)="addPrice(index.value,weight.value)" class="btn1 font-styling col-lg-3 col-md-3 col-sm-12 col-xs-12">Add</button>
+      </span>
+
+      <div>
+        <div *ngFor="let a of priceIndex">
+          <mat-form-field class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <input value="{{a.index}}" matInput placeholder="Index" disabled>
+          </mat-form-field>
+          <mat-form-field class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <input value="{{a.weight}}" matInput placeholder="Weight" disabled>
+          </mat-form-field>
+          <mat-icon (click)="deleteWeight(a)">delete_forever</mat-icon>
+        </div>
+      </div>
+
+      <mat-grid-list rowHeight="160px" cols="3" [responsiveColumns]="{xs: 1, sm: 2, md: 2, lg: 3, xl: 3}">
+        <mat-grid-tile>
+          <mat-form-field class="move-down col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <mat-select placeholder="Select Broker" disabled>
+              <mat-option value="option">Option</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-grid-tile-header>
+            Broker
+          </mat-grid-tile-header>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field class="move-down col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <input matInput placeholder="Amount" disabled>
+          </mat-form-field>
+          <mat-grid-tile-header>
+            Amount
+          </mat-grid-tile-header>
+        </mat-grid-tile>
+        <mat-grid-tile>
+
+          <mat-form-field class=" move-down col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <mat-select multiple placeholder="Select Fee Type" disabled>
+              <mat-option *ngFor="let i of tradeType">{{i.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <mat-checkbox [(ngModel)]="ing.checked" *ngFor="let ing of tradeType; let i = index"
+            [ngModelOptions]="{standalone: true}" class="radio-group2" [disabled]="ing.disabled">
+            {{ing.name}}
+          </mat-checkbox> -->
+          <mat-grid-tile-header>
+            Fee Type
+          </mat-grid-tile-header>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div style="display:flex;flex-flow: row-reverse wrap;">
+        <button mat-raised-button type="button" class="btn1 font-styling col-lg-3 col-md-3 col-sm-12 col-xs-12" disabled>Add</button>
+      </div>
+    </mat-card>
+
+    <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+      <div class="flexx">
+        <div>
+          <button mat-raised-button type="button" class="btn1 font-styling" disabled>Save as Template</button>
+          <button mat-raised-button type="button" class="btn1 font-styling" disabled>Save & Exit</button>
+        </div>
+        <div>
+          <button mat-raised-button type="submit" class="btn1 font-styling" type="submit">Save & Keep</button>
+          <!-- <button mat-raised-button type="button" class="btn2 font-styling">Cancel</button> -->
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</form>

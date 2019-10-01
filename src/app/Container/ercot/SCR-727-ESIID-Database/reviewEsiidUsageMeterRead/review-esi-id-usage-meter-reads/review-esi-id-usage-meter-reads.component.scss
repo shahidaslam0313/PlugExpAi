@@ -1,0 +1,16 @@
+.abc{
+    min-width: 3100px;
+    max-width: 100%;
+}
+.tab-animate{
+    @extend .abc
+}
+.table-container {
+    max-height: calc(100vh - 290px);
+}
+
+@media screen and (max-width: 804px) {
+    .table-container {
+        max-height: calc(100vh - 330px);
+    }
+}

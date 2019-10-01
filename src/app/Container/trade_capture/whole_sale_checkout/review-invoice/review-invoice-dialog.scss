@@ -1,0 +1,50 @@
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+    margin-top: 9px;
+  }
+  .mat-radio-button {
+    margin: 6px;
+  }
+  .buySell {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .responsive-height {
+    max-height: calc(100vh - 300px);
+    overflow: auto;
+  }
+  .dialog-footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    background-color: rgba(0, 0, 0, .03);
+    padding: .75rem 1.25rem;
+    margin-bottom: 20px;
+  }
+  
+  ::ng-deep .mat-checkbox-layout .mat-checkbox-label {
+    white-space: normal;
+  }
+  
+  ::ng-deep .mat-radio-label-content {
+    white-space: normal;
+  }
+  
+  label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #464646;
+  }
+  mat-divider{
+    margin-top: 10px;
+  }

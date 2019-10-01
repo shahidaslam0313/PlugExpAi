@@ -1,0 +1,13 @@
+.abc{
+    min-width: 1200px;
+    max-width: 100%;
+}
+table{
+    width:100%
+}
+.table-container {
+    max-height: calc(100vh - 370px);
+}
+.tab-animate{
+    @extend .abc
+}

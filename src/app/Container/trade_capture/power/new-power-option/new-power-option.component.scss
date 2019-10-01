@@ -1,0 +1,40 @@
+
+.mat-radio-button{
+    padding-left: 5px;
+    color: #4b4b4b;
+    font-weight: 550;
+ 
+}
+
+mat-card-header{
+    font-weight: bold;
+    font-size: 20px;
+}
+.abc{
+    margin-top: 5px;
+}
+button{
+    font-weight: bold;
+}
+.flexx{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .space{
+        margin-left: 35px;
+    }
+}
+label {
+    font-weight: bold;
+    color: black;
+    font-size: 16px;
+  }
+  .radio-group1 {
+    margin-left: 4px;
+  }
+  
+  .label-align{
+display: flex;
+flex-direction: column;
+  }

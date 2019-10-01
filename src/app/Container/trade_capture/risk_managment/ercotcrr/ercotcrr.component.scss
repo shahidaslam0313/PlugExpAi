@@ -1,0 +1,43 @@
+.abc{
+    min-width: 100%;
+    max-width: 100%;
+}
+.select{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+   
+}
+.btn {
+  
+  font-weight: bold;
+  margin-left: 4px;
+margin-top: 15px;
+}
+ .btn1 {
+        background-color: #000;
+        color: #fff;
+        font-weight: bold;
+        margin-left: 4px;
+    margin-top: 15px;
+      }
+  .bts{
+    margin-top: 6px;
+  }
+    label {
+      padding: 4px;
+      font-weight: 550;
+      margin-bottom: 4px;
+    }
+  
+    .btn2 {
+      color: #504747;
+      font-weight: bold;
+      margin-left: 6px;
+    }
+    .filter{
+      margin-bottom: 5px;
+    }

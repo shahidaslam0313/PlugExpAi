@@ -1,0 +1,138 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+// body {
+//     margin: 0;
+// }
+*:focus {
+  outline: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px
+}
+
+::-webkit-scrollbar-thumb {
+  background: #777;
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #777;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: #4f4f4f;
+
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #4e4c4c;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  color: #3d3838;
+  background-color: #6c6b6b !important;
+  ;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h5,
+p,label {
+  font-family: 'Open Sans', sans-serif;
+}
+
+mat-card-header {
+
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after,
+.mat-input-element:disabled {
+  color: #333
+}
+
+.mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  background-color: #a7a7a7;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+  border-color: rgb(179, 179, 179);
+}
+
+.mat-checkbox-checked .mat-checkbox-background {
+  background-color: rgb(177, 173, 173) !important;
+}
+.failure-snackbar {
+  background: #cd2222;
+  span {
+      color: white;
+  }
+  button {
+      color: white;
+      font-weight: bold;
+  }
+}
+.success-snackbar {
+  // background: rgb(63, 81, 181);
+  background-color:#4b009f;
+  span {
+      color: white;
+  }
+  button {
+      color: white;
+      font-weight: bold;
+  }
+}
+.mb-10px{
+  margin-bottom: 10px;
+}
+
+
+//////////////////////////////////////////Start Form Styale///////////////////////////////////
+
+.sh-signup-form-fix .mat-input-element {
+  font-size: 24px;
+  color: #000;
+  padding-bottom: 8px;
+}
+.sh-signup-form-fix .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 12px;
+}
+.sh-signup-form-fix .mat-form-field-infix {
+  border-top: 0 solid transparent;
+  padding: 6px 0;
+  margin-top: 2px;
+}
+.sh-signup-form-fix .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  -webkit-transform: translateY(-25px) scale(.75) perspective(100px) translateZ(.001px)!important;
+  transform: translateY(-25px) scale(.75) perspective(100px) translateZ(.001px)!important;
+  -ms-transform: translateY(-25px) scale(.75)!important;
+}
+.sh-signup-form-fix .mat-form-field-appearance-legacy .mat-form-field-label {
+  font-size: 16px;
+  top: 36px;
+  font-weight: 700;
+  color: rgba(0,0,0,.54) !important;
+}
+.sh-signup-form-fix .mat-form-field-underline {
+  bottom: 18px;
+}
+.sh-signup-form-fix .mat-error {
+  margin-top: 5px;
+}
+.checkbox .mat-slide-toggle-content {
+  color: #000;
+  font-weight: 600;
+  font-size: 15px;
+}
+.checkbox .mat-slide-toggle-label{
+  margin: 0;
+}
+.checkbox mat-slide-toggle{
+  display: block;
+}
+//////////////////////////////////////////End Form Styale///////////////////////////////////
+

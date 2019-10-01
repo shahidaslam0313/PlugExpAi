@@ -1,0 +1,183 @@
+<mat-card>
+  <p style="text-align:center">
+    <b>Upload a Customer Account Upload File for LOUREN</b>
+  </p>
+  <div class="upload">
+    <div>
+      <b>Processing Option:</b>
+      <mat-radio-group style="display: block" class="radio-group1">
+        <mat-radio-button class="example-radio-button" *ngFor="let option of Processing" [value]="option">
+          {{option}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept=".csv">
+    <!-- <button mat-raised-button>Browse</button> -->
+    <span *ngIf="status==true">
+      <mat-icon style="vertical-align:middle;;color:green">check</mat-icon>
+      <span>Uploaded Successfully</span>
+    </span>
+    <span *ngIf="status==false">
+      <mat-icon style="vertical-align:middle;color:red">close</mat-icon>File not match from the below instructions
+    </span>
+    <div class="spinner" *ngIf="showSpinner==true">
+      <img src="../../../assets/img/fidget_red.gif" width="40" height="40" alt="logo">
+    </div>
+    <button *ngIf="button==true" mat-raised-button (click)="importCustumer()" class="btn-search font-styling">Upload</button>
+  </div>
+  <b>To upload a Customer Account Upload File, enter the parameters below and click the "Upload" button.</b>
+</mat-card>
+
+<mat-card>
+  <h2>File Format Instructions</h2>
+
+  <p>
+    <b>Note that you must upload a CSV file,not an Excel spreadsheet file.</b>if your file has a .xls or .xlsx extension, use
+    Excel to save it as a .csv file,and then upload the .csv file.</p>
+  <p>
+    The Customer Account Upload File needs to include all customers who have been active in the past six weeks,are currently
+    active, or will be active in the future. It is acceptable to include customers who were last active more than six weeks
+    in the past,but the file must include all customers who have been active in the past six weeks.
+  </p>
+  <p>
+    Here is an example of the first three lines of a Customer Account Upload File:
+  </p>
+  <div class="my-table">
+    <table mat-table [dataSource]="DataSource1" class="mat-elevation-z8" class="abc">
+      <!-- Index Column -->
+      <ng-container matColumnDef="1">
+        <th mat-header-cell *matHeaderCellDef> LOAD_PROFILE </th>
+        <td mat-cell *matCellDef="let element"> {{element.profile}} </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="2">
+        <th mat-header-cell *matHeaderCellDef> START_DATE </th>
+        <td mat-cell *matCellDef="let element"> {{element.s_date}} </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="3">
+        <th mat-header-cell *matHeaderCellDef> END_DATE </th>
+        <td mat-cell *matCellDef="let element"> {{element.e_date}} </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="4">
+        <th mat-header-cell *matHeaderCellDef> ESIID </th>
+        <td mat-cell *matCellDef="let element"> {{element.esiid}} </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="5">
+        <th mat-header-cell *matHeaderCellDef> CATEGORY </th>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="6">
+        <th mat-header-cell *matHeaderCellDef> USAGE </th>
+        <td mat-cell *matCellDef="let element"> {{element.usage}} </td>
+      </ng-container>
+
+      <!-- Index Column -->
+      <ng-container matColumnDef="7">
+        <th mat-header-cell *matHeaderCellDef> USAGE_START_DATE </th>
+        <td mat-cell *matCellDef="let element"> {{element.u_s_date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="8">
+        <th mat-header-cell *matHeaderCellDef> USAGE_END_DATE </th>
+        <td mat-cell *matCellDef="let element"> {{element.u_e_Date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="9">
+        <th mat-header-cell *matHeaderCellDef> REATAIL_PRICE </th>
+        <td mat-cell *matCellDef="let element"> {{element.retail_price}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <p style="margin-top:10px;">
+    At the minimum you must include data for first 5 (A-E)columns. If you are able to include the data for column 6-9 (F-l) then
+    we'll be able to do more with that data but it is NOT required.
+  </p>
+  <b>Required Value</b>
+  <li>
+    LOAD_PROFILE is the value assigned by ERCOT to the account.
+  </li>
+  <li>
+    START_DATE is the day the account first started a contract with your company. This is not necessarily the first day of the
+    current contract with that account.For example,if you signed up an account on May 5, 2012 for two years,and then renewed
+    them on May 3,2014 for two more years, we'd expect to see a START_DATE of 05/05/2012 rather than 05/03/2014.
+  </li>
+  <li>
+    END_DATE is the last day the account will be under contract - if the customer has terminated service, this should be the
+    termination date.
+  </li>
+  <li>
+    ESIID is the ERCOT-assigned ESI ID. Only include one line per ESIID.
+  </li>
+  <li>
+    CATEGORY is the category you want to assign to the customer (see notes below regarding inactive customer accounts).
+  </li>
+
+  <p>
+    Dates must be formatted as shown in the Sample File Contents section above -- m/d/yyyy. Two-digit month and day values are
+    also acceptable, so January 1, 2015 could be specified as 1/1/2015, 01/1/2015, 1/01/2015, or 01/01/2015.
+  </p>
+
+  <b>Usage Information</b>
+  <p>
+    If this is a new customer and you can provide usage information for them, it will help the forecaster to properly estimate
+    their impact on your forward forecast. The values are as follows.
+  </p>
+
+  <li>USAGE is the usage, in kWh</li>
+  <li>USAGE_START_DATE is the first day included in the usage period</li>
+  <li>USAGE_END_DATE is the last day included in the usage period</li>
+
+  <p>
+    For existing customers that have been with you long enough to have usage data in the SCR-727 database, the forecaster will
+    use the SCR-727 database values to estimate the account's relative impact on your forecast, and therefore you do not
+    need to include usage information. For a new customer, if you have no usage information available, the forecaster will
+    assume that the account represents a single ERCOT-standard customer of the specified type.
+  </p>
+  <b>Retail Price</b>
+  <p>
+    If you include RETAIL_PRICE information, in $/kWh, then the Retail Revenue and Retail Margin sections of the Position Screen
+    will be able to calculate their respective values.
+  </p>
+  <b> Relationship Between END_DATE and Category</b>
+  <p>
+    What happens on the END_DATE?
+  </p>
+  <p>
+    That depends on the values you put in the file.
+  </p>
+  <p>
+    By default, the account transitions from the category you entered to "Variable" on the day after the END_DATE. For example,
+    in the first data line above, the BUSMEDLF account is a Fixed account from 3/17/2008 through 4/30/2015, and is then a
+    Variable account from 5/1/2015 forward.
+  </p>
+  <p>
+    You can control the category the account transitions into by appending it to the CATEGORY value, separated by a forward slash
+    (/) character. For example, if you want a Fixed account to transition to a category named Extended after the END_DATE,
+    you could use a line such as the following.
+  </p>
+
+  <b>BUSMEDLF_HOUSTON_IDR_WS_NOTOU,3/17/2008,4/30/2015,19932789455397588,Fixed/Extended,,,,0.05 </b>
+  <p>
+    This line will be interpreted to mean this account is a Fixed account from 3/17/2008 through 4/30/2015, and is then a Extended
+    account from 5/1/2015 forward.
+  </p>
+  <p>
+    If you want the account to simply be dropped from your forecast after the END_DATE, then use the special word DROPPED after
+    the slash. Modifying the previous example...
+  </p>
+  <b>BUSMEDLF_HOUSTON_IDR_WS_NOTOU,3/17/2008,4/30/2015,19932789455397588,Fixed/DROPPED,,,,0.05</b>
+  <p>
+    This line will be interpreted to mean this account is a Fixed account from 3/17/2008 through 4/30/2015, and is no longer
+    included in your forecast at all from 5/1/2015 forward.
+  </p>

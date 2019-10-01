@@ -1,0 +1,102 @@
+
+<form [formGroup]="selectCriteria">
+        <div class="card-header col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           <h5> Notional Valuations: Selection Criteria (OUREN)</h5>
+        </div>
+        <div class="responsive-height">
+   
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+          <input matInput [matDatepicker]="picker3" placeholder="Valuation Date">
+          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+          <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+          <mat-select placeholder="Counterparty" formControlName="counterParty">
+            <mat-option [value]="counter.key" *ngFor="let counter of counterParty">{{counter.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+          <mat-select placeholder="Shape" formControlName="shape">
+            <mat-option [value]="s.key" *ngFor="let s of shape">{{s.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+          <input matInput placeholder="Trading Book" formControlName="tradingBook">
+        </mat-form-field>
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+          <mat-select placeholder="Product" formControlName="product">
+            <mat-option [value]="s.key" *ngFor="let s of products">{{s.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+          <mat-select placeholder="Trade Type" formControlName="tradeType">
+            <mat-option [value]="s.key" *ngFor="let s of trades">{{s.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+          <mat-select placeholder="Location" formControlName="location">
+            <mat-option *ngFor="let location of locations" [value]="location.key">
+              {{location.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+          <mat-select placeholder="Report Version" formControlName="reportVersion">
+            <mat-option [value]="s.key" *ngFor="let s of repoVersions">{{s.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+          <mat-select placeholder="MtM prize curve set" formControlName="mtmPrizeSet">
+            <mat-option [value]="s.key" *ngFor="let s of mtmPrizeSets">{{s.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="buySell">
+          <div>
+            <label>Buy/Sell:</label>
+            <mat-radio-group formControlName="buySell" class="radio-group1">
+              <mat-radio-button *ngFor="let s of buySells" [value]="s">
+                {{s}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <label>Time Range:</label>
+            <mat-radio-group formControlName="timeRange" class="radio-group1">
+              <mat-radio-button *ngFor="let s of timeRanges" [value]="s">
+                {{s}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+  
+        </div>
+       
+          <div>
+            <label>Breakdown by Month:</label>
+            <mat-radio-group formControlName="breakbyMonths" class="radio-group3">
+              <mat-radio-button *ngFor="let s of breakbyMonth" [value]="s">
+                {{s}}
+              </mat-radio-button>
+            </mat-radio-group>
+  
+        
+        </div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+  
+    <div class="dialog-footer">
+      <button mat-raised-button type="submit" class="btn-search font-styling">Search</button>
+      <button mat-raised-button type="button" class=" btn2 font-styling" (click)="close()">Cancel</button>
+    </div>
+  </form>

@@ -1,0 +1,241 @@
+<mat-toolbar class="header mat-elevation-z2">
+    <div style="padding-left:15px;"></div>
+    <a (click)="drawer.toggle(); this.btnStatus = !this.btnStatus">
+        <div [ngClass]="btnStatus ? 'close' : ''" class="menu-toggle-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </a>
+    <div class="logo">
+        <a routerLink="/" style="text-decoration: none;">
+            <!-- <img routerLink="/" src="../../../assets/img/WattExpertAI.png" alt="logo" width='185'>  -->
+            <img routerLink="/" src="../../../assets/img/wtg.jpeg" alt="logo" width='185'>
+        </a>
+        <!-- <h1 style="font-size:32px;font-weight:800;">
+        <span style="color:#2e2566">WTG</span>
+        <span style="color:#d00000">W</span>
+        <span style="color:#2e2566">TG ENERGY</span>
+      </h1> -->
+
+        <!-- <mat-toolbar> -->
+        <!-- <div *ngFor="let x of menuItems">
+          <span *ngIf="x.submenu.length == 0">
+            <button routerLink="{{x.route}}" mat-button [matMenuTriggerFor]="menu">
+              <i style="font-size:18px;" class="{{x.icon}}"></i>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item></button>
+            </mat-menu>
+          </span>
+          <span *ngIf="x.submenu.length != 0">
+            <button routerLink="{{x.route}}" mat-button [matMenuTriggerFor]="menu">
+              <i style="font-size:18px;" class="{{x.icon}}"></i>
+            </button>
+            <mat-menu #menu="matMenu">
+              <span *ngFor="let y of x.submenu">
+                <button mat-menu-item [matMenuTriggerFor]="menu">
+                  <i style="font-size:18px;" class="{{y.icon}}"></i>
+                </button>
+                <mat-menu #menu="matMenu" *ngIf="y.submenu.length != 0">
+                  <span *ngFor="let z of y.submenu">
+                    <button mat-menu-item>
+                      <i style="font-size:18px;" class="{{z.icon}}"></i>
+                    </button>
+                  </span>
+                </mat-menu>
+              </span>
+            </mat-menu>
+          </span>
+        </div> -->
+        <span class="margin">
+          
+          <button routerLink="/ercot-load" mat-button matTooltip="ERCOT Load">
+            <i style="font-size:18px;" class="fas fa-window-restore"></i>
+          </button>
+          <button routerLink="/forecastertool" mat-button matTooltip="Review Forecast">
+            <i style="font-size:18px;" class="fab fa-wpforms"></i>
+          </button>
+          <button routerLink="/review-customer-count" mat-button matTooltip="Review Customer Counts">
+            <i style="font-size:18px;" class="fa fa-clipboard"></i>
+          </button>
+          <button routerLink="/maturity-forecast" mat-button matTooltip="Maturity Date Forecast Reports">
+            <i style="font-size:18px;" class="fas fa-file-signature"></i>
+          </button>
+          <button routerLink="/weather-zone-forecast" mat-button matTooltip="Weather Zone Forecast">
+            <i style="font-size:18px;" class="fas fa-cloud-sun"></i>
+          </button>
+          <button routerLink="/weather-zone-actual" mat-button matTooltip="Weather Zone Actual">
+            <i style="font-size:18px;" class="fas fa-cloud-meatball"></i>
+          </button>
+        </span>
+        <!-- </mat-toolbar> -->
+
+    </div>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+    <mat-menu #menu="matMenu" class="">
+        <!-- <button mat-menu-item>
+      <span style="text-align: left;color: black;font-size: 15px;font-weight: bold">Setting</span>
+    </button> -->
+        <button mat-menu-item routerLink="." (click)="logOut()">
+      <span style="color: black;font-size: 15px;font-weight: bold">Sign Out</span>
+    </button>
+    </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="sideNavContainer" fullscreen>
+    <mat-sidenav #drawer [fixedInViewport]="true" [mode]="mobileQuery.matches ? 'over' : 'side'" opened="true" class="sideNav mat-elevation-z2">
+        <div class="nav-side-menu">
+            <mat-accordion displayMode="flat" multi="true">
+                <div *ngFor="let x of menuItems">
+                    <mat-list *ngIf="x.submenu.length == 0">
+                        <a routerLink="{{x.route}}" routerLinkActive="is-active">
+                            <mat-list-item>
+                                <i class="{{x.icon}}"></i>
+                                <span>{{x.name}}</span>
+                            </mat-list-item>
+                        </a>
+                    </mat-list>
+                    <mat-expansion-panel class="sidePanels" *ngIf="x.submenu.length != 0">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <i class="{{x.icon}}"></i> {{x.name}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div *ngFor="let y of x.submenu">
+                            <mat-list *ngIf="y.submenu.length == 0">
+                                <a routerLink="{{y.route}}" routerLinkActive="is-active">
+                                    <mat-list-item>
+                                        <i class="{{y.icon}}"></i>
+                                        <span>{{y.name}}</span>
+                                    </mat-list-item>
+                                </a>
+                            </mat-list>
+                            <mat-expansion-panel class="sidePanels" *ngIf="y.submenu.length != 0">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        <i class="{{y.icon}}"></i>
+                                        <span>{{y.name}}</span>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div *ngFor="let z of y.submenu">
+                                    <mat-list *ngIf="z.submenu.length == 0">
+                                        <a routerLink="{{z.route}}" routerLinkActive="is-active">
+                                            <mat-list-item>
+                                                <i class="{{z.icon}}"></i>
+                                                <span>{{z.name}}</span>
+                                            </mat-list-item>
+                                        </a>
+                                    </mat-list>
+                                    <mat-expansion-panel class="sidePanels" *ngIf="z.submenu.length != 0">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                                <span>{{z.name}}</span>
+                                            </mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div *ngFor="let a of z.submenu">
+                                            <mat-list *ngIf="a.submenu.length == 0">
+                                                <a routerLink="{{a.route}}" routerLinkActive="is-active">
+                                                    <mat-list-item>
+                                                        <i class="{{z.icon}}"></i>
+                                                        <span>{{a.name}}</span>
+                                                    </mat-list-item>
+                                                </a>
+                                            </mat-list>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </div>
+                            </mat-expansion-panel>
+                        </div>
+                    </mat-expansion-panel>
+                    <mat-divider></mat-divider>
+                </div>
+                <mat-list>
+                    <a routerLink="." (click)="logOut()">
+                        <mat-list-item>
+                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                        </mat-list-item>
+                    </a>
+                </mat-list>
+            </mat-accordion>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!--  -->
+        <!-- <mat-toolbar class="subMenu mat-elevation-z2" style="height:50px;justify-content:center;margin-top:45px;margin-bottom:-50px;"> -->
+        <!-- <div *ngFor="let x of menuItems">
+        <span *ngIf="x.submenu.length == 0">
+          <button routerLink="{{x.route}}" mat-button [matMenuTriggerFor]="menu">
+            <i style="font-size:18px;" class="{{x.icon}}"></i>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item></button>
+          </mat-menu>
+        </span>
+        <span *ngIf="x.submenu.length != 0">
+          <button routerLink="{{x.route}}" mat-button [matMenuTriggerFor]="menu">
+            <i style="font-size:18px;" class="{{x.icon}}"></i>
+          </button>
+          <mat-menu #menu="matMenu">
+            <span *ngFor="let y of x.submenu">
+              <button mat-menu-item [matMenuTriggerFor]="menu">
+                <i style="font-size:18px;" class="{{y.icon}}"></i>
+              </button>
+              <mat-menu #menu="matMenu" *ngIf="y.submenu.length != 0">
+                <span *ngFor="let z of y.submenu">
+                  <button mat-menu-item>
+                    <i style="font-size:18px;" class="{{z.icon}}"></i>
+                  </button>
+                </span>
+              </mat-menu>
+            </span>
+          </mat-menu>
+        </span>
+      </div> -->
+        <!-- <span>
+        <button routerLink="/ercot-load" mat-button matTooltip="ERCOT Load">
+          <i style="font-size:18px;" class="fas fa-window-restore"></i>
+        </button>
+        <button routerLink="/forecastertool" mat-button matTooltip="Review Forecast">
+          <i style="font-size:18px;" class="fab fa-wpforms"></i>
+        </button>
+        <button routerLink="/review-customer-count" mat-button matTooltip="Review Customer Counts">
+          <i style="font-size:18px;" class="fa fa-clipboard"></i>
+        </button>
+        <button routerLink="/maturity-forecast" mat-button matTooltip="Maturity Date Forecast Reports">
+          <i style="font-size:18px;" class="fas fa-file-signature"></i>
+        </button>
+        <button routerLink="/weather-zone-forecast" mat-button matTooltip="Weather Zone Forecast">
+          <i style="font-size:18px;" class="fas fa-cloud-sun"></i>
+        </button>
+        <button routerLink="/weather-zone-actual" mat-button matTooltip="Weather Zone Actual">
+          <i style="font-size:18px;" class="fas fa-cloud-meatball"></i>
+        </button>
+      </span>
+        </mat-toolbar> -->
+
+        <div class="mainDiv">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<div class="d-none d-sm-block">
+    <mat-toolbar class="footerEnd">
+        <span>
+      <h4> Copyright © {{year}} Powered by WattExpert.AI, All Rights Reserved.
+        <span style="color:#000;font-weight:bold;">
+          <a routerLink="/" style="color:#000;text-decoration: none;">Terms of Use</a> |
+          <a routerLink="/" style="color:#000;text-decoration:none;">Privacy Policy</a>
+        </span>
+        </h4>
+        </span>
+        <div>
+            <!-- <a href="https://www.brainplow.com/" target="_blank">
+              <img style='height: 32px;' src="../../assets/img/footer.png">
+          </a> -->
+        </div>
+    </mat-toolbar>
+</div>

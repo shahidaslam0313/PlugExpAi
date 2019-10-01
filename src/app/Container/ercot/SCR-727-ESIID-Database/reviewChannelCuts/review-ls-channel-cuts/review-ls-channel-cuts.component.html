@@ -1,0 +1,140 @@
+<div class="my-container">
+  <mat-card>
+    <div class="outer-container">
+
+      <button mat-icon-button class="bts">
+        <i class="material-icons">
+          refresh
+        </i>
+      </button>
+      <button mat-icon-button class="bts">
+        <i class="material-icons">
+          file_copy
+        </i>
+      </button>
+      <button mat-raised-button class="btn1 font-styling">Export Data</button>
+      <button mat-raised-button class="btn1 font-styling">Restore Grid</button>
+      <button mat-raised-button class="btn1 font-styling" (click)="openSelectionDialog()">Selection Criteria
+      </button>
+
+    </div>
+    <div class="my-table">
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="abc">
+          <ng-container matColumnDef="1">
+            <th mat-header-cell *matHeaderCellDef> ESIID </th>
+            <td mat-cell *matCellDef="let element">{{element?.BuySell ? element?.BuySell : '--'}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="2">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let element"> {{element?.BuySell ? element?.BuySell : '--'}}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="3">
+            <th mat-header-cell *matHeaderCellDef> Jan</th>
+            <td mat-cell *matCellDef="let element">{{element?.first_Dt ? element?.first_Dt : '--'}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="4">
+            <th mat-header-cell *matHeaderCellDef> Feb</th>
+            <td mat-cell *matCellDef="let element"> {{element?.last_Dt ? element?.last_Dt : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="5">
+            <th mat-header-cell *matHeaderCellDef> Mar</th>
+            <td mat-cell *matCellDef="let element">{{element?.counterParty ? element?.counterParty : '--'}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="6">
+            <th mat-header-cell *matHeaderCellDef> Apr</th>
+            <td mat-cell *matCellDef="let element"> {{element?.location ? element?.location : '--'}}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="7">
+            <th mat-header-cell *matHeaderCellDef> May</th>
+            <td mat-cell *matCellDef="let element"> {{element?.Price_desc ? element?.Price_desc : '--'}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="8">
+            <th mat-header-cell *matHeaderCellDef> Jun</th>
+            <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="9">
+            <th mat-header-cell *matHeaderCellDef> Jul</th>
+            <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="10">
+            <th mat-header-cell *matHeaderCellDef> Aug</th>
+            <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+          </ng-container>
+
+          <!-- <ng-container matColumnDef="11">
+              <th mat-header-cell *matHeaderCellDef> Update Date</th>
+              <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="12">
+              <th mat-header-cell *matHeaderCellDef> Batch Processing Time</th>
+              <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="13">
+              <th mat-header-cell *matHeaderCellDef> Total On-Peak</th>
+              <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="14">
+              <th mat-header-cell *matHeaderCellDef> Total Off-Peak</th>
+              <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+            </ng-container>
+  
+  
+            <ng-container matColumnDef="15">
+                <th mat-header-cell *matHeaderCellDef> Total Mid-Peak</th>
+                <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+              </ng-container>
+    
+              <ng-container matColumnDef="16">
+                <th mat-header-cell *matHeaderCellDef> Total Super-Peak</th>
+                <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+              </ng-container>
+    
+              <ng-container matColumnDef="17">
+                <th mat-header-cell *matHeaderCellDef> Average On-Peak Usage</th>
+                <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+              </ng-container> 
+    
+              <ng-container matColumnDef="18">
+                <th mat-header-cell *matHeaderCellDef> Average Off-Peak Usage</th>
+                <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+              </ng-container>
+    
+              <ng-container matColumnDef="19">
+                <th mat-header-cell *matHeaderCellDef> Average Mid-Peak Usage </th>
+                <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+              </ng-container>
+              
+              <ng-container matColumnDef="20">
+                <th mat-header-cell *matHeaderCellDef> Avg Super-Peak Usage</th>
+                <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+              </ng-container>
+    
+              <ng-container matColumnDef="21">
+                  <th mat-header-cell *matHeaderCellDef> Unique ID</th>
+                  <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+                </ng-container> -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,19 @@
+.upload{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+img{
+    margin-bottom: 8px;
+    min-width: 100%;
+    max-width: 100%;
+}
+p{
+    text-align: justify;
+    font-family: 'Open Sans', sans-serif;
+}
+.list{
+    margin-left: 25px;
+}

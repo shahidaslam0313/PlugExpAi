@@ -1,0 +1,66 @@
+
+ 
+ <div class="select">
+   <div>
+    <h5> Selection Criteria for alerts</h5>
+   </div>
+    <div>
+        <button mat-icon-button >
+            <mat-icon> add</mat-icon>
+          </button> 
+        <button mat-icon-button (click)="openAlertEmailDialog()">
+          <mat-icon>settings</mat-icon>
+        </button>
+      </div>
+ </div>
+ <form  [formGroup]="selectCriteria">
+   <div  class="selection">
+    <div class="sections">
+      <mat-form-field>
+        <mat-select placeholder="Alerts to View" formControlName="alertView">
+          <mat-option *ngFor="let alert of alerts" [value]="alert.key">
+            {{alert.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Status" formControlName="status">
+          <mat-option value="acks.key" *ngFor="let acks of ack">{{acks.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Time Range" formControlName="timeRange">
+          <mat-option value="acks.key" *ngFor="let acks of time">{{acks.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Time Zone" formControlName="timeZone">
+          <mat-option value="acks.key" *ngFor="let acks of time_zone">{{acks.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="sections">
+      <mat-form-field>
+        <input matInput placeholder="Message (Pattern)" formControlName="message">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Detail (Pattern)" formControlName="detail">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Auto Refresh" formControlName="autoRefresh">
+          <mat-option value="acks.key" *ngFor="let acks of refresh">{{acks.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Max Rows" formControlName="maxRows">
+          <mat-option value="acks.key" *ngFor="let acks of max_rows">{{acks.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+      <div class="dialog-footer"> 
+      <button mat-raised-button type="submit"class="btn-search font-styling" >Search</button>
+      <button mat-raised-button type="button" class="btn2 font-styling" (click)="close()">Cancel</button>
+    </div>
+  </form>

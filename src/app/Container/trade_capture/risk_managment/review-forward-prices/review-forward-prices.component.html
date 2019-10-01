@@ -1,0 +1,94 @@
+<div class="my-container">
+  <mat-card>
+      <div class="outer-container">
+          <button mat-icon-button class="bts">
+            <i class="material-icons">
+              refresh
+            </i>
+          </button>
+          <button mat-icon-button class="bts">
+            <i class="material-icons">
+              file_copy
+            </i>
+          </button>
+          <button mat-raised-button class="btn1 ">Show Graph</button>
+          <button mat-raised-button class="btn1 ">PDF</button>
+          <button mat-raised-button class="btn1 ">Excel</button>
+          <button mat-raised-button class="btn1 " (click)="openSelectionDialog()">Selection Criteria</button>
+        </div>
+        
+    <div class="my-table">
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="abc">
+         
+          <ng-container matColumnDef="3" sticky >
+            <th mat-header-cell *matHeaderCellDef class="set-width"> ERCOT </th>
+            <td mat-cell *matCellDef="let element" class="set-width">
+             {{element?.BuySell ? element?.BuySell : '--'}}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="4">
+            <th mat-header-cell *matHeaderCellDef> HE03 </th>
+            <td mat-cell *matCellDef="let element">{{element?.first_Dt ? element?.first_Dt : '--'}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="5">
+            <th mat-header-cell *matHeaderCellDef> HE04 </th>
+            <td mat-cell *matCellDef="let element"> {{element?.last_Dt ? element?.last_Dt : '--'}}</td>
+          </ng-container>
+          <ng-container matColumnDef="6">
+            <th mat-header-cell *matHeaderCellDef> HE05 </th>
+            <td mat-cell *matCellDef="let element">{{element?.counterParty ? element?.counterParty : '--'}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="7">
+            <th mat-header-cell *matHeaderCellDef> HE06 </th>
+            <td mat-cell *matCellDef="let element"> {{element?.location ? element?.location : '--'}}</td>
+          </ng-container>
+
+        
+  
+          <ng-container matColumnDef="8">
+            <th mat-header-cell *matHeaderCellDef> HE07 </th>
+            <td mat-cell *matCellDef="let element"> {{element?.Price_desc ? element?.Price_desc : '--'}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="9" stickyEnd >
+            <th mat-header-cell *matHeaderCellDef class="set-width"> Actions</th>
+            <td mat-cell *matCellDef="let element" class="set-width">
+                <button matTooltip="Show Graph" mat-icon-button>
+                    <i class="material-icons">insert_chart</i>
+                </button>
+                <button matTooltip="Copy" mat-icon-button [matMenuTriggerFor]="menu">
+                    <i class="material-icons">file_copy</i>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon>file_copy</mat-icon>
+                      <span>Copy row to clipboard</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>file_copy</mat-icon>
+                      <span>Copy values to clipboard</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>file_copy</mat-icon>
+                      <span>Copy row to clipboard (transposed)</span>
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>file_copy</mat-icon>
+                        <span>Copy values to clipboard (transposed)</span>
+                      </button>
+                  </mat-menu>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </mat-card>
+</div>

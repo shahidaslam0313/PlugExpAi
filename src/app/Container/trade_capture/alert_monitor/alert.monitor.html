@@ -1,0 +1,64 @@
+ <!-- <div class="alert">
+        The alert filter being used is missing some of the available categories.
+        Default settings for those missing categories will be used. Click here to review your current filter settings.
+      </div> -->
+ <div class="my-container">
+   <mat-card>
+     <div class="outer-container">
+       <button mat-icon-button>
+         <i class="material-icons">
+           refresh
+         </i>
+       </button>
+       <button mat-raised-button class="btn1 font-styling" (click)="openSelectionDialog()">Selection
+         Criteria</button>
+       <button mat-raised-button class="btn1 font-styling">Next 100</button>
+       <button mat-raised-button class="btn1 font-styling">Acknowledge Selected</button>
+     </div>
+     <div class="my-table">
+       <div class="table-container">
+         <table mat-table [dataSource]="dataSource" class="abc">
+           <ng-container matColumnDef="select">
+             <th mat-header-cell *matHeaderCellDef>
+               <mat-checkbox (change)="$event ? masterToggle() : null"
+                 [checked]="selection.hasValue() && isAllSelected()"
+                 [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()"
+                 matTooltip="Select All">
+               </mat-checkbox>
+             </th>
+             <td mat-cell *matCellDef="let row">
+               <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                 [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+               </mat-checkbox>
+             </td>
+           </ng-container>
+           <ng-container matColumnDef="1">
+             <th mat-header-cell *matHeaderCellDef> Priority </th>
+             <td mat-cell *matCellDef="let element" (click)="openAlertsDialog(element)" [ngClass]="{
+                  'positive' : element.Priority == 'INFO',
+                  'negative' : element.Priority == 'ERROR'
+               }">{{element?.Priority ? element?.Priority :'--'}}</td>
+           </ng-container>
+           <ng-container matColumnDef="2">
+             <th mat-header-cell *matHeaderCellDef> Category </th>
+             <td mat-cell *matCellDef="let element" (click)="openAlertsDialog(element)">
+               {{element?.Category ? element?.Category :'--' }} </td>
+           </ng-container>
+           <ng-container matColumnDef="3">
+             <th mat-header-cell *matHeaderCellDef> Timestamp</th>
+             <td mat-cell *matCellDef="let element" (click)="openAlertsDialog(element)">
+               {{element?.Timestamp ? element.Timestamp :'--'}} </td>
+           </ng-container>
+           <ng-container matColumnDef="4">
+             <th mat-header-cell *matHeaderCellDef> Message </th>
+             <td mat-cell *matCellDef="let element" (click)="openAlertsDialog(element)">
+               {{element?.Message ? element.Message :'--'}} </td>
+           </ng-container>
+           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+           <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+           </tr>
+         </table>
+       </div>
+     </div>
+   </mat-card>
+ </div>

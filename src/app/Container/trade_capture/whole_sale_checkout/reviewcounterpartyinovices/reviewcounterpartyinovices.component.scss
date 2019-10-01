@@ -1,0 +1,60 @@
+.mat-card {
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+    margin-top: 9px;
+  }
+  .my-container {
+    margin: 6px 5px 5px 5px !important;
+    .outer-container {
+      margin:0 5px 2px 5px !important;}
+  }
+  
+  .table-container {
+    max-height: calc(100vh - 290px);
+  }
+  
+  $tablewidth: 1500px;
+  
+  .abc {
+    width: 100%;
+  }
+  
+  @media only screen and (max-width: $tablewidth) {
+    .abc {
+      width: $tablewidth;
+    }
+  }
+  
+  @media screen and (max-width: 804px) {
+    .table-container {
+      max-height: calc(100vh - 330px);
+    }
+  }
+  
+  th.mat-header-cell {
+    text-align: center
+  }
+  
+  td {
+    text-align: center
+  }
+  
+  .my-table {
+    background-color: white;
+  }
+  
+  .my-container {
+    margin: 6px 5px 5px 5px !important
+  }
+  
+  .outer-container {
+    margin: 0 5px 2px 5px !important;
+  
+    .btn1 {
+      font-weight: bold;
+      margin-left: 4px;
+    }
+  }

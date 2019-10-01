@@ -1,0 +1,74 @@
+<mat-card>
+  <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="col-lg-6 col-md-6 col-sm-9 col-xs-12">
+      <input matInput placeholder="ESIID" formControlName="search">
+      <mat-error *ngIf="Form.controls.search.hasError('required')">
+        required
+      </mat-error>
+    </mat-form-field>
+    <!-- <div > -->
+    <button class="col-lg-2 col-md-2 col-sm-2 col-xs-12" type="submit" mat-raised-button class="btn-search font-styling">Search</button>
+    <!-- </div> -->
+  </form>
+</mat-card>
+
+<div *ngIf="show==true" class="container-fluid">
+  <mat-card class="row contains">
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="Address" value="{{esiid?.address ? esiid?.address : '--'}}" disabled>
+    </mat-form-field>
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="Address overflow" value="{{esiid?.address_overflow ? esiid?.address_overflow : '--'}}" disabled>
+    </mat-form-field>
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="City" value="{{esiid?.city ? esiid?.city : '--'}}" disabled>
+    </mat-form-field>
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="State" value="{{esiid?.state ? esiid?.state : '--'}}" disabled>
+    </mat-form-field>
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="Zip code" value="{{esiid?.zip_code ? esiid?.zip_code : '--'}}" disabled>
+    </mat-form-field>
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="DUNS" value="{{esiid?.duns ? esiid?.duns : '--'}}" disabled>
+    </mat-form-field>
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="POLR Customer Class" value="{{esiid?.polr_customer_class ? esiid?.polr_customer_class : '--'}}"
+        disabled>
+    </mat-form-field>
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="Status" value="{{esiid?.status ? esiid?.status : '--'}}" disabled>
+    </mat-form-field>
+    <!-- <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <input matInput placeholder="Load Zone" value="{{esiid?. ? esiid?. : '--'}}" disabled>
+        </mat-form-field> -->
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="Premise Type" value="{{esiid?.premise_type ? esiid?.premise_type : '--'}}" disabled>
+    </mat-form-field>
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="Power Region" value="{{esiid?.power_region ? esiid?.power_region : '--'}}" disabled>
+    </mat-form-field>
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="Station Code" value="{{esiid?.station_code ? esiid?.station_code : '--'}}" disabled>
+    </mat-form-field>
+    <!-- <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <input matInput placeholder="Station Name" value="{{esiid?. ? esiid?. : '--'}}" disabled>
+        </mat-form-field> -->
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="Metered" value="{{esiid?.metered ? esiid?.metered : '--'}}" disabled>
+    </mat-form-field>
+    <!-- <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <input matInput placeholder="Open Service Order" value="{{esiid?. ? esiid?. : '--'}}" disabled>
+        </mat-form-field> -->
+    <!-- <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <input matInput placeholder="AMS Meter Flag" value="{{esiid?. ? esiid?. : '--'}}" disabled>
+        </mat-form-field> -->
+    <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <input matInput placeholder="Meter Read Cycle" value="{{esiid?.meters_read_cycle ? esiid?.meters_read_cycle : '--'}}" disabled>
+    </mat-form-field>
+  </mat-card>
+</div>
+
+<div *ngIf="status==false" style="text-align:center;margin-top:20px">
+  <p>No Record Found for ESIID: {{value}}</p>
+</div>

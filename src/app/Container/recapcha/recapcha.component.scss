@@ -1,0 +1,69 @@
+.card {
+    width: 180px;
+    margin: 5px;
+    padding-bottom: 0px !important;
+    .mat-form-field {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+    }
+    .main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between
+    }
+    button {
+        margin-left: 10px;
+        background-color: black;
+        .mat-icon {
+            color: white
+        }
+    }
+}.card {
+    width: 170px;
+    margin: 0;
+    border-radius: 5px;
+    padding: 8px;
+    background: #fff;
+    box-shadow: 0 3px 10px #ccc;
+    .mat-form-field {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+    }
+    .main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        img{
+            width: 80%;
+            float: left;
+            border-radius: 5px;
+        }
+    }
+    button {
+        background: #000;
+        border: none;
+        color: #fff;
+        border-radius: 50px;
+        width: 30px;
+        float: right;
+        height: 30px;
+        margin-top: 4px;
+        line-height: 31px;
+        .mat-icon {
+            font-size: 19px !important;
+            font-weight: bold;
+        }
+    }
+    .recapcha-input {
+        margin: 8px 0 0;
+        background: #fff;
+        padding: 4px;
+        border: none;
+        width: 100%;
+        font-size: 18px!important;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+    }
+}

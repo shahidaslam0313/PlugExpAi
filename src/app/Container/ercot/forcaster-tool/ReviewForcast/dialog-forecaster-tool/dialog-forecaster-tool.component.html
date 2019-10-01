@@ -1,0 +1,286 @@
+<!-- <mat-tab-group mat-align-tabs="center">
+    <mat-tab *ngIf="status1==true" label="{{year[0]}}">
+        <mat-card>
+            <div class="example-container table-container mat-elevation-z2">
+                <table mat-table [dataSource]="DataSource" multiTemplateDataRows class="abc">
+                    <ng-container matColumnDef="1" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Weather zone</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.load_zone ? element?.load_zone :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Jan">
+                        <th mat-header-cell *matHeaderCellDef> Jan </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_jan ? element?.m_jan :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Feb">
+                        <th mat-header-cell *matHeaderCellDef> Feb </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_feb ? element?.m_feb :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Mar">
+                        <th mat-header-cell *matHeaderCellDef>Mar </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_mar ? element?.m_mar :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Apr">
+                        <th mat-header-cell *matHeaderCellDef>Apr </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_apr ? element?.m_apr :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="May">
+                        <th mat-header-cell *matHeaderCellDef> May</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_may ? element?.m_may :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Jun">
+                        <th mat-header-cell *matHeaderCellDef> Jun</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_jun ? element?.m_jun :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Jul">
+                        <th mat-header-cell *matHeaderCellDef> Jul</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_jul ? element?.m_jul :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Aug">
+                        <th mat-header-cell *matHeaderCellDef> Aug</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_aug ? element?.m_aug :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Sep">
+                        <th mat-header-cell *matHeaderCellDef>Sept </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_sep ? element?.m_sep :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Oct">
+                        <th mat-header-cell *matHeaderCellDef>Oct </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_oct ? element?.m_oct :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Nov">
+                        <th mat-header-cell *matHeaderCellDef> Nov</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_nov ? element?.m_nov :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Dec">
+                        <th mat-header-cell *matHeaderCellDef> Dec </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_dec ? element?.m_dec :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="14">
+                        <th mat-header-cell *matHeaderCellDef> Category</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.category ? element?.category :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="15">
+                        <th mat-header-cell *matHeaderCellDef> Year</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.year ? element?.year :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="18">
+                        <th mat-header-cell *matHeaderCellDef> Total</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.total ? element?.total :'--' }} </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="usageDisplayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: usageDisplayedColumns;"></tr>
+                </table>
+            </div>
+        </mat-card>
+    </mat-tab>
+    <mat-tab *ngIf="status2==true" label="{{year[1]}}">
+        <mat-card>
+            <div class="example-container table-container mat-elevation-z2">
+                <table mat-table [dataSource]="DataSource2" multiTemplateDataRows class="abc">
+                    <ng-container matColumnDef="1" sticky>
+                        <th mat-header-cell *matHeaderCellDef> Weather zone</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.load_zone ? element?.load_zone :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Jan">
+                        <th mat-header-cell *matHeaderCellDef> Jan </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_jan ? element?.m_jan :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Feb">
+                        <th mat-header-cell *matHeaderCellDef> Feb </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_feb ? element?.m_feb :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Mar">
+                        <th mat-header-cell *matHeaderCellDef>Mar </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_mar ? element?.m_mar :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Apr">
+                        <th mat-header-cell *matHeaderCellDef>Apr </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_apr ? element?.m_apr :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="May">
+                        <th mat-header-cell *matHeaderCellDef> May</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_may ? element?.m_may :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Jun">
+                        <th mat-header-cell *matHeaderCellDef> Jun</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_jun ? element?.m_jun :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Jul">
+                        <th mat-header-cell *matHeaderCellDef> Jul</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_jul ? element?.m_jul :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Aug">
+                        <th mat-header-cell *matHeaderCellDef> Aug</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_aug ? element?.m_aug :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Sep">
+                        <th mat-header-cell *matHeaderCellDef>Sept </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_sep ? element?.m_sep :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Oct">
+                        <th mat-header-cell *matHeaderCellDef>Oct </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_oct ? element?.m_oct :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Nov">
+                        <th mat-header-cell *matHeaderCellDef> Nov</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_nov ? element?.m_nov :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Dec">
+                        <th mat-header-cell *matHeaderCellDef> Dec </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.m_dec ? element?.m_dec :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="14">
+                        <th mat-header-cell *matHeaderCellDef> Category</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.category ? element?.category :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="15">
+                        <th mat-header-cell *matHeaderCellDef> Year</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.year ? element?.year :'--' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="18">
+                        <th mat-header-cell *matHeaderCellDef> Total</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.total ? element?.total :'--' }} </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="DisplayedColumns2; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: DisplayedColumns2;"></tr>
+                </table>
+            </div>
+        </mat-card>
+    </mat-tab>
+</mat-tab-group> -->
+<mat-card>
+    <div class="example-container table-container mat-elevation-z2">
+        <table mat-table [dataSource]="demoDataSource" multiTemplateDataRows class="abc">
+            <!-- <ng-container matColumnDef="1">
+                <th mat-header-cell *matHeaderCellDef> Date1</th>
+                <td mat-cell *matCellDef="let element"> {{element?.date }} </td>
+            </ng-container>
+            <ng-container matColumnDef="2">
+                <th mat-header-cell *matHeaderCellDef> Month </th>
+                <td mat-cell *matCellDef="let element"> {{element?.month }} </td>
+            </ng-container>
+            <ng-container matColumnDef="3">
+                <th mat-header-cell *matHeaderCellDef> Year </th>
+                <td mat-cell *matCellDef="let element"> {{element?.year }} </td>
+            </ng-container>
+            <ng-container matColumnDef="4">
+                <th mat-header-cell *matHeaderCellDef>South </th>
+                <td mat-cell *matCellDef="let element"> {{element?.predictions_south }} </td>
+            </ng-container>
+            <ng-container matColumnDef="5">
+                <th mat-header-cell *matHeaderCellDef>North </th>
+                <td mat-cell *matCellDef="let element"> {{element?.predictions_north }} </td>
+            </ng-container>
+            <ng-container matColumnDef="6">
+                <th mat-header-cell *matHeaderCellDef> West</th>
+                <td mat-cell *matCellDef="let element"> {{element?.predictions_west }} </td>
+            </ng-container>
+            <ng-container matColumnDef=7>
+                <th mat-header-cell *matHeaderCellDef> Houstan</th>
+                <td mat-cell *matCellDef="let element"> {{element?.predictions_houston }} </td>
+            </ng-container>
+            <ng-container matColumnDef=8>
+                <th mat-header-cell *matHeaderCellDef> Total</th>
+                <td mat-cell *matCellDef="let element"> {{element?.total }} </td>
+            </ng-container> -->
+
+
+
+
+
+
+            <ng-container matColumnDef="222">
+                <th mat-header-cell *matHeaderCellDef> View Details </th>
+                <td mat-cell *matCellDef="let element">
+                    <a matTooltip="View Graph" color="accent" (click)="onSelect()">
+                        <img class="viewDetailsImg" src="../../assets/img/Add-Afinity-new.png">
+                    </a>
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="1">
+                <th mat-header-cell *matHeaderCellDef> Date</th>
+                <td mat-cell *matCellDef="let element"> {{element?.date }} </td>
+            </ng-container>
+            <ng-container matColumnDef="2">
+                <th mat-header-cell *matHeaderCellDef> Month </th>
+                <td mat-cell *matCellDef="let element"> {{element?.month }} </td>
+            </ng-container>
+            <ng-container matColumnDef="3">
+                <th mat-header-cell *matHeaderCellDef> Year </th>
+                <td mat-cell *matCellDef="let element"> {{element?.year }} </td>
+            </ng-container>
+            <ng-container matColumnDef="4">
+                <th mat-header-cell *matHeaderCellDef>South </th>
+                <td mat-cell *matCellDef="let element"> {{element?.predictions_south }} </td>
+            </ng-container>
+            <ng-container matColumnDef="5">
+                <th mat-header-cell *matHeaderCellDef>North </th>
+                <td mat-cell *matCellDef="let element"> {{element?.predictions_north }} </td>
+            </ng-container>
+            <ng-container matColumnDef="6">
+                <th mat-header-cell *matHeaderCellDef> West</th>
+                <td mat-cell *matCellDef="let element"> {{element?.predictions_west }} </td>
+            </ng-container>
+            <ng-container matColumnDef=7>
+                <th mat-header-cell *matHeaderCellDef> Houstan</th>
+                <td mat-cell *matCellDef="let element"> {{element?.predictions_houston }} </td>
+            </ng-container>
+            <ng-container matColumnDef=8>
+                <th mat-header-cell *matHeaderCellDef> Total</th>
+                <td mat-cell *matCellDef="let element"> {{element?.total }} </td>
+            </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let element" [attr.colspan]="demoDisplayedColumns.length">
+                    <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quasi voluptates laudantium et
+                            quam accusamus doloremque doloribus maxime, odio illum, ab nemo. Delectus, molestiae obcaecati
+                            velit enim odit eos sapiente?</p>
+                    </div>
+                </td>
+            </ng-container> -->
+
+            <tr mat-header-row *matHeaderRowDef="demoDisplayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: demoDisplayedColumns;"></tr>
+
+        </table>
+        <table class="tab-animate" *ngIf="loading==true">
+            <tbody>
+                <tr>
+                    <td class="td">
+                        <span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">
+                        <span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td">
+                        <span></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</mat-card>
+<mat-progress-bar *ngIf="loading==true" mode="indeterminate" value="40" bufferValue="20">
+</mat-progress-bar>

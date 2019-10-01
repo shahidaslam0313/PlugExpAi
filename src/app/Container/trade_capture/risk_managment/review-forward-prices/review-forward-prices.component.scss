@@ -1,0 +1,102 @@
+
+.outer-container {
+  margin:0 5px 2px 5px !important;
+ }
+
+.mat-card {
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+  display: block;
+  position: relative;
+  padding: 16px;
+  border-radius: 4px;
+  margin-top: 9px;
+}
+.table-container {
+  max-height: calc(100vh - 290px);
+}
+$tablewidth: 1221px;
+
+.abc {
+  width: 100%;
+}
+@media only screen and (max-width: $tablewidth) {
+  .abc {
+    width: $tablewidth;
+  }
+}
+.set-width{
+  width: 150px;
+}
+@media screen and (max-width: 804px) {
+  .table-container {
+    max-height: calc(100vh - 330px);
+  }
+}
+
+.my-table {
+  background-color: white;
+}
+
+.my-container {
+  margin: 6px 5px 5px 5px !important
+}
+td.mat-cell:first-of-type{
+  padding-left: 0px;
+
+}
+i{
+  font-size: 20px;
+  margin-left: 2px;
+}
+
+//Modal scss
+label {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+  color: #464646;
+}
+  .card-header{
+    border-bottom:1px solid rgba(0,0,0,.125);
+    background-color: rgba(0,0,0,.03);
+    padding: .75rem 1.25rem;
+    margin-bottom: 20px;
+}
+  .radio-group1 {
+    margin-left: 4px;
+  }
+  
+  .radio-group2 {
+    margin-left: 6px;
+  }
+  
+  .radio-group3 {
+    margin-left: 18px;
+  }
+  
+  .mat-radio-button {
+    margin: 4px;
+    color: #333;
+  }
+  
+  
+  .responsive-height {
+    max-height: calc(100vh - 300px);
+    overflow: auto;
+  }
+  
+  .output {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .dialog-footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  mat-divider{
+    margin-top: 10px;
+  }

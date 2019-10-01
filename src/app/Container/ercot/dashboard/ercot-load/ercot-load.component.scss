@@ -1,0 +1,21 @@
+.abc{
+    min-width: 2300px;
+    max-width: 100%;
+}
+table {
+    width: 100%;
+}
+.my-table {
+    background-color: white;
+    overflow: auto;
+    .mat-form-field {
+        width: 100%;
+        padding: 10px 10px 0px 10px;
+    }
+}
+h4 {
+    font-weight: bold;
+    padding: 20px;
+    margin: 0px;
+    text-align: center;
+}

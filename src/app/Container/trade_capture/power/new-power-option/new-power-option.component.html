@@ -1,0 +1,307 @@
+<div class="row container-fluid">
+  <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+    <div class="flexx">
+      <mat-radio-group [(ngModel)]="buySell" class="space">
+        <mat-radio-button *ngFor="let s of buysell" [value]="s">
+          {{s}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-radio-group [(ngModel)]="validWahtif" class="space">
+        <mat-radio-button *ngFor="let s of whatif" [value]="s">
+          {{s}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-radio-group [(ngModel)]="callput" class="space">
+        <mat-radio-button *ngFor="let s of callPuts" [value]="s">
+          {{s}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <input matInput placeholder="Reason">
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <input matInput placeholder="Premium Price">
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <mat-select placeholder="Max Strikes">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+        <mat-select placeholder="Notice Time">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card>
+  <mat-card class="col-lg-6 col-md-12 col-sm-12 col-xs-12 abc">
+    <mat-card-header>Trade Information</mat-card-header>
+    <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <input matInput placeholder="Option name">
+    </mat-form-field>
+    <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <input matInput [matDatepicker]="picker1" placeholder="Trade Date">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Trading Book">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Trader Name">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <textarea matInput placeholder="Comments"></textarea>
+    </mat-form-field>
+  </mat-card>
+  <mat-card class="col-lg-6 col-md-12 col-sm-12 col-xs-12 abc">
+    <mat-card-header>Trade Terms</mat-card-header>
+    <mat-form-field class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+      <mat-select placeholder="Counterparty">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+      <mat-select placeholder="Agreement">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <textarea matInput placeholder="Special Terms"></textarea>
+    </mat-form-field>
+  </mat-card>
+  <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+    <mat-card-header>Power Delivery</mat-card-header>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Location">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Shape">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Time Zone">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <input matInput placeholder="Ranking Number">
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <input matInput [matDatepicker]="picker2" placeholder="First Date">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <input matInput [matDatepicker]="picker3" placeholder="Last Date">
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Product">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <input matInput placeholder="Tag Template Name">
+    </mat-form-field>
+    <div class="label-align">
+      <div>
+        <label>Automatically Adjust Associated e-Tags:</label>
+        <mat-radio-group [(ngModel)]="adjust" class="radio-group1">
+          <mat-radio-button *ngFor="let s of adjustEtags" [value]="s">
+            {{s}}
+          </mat-radio-button>
+        </mat-radio-group>
+
+      </div>
+      <div>
+        <label> Automatically Modify for e-Tag Adjustments: </label>
+        <mat-radio-group [(ngModel)]="modify" class="col-lg-3 col-md-12 col-sm-6 col-xs-12" class="radio-group1">
+          <mat-radio-button *ngFor="let s of modifyEtags" [value]="s">
+            {{s}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+    <mat-card-header>Price Information</mat-card-header>
+    <!-- <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Location">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Shape">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Time Zone">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <input matInput placeholder="Ranking Number">
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <mat-select placeholder="Product">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+      <input matInput placeholder="Tag Template Name">
+    </mat-form-field> -->
+    <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+      <mat-select placeholder="US$/MWh" formControlName="currency_mwh">
+        <!-- <mat-option value="option">Option</mat-option> -->
+        <mat-option *ngFor="let x of usValue" [value]="x.value">
+          {{x.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+      <mat-select #info placeholder="Information">
+        <mat-option *ngFor="let x of information" [value]="x.value">
+          {{x.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div *ngIf="info.value=='Fixed'">
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Price">
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="info.value=='Indexed'">
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <mat-select placeholder="Index">
+          <mat-option *ngFor="let x of index" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Offset">
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="info.value=='Weighted Indexed'">
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="">
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="info.value=='Heat Rate'">
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="">
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <mat-select placeholder="Time Zone">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input matInput placeholder="Offset">
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="info.value=='Weighted Heat Rate'">
+      <div>
+        <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <input matInput placeholder="">
+        </mat-form-field>
+        <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <input matInput placeholder="Offset">
+        </mat-form-field>
+      </div>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <mat-select #index placeholder="Gas Index">
+          <mat-option *ngFor="let x of gasIndex" [value]="x.value">
+            {{x.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <input #weight matInput placeholder="Weight" type="number">
+      </mat-form-field>
+      <button mat-raised-button type="button" (click)="addPrice(index.value,weight.value)" class="btn1 font-styling col-lg-3 col-md-3 col-sm-12 col-xs-12">Add</button>
+
+      <div>
+        <div *ngFor="let a of gasIndexArray">
+          <mat-form-field class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <input value="{{a.index}}" matInput placeholder="Index" disabled>
+          </mat-form-field>
+          <mat-form-field class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <input value="{{a.weight}}" matInput placeholder="Weight" disabled>
+          </mat-form-field>
+          <mat-icon (click)="deleteWeightHeat(a)">delete_forever</mat-icon>
+        </div>
+      </div>
+    </div>
+
+    <mat-grid-list rowHeight="160px" cols="3" [responsiveColumns]="{xs: 1, sm: 2, md: 2, lg: 3, xl: 3}">
+      <mat-grid-tile>
+        <mat-form-field class="move-down col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <mat-select placeholder="Select Broker" disabled>
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-grid-tile-header>
+          Broker
+        </mat-grid-tile-header>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field class="move-down col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <input matInput placeholder="Amount" disabled>
+        </mat-form-field>
+        <mat-grid-tile-header>
+          Amount
+        </mat-grid-tile-header>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field class=" move-down col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <mat-select multiple placeholder="Select Fee Type" disabled>
+            <!-- <mat-option *ngFor="let i of tradeType">{{i.name}}</mat-option> -->
+            <mat-option >Option</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <!-- <mat-checkbox [(ngModel)]="ing.checked" *ngFor="let ing of tradeType; let i = index"
+          [ngModelOptions]="{standalone: true}" class="radio-group2" [disabled]="ing.disabled">
+          {{ing.name}}
+        </mat-checkbox> -->
+        <mat-grid-tile-header>
+          Fee Type
+        </mat-grid-tile-header>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <div style="display:flex;flex-flow: row-reverse wrap;">
+      <button mat-raised-button type="button" class="btn1 font-styling col-lg-3 col-md-3 col-sm-12 col-xs-12" disabled>Add</button>
+    </div>
+  </mat-card>
+  <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+    <div class="flexx">
+      <div>
+        <button mat-raised-button class="btn1 font-styling">Save as Template</button>
+        <button mat-raised-button class="btn1 font-styling">Save & Exit</button>
+      </div>
+      <div>
+        <button mat-raised-button class="btn1 font-styling">Save & Keep</button>
+        <button mat-raised-button class="btn2 font-styling">Cancel</button>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,54 @@
+.abc{
+    min-width: 100%;
+    max-width: 100%;
+}
+.select{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+   
+}
+.mat-icon{
+  color:#797b7e;
+}
+ 
+  .bts{
+    margin-top: 6px;
+  }
+    label {
+      padding: 4px;
+      font-weight: 550;
+      margin-bottom: 4px;
+    }
+  
+  
+    .filter{
+      margin-bottom: 5px;
+    }
+    .mat-menu-item.mat-menu-item-submenu-trigger::after{
+      transform: rotate(0deg)
+    }
+    .card-header{
+        border-bottom:1px solid rgba(0,0,0,.125);
+        background-color: rgba(0,0,0,.03);
+        padding: .75rem 1.25rem;
+        margin-bottom: 20px;
+    }
+    ::ng-deep {
+        .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+            background-color: #000000;
+            
+        }
+        .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+            background-color: rgba(0, 0, 0, 0.54);
+        }
+    }
+    .card-header {
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
+        background-color: rgba(0, 0, 0, .03);
+        padding: .75rem 1.25rem;
+        margin-bottom: 20px;
+      }

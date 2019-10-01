@@ -1,0 +1,18 @@
+.abc{
+    max-width:100%;
+    min-width:1600px;
+}
+.example-container {
+    overflow: auto;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .abc{
+        min-width:1200px;
+    }
+}
+@media only screen and (min-width: 900px) {
+    .abc{
+        min-width:100%;
+    }
+}

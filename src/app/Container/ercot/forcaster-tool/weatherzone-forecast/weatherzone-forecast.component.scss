@@ -1,0 +1,114 @@
+.abc{
+    min-width: 2300px;
+    max-width: 100%;
+}
+table {
+    width: 100%;
+}
+h4 {
+    font-weight: bold;
+    padding: 20px;
+    margin: 0px;
+    text-align: center;
+}
+.my-table {
+    background-color: white;
+    overflow: auto;
+    .mat-form-field {
+        width: 100%;
+        padding: 10px 10px 0px 10px;
+    }
+}
+.table-container {
+    max-height: calc(100vh - 354px);
+}
+
+@media screen and (max-width: 804px) {
+    .table-container {
+        max-height: calc(100vh - 394px);
+    }
+}
+
+//side view
+:host {
+    >.container {
+        max-width: 1264px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    /deep/ {
+        .mat-tab-group {
+            flex-direction: row;
+        }
+        .mat-tab {
+            margin: 0px 2px;
+        }
+        .mat-tab-header {
+            border-bottom: none;
+        }
+        .mat-tab-header-pagination {
+            display: none !important;
+        }
+        .mat-tab-labels {
+            flex-direction: column;
+            height: calc(100vh - 255px);
+            background-color: white;
+            box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+            margin: 5px 15px 5px 5px;
+        }
+        .mat-ink-bar {
+            display: none !important;
+        }
+        .mat-tab-body-wrapper {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+p {
+    margin-bottom: 0px !important;
+}
+
+::ng-deep .vertical-tabs {
+    .mat-tab-label-active {
+        border-right: 2px #000 solid !important;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    .mat-tab-labels {
+        max-height: calc(100vh - 380px);
+    }
+}
+
+@media screen and (max-width: 804px) {
+     :host {
+        /deep/ {
+            .mat-tab-group {
+                flex-direction: column;
+            }
+            .mat-tab-labels {
+                flex-direction: row;
+                height: calc(100%);
+            }
+            .mat-tab-label-container {
+                margin: 0px 0px 15px 0px;
+            }
+            .vertical-tabs .mat-tab-label-active {
+                border-right: none !important;
+                border-bottom: 2px solid #000 !important;
+            }
+            .mat-tab {
+                margin: 0px 0px !important;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 770px) {
+    p {
+        display: inline-block
+    }
+}

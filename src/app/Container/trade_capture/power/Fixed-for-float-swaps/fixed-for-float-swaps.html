@@ -1,0 +1,81 @@
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Fixed for Float">
+    <div class="my-container">
+      <mat-card>
+        <div class="outer-container">
+          <button mat-icon-button class="bts">
+            <i class="material-icons">
+              refresh
+            </i>
+          </button>
+          <button mat-icon-button class="bts">
+            <i class="material-icons">
+              file_copy
+            </i>
+          </button>
+          <button mat-raised-button class="btn1 font-styling">Export Data</button>
+          <button mat-raised-button class="btn1 font-styling">Restore Grid</button>
+          <button mat-raised-button class="btn1 font-styling" (click)="openSelectionDialog()">Selection
+            Criteria</button>
+        </div>
+        <div class="my-table">
+          <div class="table-container">
+            <table mat-table [dataSource]="dataSource" class="abc">
+              <ng-container matColumnDef="Buy/Sell">
+                <th mat-header-cell *matHeaderCellDef> Buy/Sell </th>
+                <td mat-cell *matCellDef="let element">{{element?.BuySell ? element?.BuySell : '--'}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="FirstDate">
+                <th mat-header-cell *matHeaderCellDef> First Date </th>
+                <td mat-cell *matCellDef="let element"> {{element?.BuySell ? element?.BuySell : '--'}}</td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="LastDate">
+                <th mat-header-cell *matHeaderCellDef> Last Date </th>
+                <td mat-cell *matCellDef="let element">{{element?.first_Dt ? element?.first_Dt : '--'}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="CounterParty">
+                <th mat-header-cell *matHeaderCellDef> Counter Party </th>
+                <td mat-cell *matCellDef="let element"> {{element?.last_Dt ? element?.last_Dt : '--'}}</td>
+              </ng-container>
+              <ng-container matColumnDef="Location">
+                <th mat-header-cell *matHeaderCellDef> Location </th>
+                <td mat-cell *matCellDef="let element">{{element?.counterParty ? element?.counterParty : '--'}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="# of Extra Cost">
+                <th mat-header-cell *matHeaderCellDef> # of Extra Cost </th>
+                <td mat-cell *matCellDef="let element"> {{element?.location ? element?.location : '--'}}</td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="Price Description">
+                <th mat-header-cell *matHeaderCellDef> Price Description </th>
+                <td mat-cell *matCellDef="let element"> {{element?.Price_desc ? element?.Price_desc : '--'}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="MW Amount">
+                <th mat-header-cell *matHeaderCellDef> MW Amount</th>
+                <td mat-cell *matCellDef="let element"> {{element?.mw_amnt ? element?.mw_amnt : '--'}}</td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </mat-tab>
+  <mat-tab label="New Fixed for Float">
+    <app-new-fixed-float></app-new-fixed-float>
+  </mat-tab>
+  <mat-tab label="Create From Template"> Content 3 </mat-tab>
+</mat-tab-group>

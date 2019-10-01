@@ -1,0 +1,147 @@
+    <div class="my-container">
+      <mat-card>
+        <div class="outer-container">
+          <button mat-icon-button class="bts">
+            <i class="material-icons">
+              refresh
+            </i>
+          </button>
+          <button mat-icon-button class="bts">
+            <i class="material-icons">
+              file_copy
+            </i>
+          </button>
+          <button mat-raised-button class="btn1 font-styling">Act on All</button>
+          <button mat-raised-button class="btn1 font-styling">Review Accounts</button>
+          <button mat-raised-button class="btn1 font-styling"(click)="openSelectionDialog()" >Selection
+            Criteria</button>
+        </div>
+       <div class="my-table">
+          <div class="table-container">
+            <div class="table-container">
+              <table mat-table [dataSource]="dataSource" class="abc">
+                <ng-container matColumnDef="0" sticky>
+                  <th mat-header-cell *matHeaderCellDef> Actions</th>
+                  <td mat-cell *matCellDef="">
+                    <button matTooltip="Actions" mat-icon-button [matMenuTriggerFor]="menu">
+                      <i class="material-icons">toc</i>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item>
+                        <mat-icon>receipt</mat-icon>
+                        <span>Change Invoice No.</span>
+                      </button>
+                      <button mat-menu-item>
+                        <mat-icon>change_history</mat-icon>
+                        <span>Change Due Date</span>
+                      </button>
+                      <button mat-menu-item>
+                        <mat-icon>edit</mat-icon>
+                        <span>Change Template</span>
+                      </button>
+                      <button mat-menu-item>
+                        <mat-icon>check_circle</mat-icon>
+                        <span>Mark as Reviewed</span>
+                      </button>
+                      <button mat-menu-item>
+                        <mat-icon>visibility</mat-icon>
+                        <span>View Invoice</span>
+                      </button>
+                      <button mat-menu-item>
+                        <mat-icon>description</mat-icon>
+                        <span>Show Manifest</span>
+                      </button>
+                      <button mat-menu-item>
+                        <mat-icon>history</mat-icon>
+                        <span>View History</span>
+                      </button>
+                    </mat-menu>
+                    <!-- <button matTooltip="Change Invoice No." mat-icon-button>
+                      <i class="material-icons">receipt</i>
+                    </button>
+                    <button matTooltip="Change Due Date" mat-icon-button>
+                      <i class="material-icons">change_history</i>
+                    </button>
+                    <button matTooltip="Change Template" mat-icon-button>
+                      <i class="material-icons">edit</i>
+                    </button>
+                    <button matTooltip="Mark as Reviewed" mat-icon-button>
+                      <i class="material-icons">check_circle</i>
+                    </button>
+                    <button matTooltip="View Invoice" mat-icon-button>
+                      <i class="material-icons">visibility</i>
+                    </button>
+                    <button matTooltip="Show Manifest" mat-icon-button>
+                      <i class="material-icons">description</i>
+                    </button>
+                    <button matTooltip="View History" mat-icon-button>
+                        <i class="material-icons">history</i>
+                      </button> -->
+
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="1">
+                  <th mat-header-cell *matHeaderCellDef> Status</th>
+                  <td mat-cell *matCellDef="let element">{{element.status}}</td>
+                </ng-container>
+                <ng-container matColumnDef="2">
+                  <th mat-header-cell *matHeaderCellDef> Invoice No.</th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="3">
+                  <th mat-header-cell *matHeaderCellDef> Type</th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="4">
+                  <th mat-header-cell *matHeaderCellDef> Participant </th>
+                  <td mat-cell *matCellDef="let element"></td>
+                </ng-container>
+                <ng-container matColumnDef="5">
+                  <th mat-header-cell *matHeaderCellDef> Commodity </th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="6">
+                  <th mat-header-cell *matHeaderCellDef> Counterparty </th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="7">
+                  <th mat-header-cell *matHeaderCellDef> Period </th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="8">
+                  <th mat-header-cell *matHeaderCellDef> Amount</th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="9">
+                  <th mat-header-cell *matHeaderCellDef> Due Date</th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="10">
+                  <th mat-header-cell *matHeaderCellDef> Paid</th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="11">
+                  <th mat-header-cell *matHeaderCellDef> Balance </th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="12">
+                  <th mat-header-cell *matHeaderCellDef> Changed By</th>
+                  <td mat-cell *matCellDef="let element"></td>
+                </ng-container>
+                <ng-container matColumnDef="13">
+                  <th mat-header-cell *matHeaderCellDef> Changed Time </th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+                <ng-container matColumnDef="14">
+                  <th mat-header-cell *matHeaderCellDef> Volume </th>
+                  <td mat-cell *matCellDef="let element"> </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns ; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>

@@ -1,0 +1,72 @@
+<form class="row">
+  <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+    <input [max]="date2Validate" matInput #start [matDatepicker]="picker1" placeholder="From" (dateChange)="applyFilter1($event.target.value)">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+    <input [min]="date1Validate" matInput #end [matDatepicker]="picker2" placeholder="To" (dateChange)="applyFilter2($event.target.value)">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+</form>
+<mat-card>
+  <!-- <div class="inside_main">
+    <div>
+      <button mat-icon-button class="bts">
+        <i class="material-icons">
+          refresh
+        </i>
+      </button>
+      <button mat-icon-button class="bts">
+        <i class="material-icons">
+          file_copy
+        </i>
+      </button>
+      <button mat-raised-button class="btn1 font-styling">Export Data</button>
+      <button mat-raised-button class="btn1 font-styling">Restore Grid</button>
+    </div>
+    <div>
+      <button mat-raised-button class="btn1 font-styling">Selection Criteria</button>
+    </div>
+  </div> -->
+
+  <mat-paginator #Paginator [pageSizeOptions]="[20, 40]" showFirstLastButtons></mat-paginator>
+  <div class="table-container">
+    <table mat-table [dataSource]="DataSource" class="tables mat-elevation-z8" class="abc">
+      <ng-container matColumnDef="1">
+        <th mat-header-cell *matHeaderCellDef> Load profile </th>
+        <td mat-cell *matCellDef="let element">{{element?.loadprofile ? element?.loadprofile : '--'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="2">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{(element.date | date) ? (element.date | date):'--'}}</td>
+      </ng-container>
+      <ng-container matColumnDef="3">
+        <th mat-header-cell *matHeaderCellDef> Load profile count </th>
+        <td mat-cell *matCellDef="let element">{{element?.loadprofile_count ? element?.loadprofile_count : '--'}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="DisplayedColumns ; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: DisplayedColumns;"></tr>
+    </table>
+    <table class="tab-animate" *ngIf="loading==true">
+        <tbody>
+          <tr>
+            <td class="td">
+              <span></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="td">
+              <span></span>
+            </td>
+          </tr>
+          <tr>
+            <td class="td">
+              <span></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</mat-card>

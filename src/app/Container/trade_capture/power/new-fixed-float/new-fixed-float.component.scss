@@ -1,0 +1,54 @@
+
+.mat-radio-button{
+    padding-left: 5px;
+    color: #4b4b4b;
+    font-weight: 550;
+ 
+}
+
+mat-card-header{
+    font-weight: bold;
+    font-size: 20px;
+}
+.abc{
+    margin-top: 5px;
+}
+button{
+    font-weight: bold;
+}
+.flexx{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+label {
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+  }
+  
+  .status {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .radio-group2 {
+    margin-left: 12px;
+  }  
+  ::ng-deep .mat-grid-tile {
+    border: 1px solid #b9b9b9;  
+    .mat-grid-tile-header{
+      background-color: #8f8e8e !important;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      justify-content: center;
+  }
+}
+.move-down{
+    margin-top: 60px;
+}
+.move-downs{
+    margin-top: 80px;
+}

@@ -1,0 +1,129 @@
+<div class="row container-fluid">
+    <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+      <div class="flexx">
+        <mat-radio-group [(ngModel)]="buySell">
+          <mat-radio-button *ngFor="let s of buysell" [value]="s">
+            {{s}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <mat-radio-group [(ngModel)]="validWahtif">
+          <mat-radio-button *ngFor="let s of whatif" [value]="s">
+            {{s}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field style="width:100%">
+        <input matInput placeholder="Reason">
+      </mat-form-field>
+    </mat-card>
+    <mat-card class="col-lg-6 col-md-12 col-sm-12 col-xs-12 abc">
+      <mat-card-header>Trade Information</mat-card-header>
+      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <input matInput placeholder="Trade Name">
+      </mat-form-field>
+      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <input matInput [matDatepicker]="picker1" placeholder="Trade Date">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <mat-select placeholder="Trading Book">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <mat-select placeholder="Trader Name">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <textarea matInput placeholder="Comments"></textarea>
+      </mat-form-field>
+    </mat-card>
+    <mat-card class="col-lg-6 col-md-12 col-sm-12 col-xs-12 abc">
+      <mat-card-header>Trade Terms</mat-card-header>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+        <mat-select placeholder="Counterparty">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
+        <mat-select placeholder="Agreement">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <textarea matInput placeholder="Special Terms"></textarea>
+      </mat-form-field>
+    </mat-card>
+    <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+      <mat-card-header>Power Delivery</mat-card-header>
+      <mat-form-field class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+        <mat-select placeholder="Location">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+        <mat-select placeholder="Shape">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+        <mat-select placeholder="Time Zone">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+        <input matInput placeholder="Ranking Number">
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+        <input matInput [matDatepicker]="picker2" placeholder="First Date">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+        <input matInput [matDatepicker]="picker3" placeholder="Last Date">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+          <mat-select placeholder="Product">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+          <input matInput placeholder="Tag Template Name">
+        </mat-form-field>
+        <div class="label-align">
+        <div>
+          <label>Automatically Adjust Associated e-Tags:</label>
+        <mat-radio-group [(ngModel)]="adjust" class="radio-group1" >
+            <mat-radio-button  *ngFor="let s of adjustEtags" [value]="s">
+              {{s}}
+            </mat-radio-button>
+          </mat-radio-group>
+        
+        </div>
+        <div>
+          <label> Automatically Modify for e-Tag Adjustments: </label>
+          <mat-radio-group [(ngModel)]="modify" class="col-lg-3 col-md-12 col-sm-6 col-xs-12" class="radio-group1" >
+              <mat-radio-button  *ngFor="let s of modifyEtags" [value]="s">
+                {{s}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+    </mat-card>
+    <mat-card class="col-lg-12 col-md-12 col-sm-12 col-xs-12 abc">
+      <div class="flexx">
+        <div>
+          <button mat-raised-button class="btn1 font-styling">Save as Template</button>
+          <button mat-raised-button class="btn1 font-styling">Save & Exit</button>
+        </div>
+        <div>
+          <button mat-raised-button class="btn1 font-styling">Save & Keep</button>
+          <button mat-raised-button class="btn2 font-styling">Cancel</button>
+        </div>
+      </div>
+    </mat-card>
+  </div>

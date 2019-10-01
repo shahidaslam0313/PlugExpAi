@@ -1,0 +1,10 @@
+<mat-card>
+    <div class="row">
+
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="chartData7?.barChartData.length > 0">
+            <canvas *ngIf="chartData7.barChartData" width="650" height="350" baseChart [datasets]="chartData7.barChartData" [labels]="chartData7.barChartLabels" [options]="chartData7.barChartOptions" [colors]="chartData7.barChartColors" [chartType]="chartData7.barChartType"></canvas>
+        </div>
+
+    </div>
+</mat-card>
