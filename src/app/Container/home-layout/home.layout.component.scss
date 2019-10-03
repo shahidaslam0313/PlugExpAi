@@ -188,7 +188,7 @@
         width: 25px;
         font-size: 20px;
         margin-right: 5px;
-        color: #707070;
+        color: #042863;
     }
 }
 
@@ -238,7 +238,7 @@
     z-index: 3;
     width: 100%;
     h4 {
-        font-size: 16px;
+        font-size: 12px;
         // font-style: italic
     }
 }
@@ -290,12 +290,13 @@
 
 ::ng-deep .is-active {
     // background-color: #4b009f;
-    background-color: #000;
-    color: #fff !important;
+    background-color: #042863;
+    color: #fff!important;
+    border-radius: 5px;
     span {
         color: #fff;
     }
     i {
-        color: #fff
+        color: #fff !important
     }
 }
