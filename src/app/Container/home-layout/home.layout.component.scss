@@ -244,10 +244,12 @@
 }
 
 .footerEnd .mat-toolbar {
-    background: #3f51b3;
+    background: #042863;
     color: hsl(0, 0%, 0%);
 }
-
+.margin button{
+  color: #042863;
+}
 @media only screen and (max-width: 600px) {
     .mainDiv {
         margin-bottom: 0px;

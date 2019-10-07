@@ -24,59 +24,73 @@
 <!-- <div class="Monthly"> -->
 <!-- <form [formGroup]="ScheduleForm" (ngSubmit)="onSubmit(loadzone.value,weatherzone.value,customerprofile.value)"> -->
 <mat-card>
-    <form [formGroup]="ScheduleForm" (ngSubmit)="onSubmit()">
+    <form class="hourly_form" [formGroup]="ScheduleForm" (ngSubmit)="onSubmit()">
         <!-- <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
-        <mat-form-field class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-            <!-- <input matInput (click)="dp.open()" (click)="checkvalue(date.value)" [min]="current" [max]="dateEnd?.value" [matDatepicker]="dp" placeholder="To"
-            [formControl]="date" (ngModelChange)="checkvalue(date.value)">
-          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-          <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event)" (monthSelected)="chosenMonthHandler($event, dp)"
-            panelClass="example-month-picker">
-          </mat-datepicker> -->
-            <input [min]="current" #abc [max]="ScheduleForm.controls.dateEnd?.value" matInput [matDatepicker]="picker1" placeholder="From" formControlName="date">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-            <mat-error>
-                required
-            </mat-error>
-        </mat-form-field>
+          <div>
+              <mat-form-field >
+                  <!-- <input matInput (click)="dp.open()" (click)="checkvalue(date.value)" [min]="current" [max]="dateEnd?.value" [matDatepicker]="dp" placeholder="To"
+                  [formControl]="date" (ngModelChange)="checkvalue(date.value)">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event)" (monthSelected)="chosenMonthHandler($event, dp)"
+                  panelClass="example-month-picker">
+                </mat-datepicker> -->
+                  <input [min]="current" #abc [max]="ScheduleForm.controls.dateEnd?.value" matInput [matDatepicker]="picker1" placeholder="From" formControlName="date">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                  <mat-error>
+                      required
+                  </mat-error>
+              </mat-form-field>
+          </div>
+          <div>
+              <mat-form-field >
+                  <input [min]="start" #abc [min]="ScheduleForm.controls.date?.value" [max]="endDate" matInput [matDatepicker]="picker2" placeholder="To" formControlName="dateEnd">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                  <mat-error>
+                      required
+                  </mat-error>
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field >
+                <mat-select placeholder="Granularity" formControlName="granularity">
+                    <!-- <mat-option value="null"> -- </mat-option> -->
+                    <mat-option *ngFor="let x of granularityValue" [value]="x.value">
+                        {{x.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>
+                    required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field >
+                <mat-select #sum placeholder="Summarization" multiple>
+                    <!-- <mat-option value="null"> -- </mat-option> -->
+                    <mat-option *ngFor="let x of summarization" [value]="x.value">
+                        {{x.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+      
         <!-- <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
         <!-- <input matInput (click)="dp2.open()" [min]="date?.value" [max]="endDate" [matDatepicker]="dp2" placeholder="From" [formControl]="dateEnd">
           <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
           <mat-datepicker #dp2 startView="multi-year" (yearSelected)="chosenYearHandler2($event)" (monthSelected)="chosenMonthHandler2($event, dp2)"
             panelClass="example-month-picker">
           </mat-datepicker> -->
-        <mat-form-field class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-            <input [min]="start" #abc [min]="ScheduleForm.controls.date?.value" [max]="endDate" matInput [matDatepicker]="picker2" placeholder="To" formControlName="dateEnd">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-            <mat-error>
-                required
-            </mat-error>
-        </mat-form-field>
+        
         <!-- <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> -->
-        <mat-form-field class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-            <mat-select placeholder="Granularity" formControlName="granularity">
-                <!-- <mat-option value="null"> -- </mat-option> -->
-                <mat-option *ngFor="let x of granularityValue" [value]="x.value">
-                    {{x.viewValue}}
-                </mat-option>
-            </mat-select>
-            <mat-error>
-                required
-            </mat-error>
-        </mat-form-field>
+      
         <!-- <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> -->
-        <mat-form-field class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
-            <mat-select #sum placeholder="Summarization" multiple>
-                <!-- <mat-option value="null"> -- </mat-option> -->
-                <mat-option *ngFor="let x of summarization" [value]="x.value">
-                    {{x.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+      
         <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center"> -->
-        <button (click)="toggle()" class="col-lg-1 col-md-1 col-sm-1 col-xs-1 btn-search font-styling" mat-raised-button>Search</button>
+        <div>
+            <button (click)="toggle()" class=" btn-search font-styling" mat-raised-button>Search</button>
+        </div>
         <!-- </div> -->
     </form>
 </mat-card>
@@ -445,11 +459,6 @@
               <td mat-cell *matCellDef="let element"> {{element?.total }} </td>
           </ng-container> -->
 
-
-
-
-
-
             <ng-container matColumnDef="222">
                 <th mat-header-cell *matHeaderCellDef> View Details </th>
                 <td mat-cell *matCellDef="let element">
@@ -458,7 +467,6 @@
                     </a>
                 </td>
             </ng-container>
-
 
             <ng-container matColumnDef="1">
                 <th mat-header-cell *matHeaderCellDef> Date</th>
@@ -492,22 +500,6 @@
                 <th mat-header-cell *matHeaderCellDef> Total</th>
                 <td mat-cell *matCellDef="let element"> {{element?.total }} </td>
             </ng-container>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- <ng-container matColumnDef="expandedDetail">
               <td mat-cell *matCellDef="let element" [attr.colspan]="demoDisplayedColumns.length">
                   <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">

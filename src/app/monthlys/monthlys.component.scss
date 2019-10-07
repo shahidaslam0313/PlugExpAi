@@ -114,7 +114,7 @@
 //     }
 //   }
 th {
-    background-color: #000;
+    background-color: #042863;
     // background-color: #4b009f;
     color: #fff;
     font-size: 15px;
@@ -266,4 +266,44 @@ table {
             }
         }
     }
+}
+
+
+.hourly_form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 5px;
+  justify-content: center;
+}
+.hourly_form>div {
+  margin: 0 10px;
+  width: 200px;
+  .btn-search{
+    width: 200px;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+}
+@media (max-width:1150px) {
+  .hourly_form>div {
+    margin: 0 10px;
+    width: 45%;
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    .btn-search {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .hourly_form>div {
+    margin: 0 10px;
+    width: 100%;
+  }
 }
