@@ -15,3 +15,8 @@
 .container-fluid{
     margin-top:10px;
 }
+@media (max-width:540px){
+  .sm_text_center{
+    text-align: center;
+  }
+}

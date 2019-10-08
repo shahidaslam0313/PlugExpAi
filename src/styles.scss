@@ -135,3 +135,8 @@ mat-card-header {
 }
 //////////////////////////////////////////End Form Styale///////////////////////////////////
 
+@media (max-width:540px){
+  .sm_mg_0 .mat-paginator-range-label{
+    margin: 0;
+  }
+}
