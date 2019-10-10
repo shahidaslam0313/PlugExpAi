@@ -4,6 +4,7 @@ import { Containers } from './Container';
 import { OnlyLoggedInUsersGuard, OnlyLoggedOutUsersGuard } from './services/authentication.service';
 import { ReviewLSChannelCutsComponent } from './Container/ercot/SCR-727-ESIID-Database/reviewChannelCuts/review-ls-channel-cuts/review-ls-channel-cuts.component';
 import { ReviewEsiIdServiceHistoryComponent } from './Container/ercot/SCR-727-ESIID-Database/review-esi-id-service-history/review-esi-id-service-history.component';
+import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 // import { ReviewEsiIdUsageMeterReadsComponent } from './Container/ercot/SCR-727-ESIID-Database/review-esi-id-usage-meter-reads/review-esi-id-usage-meter-reads.component';
 
 
@@ -18,8 +19,10 @@ const routes: Routes = [
             canActivate: [OnlyLoggedInUsersGuard],
             children: [
                   // { path: '', component: DashboardComponent }
-                  // { path: '', pathMatch: 'full', redirectTo: '/home' },
-                  { path: '', pathMatch: 'full', redirectTo: '/louren' },
+                  { path: '', pathMatch: 'full', component: MaindashboardComponent },
+                  // { path: '/louren', pathMatch: 'full', redirectTo: '/louren' },
+                  { path: 'louren', loadChildren: './Container/ercot/daahboard/louren/module#Module' },
+                  // RoutingModule
                   { path: 'home', component: Containers.HomeComponent },
                   { path: 'forecastertool', loadChildren: './Container/ercot/forcaster-tool/ReviewForcast/forecaster-tool/module#Module' },
                   { path: 'esiiddiscrepancy', loadChildren: './Container/ercot/forcaster-tool/esiid-discrepancy/module#Module' },

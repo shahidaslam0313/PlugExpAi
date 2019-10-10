@@ -19,7 +19,8 @@ export class HomeLayoutComponent implements OnInit {
   year = new Date().getFullYear();
   menuItems = [
     {
-      name: 'Home', route: '/louren', icon: 'fa fa-home', submenu: [
+      // name: 'Home', route: '/louren', icon: 'fa fa-home', submenu: [
+      name: 'Home', route: '', icon: 'fa fa-home', submenu: [
         {
           name: 'Dashboard', route: '', icon: 'fa fa-tachometer-alt', submenu: [
 
@@ -77,6 +78,12 @@ export class HomeLayoutComponent implements OnInit {
     //     },
     //   ]
     // },
+    {
+      name: 'New Component ', route: '', icon: 'fas fa-poo-storm', submenu: []
+    },
+
+
+
     {
       name: 'WattExpert Al  Forecast', route: '', icon: 'fas fa-poo-storm', submenu: [
         // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },

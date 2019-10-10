@@ -87,6 +87,7 @@ export const Containers = {
     WeatherzoneActualComponent,
     WeatherzoneForecastComponent,
     HomeComponent,
+    // MaindashboardComponent,
     AlertMonitorComponent,
     AlertDialogComponent,
     RetailPriceComponent,

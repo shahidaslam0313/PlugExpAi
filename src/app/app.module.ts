@@ -63,6 +63,7 @@ import { AmsIntervalDataComponent } from './Container/ercot/SCR-727-ESIID-Databa
 import { ReviewAmsIntervalComponent } from './Container/ercot/SCR-727-ESIID-Database/ReviewAmsInterval/review-ams-interval/review-ams-interval.component';
 import { DialogSelectionReviewAmsComponent } from './Container/ercot/SCR-727-ESIID-Database/ReviewAmsInterval/dialog-selection-review-ams/dialog-selection-review-ams.component';
 import { LinegraphComponent } from './linegraph/linegraph.component';
+import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 
 @NgModule({
   declarations: [
@@ -137,6 +138,7 @@ Containers.AlertDialogComponent,
     Containers.GeneratepowercounterpartyinovicesComponent,
     Containers.ReviewcounterpartyinovicesComponent,
     Containers.ReviewuninvoicedactivityreportsComponent,
+  
     // Containers.ImportCustomerAccountComponent,
     ResponsiveColumnsDirective,
     Containers.ReviewInvoiceComponent,
@@ -153,6 +155,7 @@ Containers.AlertDialogComponent,
     // ReviewAmsIntervalComponent,
     // DialogSelectionReviewAmsComponent
     Containers.DialogHourlyComponent,
+    MaindashboardComponent,
 
   ],
   imports: [
