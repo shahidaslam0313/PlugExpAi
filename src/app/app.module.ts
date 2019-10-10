@@ -87,7 +87,7 @@ Containers.AlertDialogComponent,
     Containers.PhysicalPowerOptionsDialog,
     Containers.FixedforFloatComponent,
     Containers.FixedforFloatDialog,
-
+Containers.LourenComponent,
     Containers.ReviewForwardPricesComponent,
     Containers.ImportforwardpricesComponent,
     Containers.ReviewForwardDialogComponent,
