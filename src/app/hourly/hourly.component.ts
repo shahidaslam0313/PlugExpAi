@@ -1012,8 +1012,13 @@ Data = []
     // { value: 'weatherzone-loadprofile-month-get', viewValue: 'Weather Zone / Load Profile' },
   ]
   hourlyGranularity = [
-    { value: 'loadzone-hourly-get', viewValue: 'Load Zone' },
-    { value: 'weatherzone-hourly-get', viewValue: 'Weather Zone' },
+    // { value: 'loadzone-hourly-get', viewValue: 'Load Zone' },
+    // { value: 'weatherzone-hourly-get', viewValue: 'Weather Zone' },
+    { value: 'Machine-Learning', viewValue: 'Machine Learning' },
+    { value: 'Hybrid', viewValue: 'Hybrid' },
+    { value: 'Statistical', viewValue: 'Statistical' },
+    // Machine Learning
+    // Hybrid
   ]
   summarize = new FormControl("")
   summarization = [

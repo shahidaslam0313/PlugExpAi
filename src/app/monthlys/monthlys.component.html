@@ -23,6 +23,8 @@
 </div>
 <!-- <div class="Monthly"> -->
 <!-- <form [formGroup]="ScheduleForm" (ngSubmit)="onSubmit(loadzone.value,weatherzone.value,customerprofile.value)"> -->
+    <h2  class="text-center heading_sh">Monthly Forecast</h2>
+
 <mat-card>
     <form class="hourly_form" [formGroup]="ScheduleForm" (ngSubmit)="onSubmit()">
         <!-- <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
@@ -67,7 +69,7 @@
         </div>
         <div>
             <mat-form-field >
-                <mat-select #sum placeholder="Summarization" multiple>
+                <mat-select #sum placeholder="Forecast Type" multiple>
                     <!-- <mat-option value="null"> -- </mat-option> -->
                     <mat-option *ngFor="let x of summarization" [value]="x.value">
                         {{x.viewValue}}

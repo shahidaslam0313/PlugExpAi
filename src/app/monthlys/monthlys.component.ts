@@ -974,14 +974,15 @@ export class MonthlysComponent implements OnInit {
   ]
   summarize = new FormControl("")
   summarization = [
-    { value: 'Peak', viewValue: 'Peak' },
-    { value: '7x16', viewValue: '7x16' },
-    { value: '5x16', viewValue: '5x16' },
-    { value: 'Average', viewValue: 'Average' },
-    { value: 'Maximum', viewValue: 'Maximum' },
-    { value: 'Off-Peak', viewValue: 'Off-Peak' },
-    { value: '7x8', viewValue: '7x8' },
-    { value: '2x16', viewValue: '2x16' },
+    { value: 'Statistical', viewValue: 'Statistical' }
+    // { value: 'Peak', viewValue: 'Peak' },
+    // { value: '7x16', viewValue: '7x16' },
+    // { value: '5x16', viewValue: '5x16' },
+    // { value: 'Average', viewValue: 'Average' },
+    // { value: 'Maximum', viewValue: 'Maximum' },
+    // { value: 'Off-Peak', viewValue: 'Off-Peak' },
+    // { value: '7x8', viewValue: '7x8' },
+    // { value: '2x16', viewValue: '2x16' },
   ]
 
   demoDisplayedColumns: string[] = ['222','1', '2', '3', '4', '5', '6', '7', '8']

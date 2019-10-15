@@ -10,6 +10,7 @@
                 <mat-icon matTooltip="What if" (click)="togglePanel()">note_add</mat-icon>
             </div> -->
 </div>
+<h2  class="text-center heading_sh">Hourly Forecast</h2>
 <mat-card>
     <form class="hourly_form" [formGroup]="hourly" (ngSubmit)="onSubmitHourly()">
         <!-- <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
@@ -38,7 +39,7 @@
         <!-- <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> -->
        <div>
         <mat-form-field >
-          <mat-select placeholder="Granularity" formControlName="granularity">
+          <mat-select placeholder="Forecast Type" formControlName="granularity">
               <mat-option *ngFor="let x of hourlyGranularity" [value]="x.value">
                   {{x.viewValue}}
               </mat-option>

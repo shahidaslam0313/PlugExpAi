@@ -6,6 +6,8 @@ import { ReviewLSChannelCutsComponent } from './Container/ercot/SCR-727-ESIID-Da
 import { ReviewEsiIdServiceHistoryComponent } from './Container/ercot/SCR-727-ESIID-Database/review-esi-id-service-history/review-esi-id-service-history.component';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 import { LourenComponent } from './Container/ercot/dashboard/louren/louren.component';
+import { DailyEnergyComponent } from './daily-energy/daily-energy.component';
+import { EnergyWasteComponent } from './energy-waste/energy-waste.component';
 // import { ReviewEsiIdUsageMeterReadsComponent } from './Container/ercot/SCR-727-ESIID-Database/review-esi-id-usage-meter-reads/review-esi-id-usage-meter-reads.component';
 
 
@@ -24,6 +26,8 @@ const routes: Routes = [
                   // { path: '/louren', pathMatch: 'full', redirectTo: '/louren' },
                   // loadChildren: './Container/ercot/daahboard/louren/module#Module'
                   { path: 'louren',component:Containers.LourenComponent },
+                  { path: 'energywaste',component:EnergyWasteComponent },
+                  { path: 'dailyenergy',component:DailyEnergyComponent },
                   // RoutingModule
                   { path: 'home', component: Containers.HomeComponent },
                   { path: 'forecastertool', loadChildren: './Container/ercot/forcaster-tool/ReviewForcast/forecaster-tool/module#Module' },

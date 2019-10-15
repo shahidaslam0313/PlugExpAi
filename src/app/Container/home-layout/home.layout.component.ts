@@ -81,18 +81,29 @@ export class HomeLayoutComponent implements OnInit {
     {
       name: 'New Component ', route: '', icon: 'fas fa-poo-storm', submenu: []
     },
+    {
+      name: 'Daily Energy Monitoring  ', route: '/dailyenergy', icon: 'fas fa-poo-storm', submenu: []
+    },
+    {
+      name: 'Energy Wastage', route: '/energywaste', icon: 'fas fa-poo-storm', submenu: []
+    },
+
+    
 
 
 
     {
-      name: 'WattExpert Al  Forecast', route: '', icon: 'fas fa-poo-storm', submenu: [
+      name: 'WattExpert Forecast', route: '', icon: 'fas fa-poo-storm', submenu: [
         // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
-        { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [
+        { name: 'Monthly Forecast', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
+        { name: 'Hourly Forecast', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
+        // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [
     
-          { name: 'Monthly', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
-          { name: 'Hourly', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
+        //   { name: 'Monthly', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
+        //   { name: 'Hourly', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
 
-        ] },
+        // ] }
+        // ,
         // { name: 'Review Customer Counts', route: '/review-customer-count', icon: 'fa fa-clipboard', submenu: [] },
         // { name: 'Import Customer Account', route: '/import-customer-account', icon: 'fa fa-upload', submenu: [] },
         // { name: 'ESIID Discrepancy Reports', route: '/esiiddiscrepancy', icon: 'fa fa-file', submenu: [] },

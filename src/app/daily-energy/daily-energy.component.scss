@@ -75,11 +75,10 @@
 
 .graph_div {
   width: 100%;
-  max-width: 23%;
+  max-width: 30%;
   background-color: #fff;
   min-width: 200px;
-  padding: 20px;
-  min-height: 200px;
+  min-height: 250px;
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
 
@@ -87,12 +86,23 @@
   .this_week {
     display: flex;
     align-items: center;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
 
     small {
-      margin-left: 10px;
+      font-size: 16px;
       font-weight: 600;
     }
+    h4{
+      font-size: 40px;
+    color: #00ace0;
+    .downward_arrow{
+      font-size: 20px;
+      color: #c7c7c7;
+    }
 
+    }
     .icon_div {
       font-size: 22px;
       width: 50px;
@@ -124,7 +134,7 @@
   .graph_div{
     max-width: 100%;
     padding: 15px;
-    min-height: 250px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -139,9 +149,7 @@
     width: 100%;
   }
 }
-.graph_div:not(:last-child) {
-  margin-right: 10px;
-}
+
 .small_graph{
   max-width: 100%;
   padding: 5px;
@@ -159,7 +167,8 @@
 }
 .wider_graph{
   padding: 5px;
-  max-width: 75%;
+  max-width: 100%;
+  min-height: 350px;
 }
 .blue_icon{
   background: #e1ebff;
@@ -185,9 +194,9 @@
     margin-bottom: 10px;
   }
   .wider_graph,.small_graph{
-    width: 50%;
-    max-width: 50%;
-    min-width: 50%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     margin-bottom: 10px;
   }
 }

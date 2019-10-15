@@ -64,6 +64,8 @@ import { ReviewAmsIntervalComponent } from './Container/ercot/SCR-727-ESIID-Data
 import { DialogSelectionReviewAmsComponent } from './Container/ercot/SCR-727-ESIID-Database/ReviewAmsInterval/dialog-selection-review-ams/dialog-selection-review-ams.component';
 import { LinegraphComponent } from './linegraph/linegraph.component';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
+import { EnergyWasteComponent } from './energy-waste/energy-waste.component';
+import { DailyEnergyComponent } from './daily-energy/daily-energy.component';
 
 @NgModule({
   declarations: [
@@ -156,6 +158,8 @@ Containers.LourenComponent,
     // DialogSelectionReviewAmsComponent
     Containers.DialogHourlyComponent,
     MaindashboardComponent,
+    EnergyWasteComponent,
+    DailyEnergyComponent,
 
   ],
   imports: [
