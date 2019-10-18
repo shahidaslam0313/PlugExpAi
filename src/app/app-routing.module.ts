@@ -29,7 +29,7 @@ const routes: Routes = [
                   { path: 'louren',component:Containers.LourenComponent },
                   { path: 'energywaste',component:EnergyWasteComponent },
                   { path: 'dailyenergy',component:DailyEnergyComponent },
-                  { path: 'weeklyenergy',component:WeeklyEnergyComponent },
+                  { path: 'weekly-comparison',component:WeeklyEnergyComponent },
                   // RoutingModule
                   { path: 'home', component: Containers.HomeComponent },
                   { path: 'forecastertool', loadChildren: './Container/ercot/forcaster-tool/ReviewForcast/forecaster-tool/module#Module' },

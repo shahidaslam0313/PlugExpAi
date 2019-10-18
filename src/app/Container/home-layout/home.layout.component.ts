@@ -88,7 +88,7 @@ export class HomeLayoutComponent implements OnInit {
       name: 'Energy Wastage', route: '/energywaste', icon: 'fas fa-poo-storm', submenu: []
     },
      {
-      name: 'Weekly Wastage', route: '/weeklyenergy', icon: 'fas fa-poo-storm', submenu: []
+      name: 'Weekly Comparison', route: '/weekly-comparison', icon: 'fas fa-poo-storm', submenu: []
     },
 
     
