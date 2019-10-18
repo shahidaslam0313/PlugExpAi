@@ -79,7 +79,7 @@ export class HomeLayoutComponent implements OnInit {
     //   ]
     // },
     {
-      name: 'New Component ', route: '', icon: 'fas fa-poo-storm', submenu: []
+      name: 'Dashboard ', route: '', icon: 'fas fa-poo-storm', submenu: []
     },
     {
       name: 'Daily Energy Monitoring  ', route: '/dailyenergy', icon: 'fas fa-poo-storm', submenu: []
@@ -87,7 +87,11 @@ export class HomeLayoutComponent implements OnInit {
     {
       name: 'Energy Wastage', route: '/energywaste', icon: 'fas fa-poo-storm', submenu: []
     },
+     {
+      name: 'Weekly Wastage', route: '/weeklyenergy', icon: 'fas fa-poo-storm', submenu: []
+    },
 
+    
     
 
 

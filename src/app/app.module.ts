@@ -66,6 +66,7 @@ import { LinegraphComponent } from './linegraph/linegraph.component';
 import { MaindashboardComponent } from './maindashboard/maindashboard.component';
 import { EnergyWasteComponent } from './energy-waste/energy-waste.component';
 import { DailyEnergyComponent } from './daily-energy/daily-energy.component';
+import { WeeklyEnergyComponent } from './weekly-energy/weekly-energy.component';
 
 @NgModule({
   declarations: [
@@ -160,6 +161,7 @@ Containers.LourenComponent,
     MaindashboardComponent,
     EnergyWasteComponent,
     DailyEnergyComponent,
+    WeeklyEnergyComponent,
 
   ],
   imports: [

@@ -27,6 +27,7 @@ export class ApiService {
   {
     return this.http.get<any>(`${this.new2}reports/allzones-dummy/`).pipe(catchError(this.errorHandler))
   }
+
   domo2()
   {
     return this.http.get<any>(`${this.new2}forecast/loadzone-hourly-get/`).pipe(catchError(this.errorHandler))
@@ -80,6 +81,17 @@ export class ApiService {
     }
     return this.http.post<any>(`${this.new}reports/hourly-prediction-date-range-get/`, val)
   }
+  weeklycomparison(hourlyValue1) {
+   
+    return this.http.post<any>(`${this.new}reports/weekly-comparison/`, {'u_id': hourlyValue1})
+  }
+
+  dailyenergymonitoring(hourlyValue1) {
+   
+    return this.http.post<any>(`${this.new}reports/daily-energy-monitoring/`, {'u_id': hourlyValue1})
+  }
+
+  // https://apis.plugexpai.com/reports/daily-energy-monitoring/
   
   retailPrice(obj): Observable<any> {
     return this.http.get<any>(`${this.new}forecast/retail-prices-get/${obj.timezone}/${obj.to}/${obj.to}/`).pipe(catchError(this.errorHandler))
