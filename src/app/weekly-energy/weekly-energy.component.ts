@@ -90,6 +90,7 @@ esiidCountHoustan = {
       // console.log(data.last_week.day1)
       this.viewhourly = res;
        this.dates =this.viewhourly.last_week
+       this.dates =this.viewhourly.this_week
       // this.dates = 90;
              console.log(this.dates.day1)
              console.log(this.dates.day2)
@@ -102,6 +103,7 @@ esiidCountHoustan = {
                  datasets:[
                   // labels:'this.week',
                    {
+                     label:'Last Week',
                      data:[
                       this.dates.day1,
                       this.dates.day2,
@@ -112,10 +114,32 @@ esiidCountHoustan = {
                       this.dates.day7
                       
                      ],
-                     backgroundColor:[  '#7AE2E2', '#FF8BA4', '#FFE29A', '#2ECC71', '#4C4C7C',
-                     '#AF7AC5',
-                     '#CB4335',]
-                   }],
+                     backgroundColor:[  '#7AE2E2',
+                    //   '#FF8BA4', '#FFE29A', '#2ECC71', '#4C4C7C',
+                    //  '#AF7AC5',
+                    //  '#CB4335',
+                    ]
+                   },
+                   {
+                    label:'This Week',
+                    data:[
+                     this.dates.day1,
+                     this.dates.day2,
+                     this.dates.day3,
+                     this.dates.day4,
+                     this.dates.day5,
+                     this.dates.day6,
+                     this.dates.day7
+                     
+                    ],
+                    backgroundColor:[ 
+                    //    '#7AE2E2', '#FF8BA4', 
+                    // '#FFE29A', '#2ECC71', '#4C4C7C',
+                    // '#AF7AC5',
+                    '#CB4335',]
+                  },
+    
+                  ],
                   //  background:['','',]
                  
                }
