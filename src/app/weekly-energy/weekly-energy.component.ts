@@ -122,28 +122,8 @@ esiidCountHoustan = {
 
              })
 
-            //  this.viewhourly.forEach(y => {
-            //   this.price_detail.push(y.price_detail)
-            //   this.no_of_payers.push(y.no_of_payers);
-            // });
-     
-            //  for (let i = 0; i < res['last_week'].length; i++) {
-            //   this.chartData2.barChartLabels[i] = res['last_week'][i]
-            //   alert(i)
-            //   console.log(this.chartData2.barChartLabels[i])
-            // }
-            // this.chartData2.barChartLabels['day1'] =  res['last_week']['day1']
-            // this.chartData2.barChartLabels['day2'] =  res['last_week']['day2']
-            // this.chartData2.barChartLabels['day3'] =  res['last_week']['day3']
-            // this.chartData2.barChartLabels['day4'] =  res['last_week']['day4']
-            // this.chartData2.barChartLabels['day5'] =  res['last_week']['day']
-         
-            this.esiidCountHoustan.data[0] = res['last_week']['day1']
-            this.esiidCountHoustan.data[1] = res['last_week']['day2']
-            this.esiidCountHoustan.data[2] = res['last_week']['day3']
-            this.esiidCountHoustan.data[3] = res['last_week']['day4']
     });
-    this.chartData2.barChartData[0] = this.esiidCountHoustan
+
   }
 
 
