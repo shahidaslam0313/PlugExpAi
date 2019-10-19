@@ -68,7 +68,7 @@ export class DailyEnergyComponent implements OnInit {
                  '16-hour' ,
                  '17-hour' ,
                  '18-hour' ,
-                 '1-hour' ,
+              
                  '19-hour' ,
                  '20-hour' ,
                  '21-hour' ,

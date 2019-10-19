@@ -48,6 +48,14 @@ export class ApiService {
     delete obj.granularity
     return this.http.post<any>(`${this.new}reviewcustcounts/` + granularity + `/`, obj)
   }
+  // https://apis.plugexpai.com/reports/last-week-monitoring/
+  lastweekmonitoring(granularity, obj) {
+  
+    return this.http.post<any>(`${this.new}reports/last-week-monitoring/` + granularity + `/`, obj)
+  }
+
+
+
   @Cacheable()
   esiidDescrepancy(): Observable<any> {
     return this.http.get<any>(`${this.new}reports/esid-list/`).pipe(catchError(this.errorHandler))
@@ -90,6 +98,11 @@ export class ApiService {
    
     return this.http.post<any>(`${this.new}reports/daily-energy-monitoring/`, {'u_id': hourlyValue1})
   }
+  lastweekweekenergymonitoring(hourlyValue1) {
+   
+    return this.http.post<any>(`${this.new}reports/last-week-monitoring/`, {'u_id': hourlyValue1})
+  }
+  // https://apis.plugexpai.com/reports/last-week-monitoring/
 
   // https://apis.plugexpai.com/reports/daily-energy-monitoring/
   

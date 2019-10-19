@@ -62,10 +62,9 @@
                 </h4>
               <!-- <h4> 2% <i class="fa fa-arrow-up downward_arrow dp_none"></i> </h4> -->
             </div>
-            <canvas id="chart1">
-              {{chart}}
-            </canvas>
+           
           </div>
+         
           <!-- Graph Div end -->
       </div>
       <!--  -->
@@ -82,7 +81,10 @@
                 <!--  icon and heading end -->
                 <div>
                   <div>
-                   <h4>show Graph here</h4> 
+                   <!-- <h4>show Graph here</h4> -->
+                   <canvas style="display: block; height: 600px; width: 1200px;" id="chart1">
+                    {{chart}}
+                  </canvas>
                   </div>
                   <!-- <div   >
                       <canvas   width="650" height="350" baseChart [datasets]="chartData2.barChartData" [labels]="chartData2.barChartLabels" [options]="chartData2.barChartOptions" [colors]="chartData2.barChartColors" [chartType]="chartData2.barChartType"></canvas>
