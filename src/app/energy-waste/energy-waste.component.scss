@@ -7,9 +7,8 @@
   border-radius: 5px;
   box-shadow: 0 0px 10px #ccc;
   width: 100%;
-
+  justify-content: space-between;
   .member_side {
-    min-width: 50%;
     display: flex;
     flex-direction: row;
 
@@ -21,41 +20,6 @@
         font-weight: normal;
       }
 
-    }
-  }
-
-  .id_side {
-    margin-left: auto;
-    display: flex;
-    min-width: 30%;
-    justify-content: flex-end;
-
-    .id_name {
-      font-size: 18px;
-      margin-top: 5px;
-      font-weight: 600;
-    }
-
-    .img_div {
-      border-radius: 50px;
-      object-fit: cover;
-      height: 100%;
-
-      img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50px;
-        margin: 0 10px;
-      }
-    }
-
-    .arrow_div {
-      display: flex;
-      align-items: center;
-
-      a {
-        font-size: 30px;
-      }
     }
   }
 }
@@ -184,6 +148,11 @@
 .green_icon{
   background: #bbccb9;
   color: #118e14;
+}
+.heading_sh {
+  padding: 10px !important;
+  font-size: 24px;
+  margin: 0;
 }
 @media(max-width:1280px){
   .graph_div{
