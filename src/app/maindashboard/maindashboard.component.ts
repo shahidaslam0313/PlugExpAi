@@ -47,8 +47,7 @@ export class MaindashboardComponent implements OnInit {
              { 
                type:'bar',
                data:{
-                 labels:['1-hour' ,
-                 '1-hour' ,
+                 labels:[                 '1-hour' ,
                  '2-hour' ,
                  '3-hour' ,
                  '4-hour' ,
@@ -138,7 +137,7 @@ export class MaindashboardComponent implements OnInit {
                      '#AF7AC5',
                      '#AF7AC5',
                      '#AF7AC5',
-                    //  '#AF7AC5',
+                    '#AF7AC5',
                      
                     ]
                    },
@@ -430,12 +429,12 @@ this.days1=this.viewhourly.usage_24_7[1][0]+
                     
                     backgroundColor:[ 
                     
-                    '#AF7AC5',
-                    '#AF7AC5',
-                    '#AF7AC5',
-                    '#AF7AC5',
-                    '#AF7AC5',
-                    '#AF7AC5',
+                    '#17a2b8',
+                    '#007bff',
+                    '#20c997',
+                    '#e83e8c',
+                    '#ffc107',
+                    '#007bff',
                     '#AF7AC5',
                     
                     
@@ -602,7 +601,7 @@ this.days1=this.viewhourly.usage_24_7[1][0]+
                  datasets:[
                   // labels:'this.week',
                    {
-                     label:'Last Week',
+                     label:'daliy hour',
                      data:[
                       this.viewhourly.last_week.day1,
                       this.viewhourly.last_week.day2,
@@ -615,13 +614,24 @@ this.days1=this.viewhourly.usage_24_7[1][0]+
                      ],
                      backgroundColor:[ 
                      
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
+                    //  '#AF7AC5',
+                    //  '#AF7AC5',
+                    //  '#AF7AC5',
+                    //  '#AF7AC5',
+                    //  '#AF7AC5',
+                    //  '#AF7AC5',
+                    //  '#AF7AC5',
+
+                     
+                     '#007bff',
+                    '#007bff',
+                    '#AF7AC5',
+                    '#20c997',
+                    '#e83e8c',
+                    '#ffc107',
+                    '#17a2b8',
+                   
+                   
                      
                     ]
                    },
