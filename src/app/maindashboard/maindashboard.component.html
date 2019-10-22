@@ -43,18 +43,21 @@
         <!--  icon and heading end -->
         <!-- data compare start -->
         <div class="compare_start">
-          <h4>13.5%
+            <canvas id="chart4">
+                {{chart4}}
+              </canvas>
+          <!-- <h4>13.5%
             <i class="fa fa-arrow-up"></i>
             <i class="fa fa-arrow-down dp_none"></i>
           </h4>
-          <small> 68.71K vs 60.56K</small>
+          <small> 68.71K vs 60.56K</small> -->
         </div>
         <!-- data compare End -->
-        <div>
+        <!-- <div>
           <div>
             <h4>show Graph here</h4>
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- Graph Div end -->
       <!-- Graph Div start -->
@@ -69,18 +72,22 @@
         <!--  icon and heading end -->
         <!-- data compare start -->
         <div class="compare_start">
-          <h4>13.5%
+          <!-- <h4>13.5%
             <i class="fa fa-arrow-up"></i>
             <i class="fa fa-arrow-down dp_none"></i>
           </h4>
-          <small> 68.71K vs 60.56K</small>
+          <small> 68.71K vs 60.56K</small> -->
+          <canvas id="chart3">
+              {{chart3}}
+            </canvas>
         </div>
-        <!-- data compare End -->
-        <div>
+        
+        <!-- <div>
           <div>
-            <h4>show Graph here</h4>
+             
+           
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- Graph Div end -->
     </div>
@@ -120,7 +127,7 @@
             <div>
               <!-- <h4>show Graph here</h4>  -->
               <canvas id="chart2">
-                {{chart}}
+                {{chart2}}
               </canvas>
             </div>
           </div>
@@ -135,12 +142,15 @@
         <div class="graph_div  w-100">
           <!-- icon and heading  start-->
           <div class="this_week">
-            <p class="m-0 mb-1"><b>Busiest hour of day</b></p>
+            <!-- <p class="m-0 mb-1">
+              <b>Busiest hour of day</b></p> -->
           </div>
           <!--  icon and heading end -->
           <div class="chart-100">
             <div>
-              <h4>show Graph here</h4>
+                <canvas id="chart5">
+                    {{chartdays}}
+                  </canvas>
             </div>
           </div>
         </div>

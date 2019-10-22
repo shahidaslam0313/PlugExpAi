@@ -49,6 +49,32 @@ export class HomeLayoutComponent implements OnInit {
         { name: 'ESIID Lookup', route: '/esiid-lookup', icon: 'fas fa-id-card-alt', submenu: [] },
       ]
     },
+    {
+      name: 'Dashboard ', route: '', icon: 'fas fa-poo-storm', submenu: []
+    },
+    {
+      name: 'WattExpert Forecast', route: '', icon: 'fas fa-poo-storm', submenu: [
+        // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
+        { name: 'Monthly Forecast', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
+        { name: 'Hourly Forecast', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
+        // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [
+    
+        //   { name: 'Monthly', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
+        //   { name: 'Hourly', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
+
+        // ] }
+        // ,
+        // { name: 'Review Customer Counts', route: '/review-customer-count', icon: 'fa fa-clipboard', submenu: [] },
+        // { name: 'Import Customer Account', route: '/import-customer-account', icon: 'fa fa-upload', submenu: [] },
+        // { name: 'ESIID Discrepancy Reports', route: '/esiiddiscrepancy', icon: 'fa fa-file', submenu: [] },
+        // { name: 'Maturity Date Forecast Reports', route: '/maturity-forecast', icon: 'fas fa-file-signature', submenu: [] },
+        // { name: 'Retail Prices', route: '/retail-price', icon: 'fas fa-layer-group', submenu: [] },
+        // { name: 'Customer Report', route: '/viewcustomerreport', icon: '	fas fa-file-alt', submenu: [] },
+        // { name: 'Load Forecast Reports', route: '/load-forecast', icon: 'fa fa-file-contract', submenu: [] },
+        { name: 'Weather Zone Forecast ', route: '/weather-zone-forecast', icon: 'fas fa-cloud-sun	', submenu: [] },
+        { name: 'Weather Zone Actual', route: '/weather-zone-actual', icon: 'fas fa-cloud-meatball', submenu: [] },
+      ]
+    },
     // {
     //   name: 'Trade Capture', route: '', icon: 'fas fa-boxes', submenu: [
     //     { name: 'Alert Monitor', route: '/alert-monitor', icon: '', submenu: [] },
@@ -78,9 +104,7 @@ export class HomeLayoutComponent implements OnInit {
     //     },
     //   ]
     // },
-    {
-      name: 'Dashboard ', route: '', icon: 'fas fa-poo-storm', submenu: []
-    },
+    
     {
       name: 'Daily Energy Monitoring  ', route: '/dailyenergy', icon: 'fas fa-poo-storm', submenu: []
     },
@@ -96,29 +120,7 @@ export class HomeLayoutComponent implements OnInit {
 
 
 
-    {
-      name: 'WattExpert Forecast', route: '', icon: 'fas fa-poo-storm', submenu: [
-        // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
-        { name: 'Monthly Forecast', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
-        { name: 'Hourly Forecast', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
-        // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [
-    
-        //   { name: 'Monthly', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
-        //   { name: 'Hourly', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
-
-        // ] }
-        // ,
-        // { name: 'Review Customer Counts', route: '/review-customer-count', icon: 'fa fa-clipboard', submenu: [] },
-        // { name: 'Import Customer Account', route: '/import-customer-account', icon: 'fa fa-upload', submenu: [] },
-        // { name: 'ESIID Discrepancy Reports', route: '/esiiddiscrepancy', icon: 'fa fa-file', submenu: [] },
-        // { name: 'Maturity Date Forecast Reports', route: '/maturity-forecast', icon: 'fas fa-file-signature', submenu: [] },
-        // { name: 'Retail Prices', route: '/retail-price', icon: 'fas fa-layer-group', submenu: [] },
-        // { name: 'Customer Report', route: '/viewcustomerreport', icon: '	fas fa-file-alt', submenu: [] },
-        // { name: 'Load Forecast Reports', route: '/load-forecast', icon: 'fa fa-file-contract', submenu: [] },
-        { name: 'Weather Zone Forecast ', route: '/weather-zone-forecast', icon: 'fas fa-cloud-sun	', submenu: [] },
-        { name: 'Weather Zone Actual', route: '/weather-zone-actual', icon: 'fas fa-cloud-meatball', submenu: [] },
-      ]
-    },
+   
     // {
     //   name: 'Setup', route: '', icon: 'fas fa-user-edit', submenu: [
         // {

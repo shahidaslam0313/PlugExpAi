@@ -761,6 +761,7 @@ export class MonthlysComponent implements OnInit {
     //   }
   }  
   toggle1(element) {
+    alert(element)
     console.log(element)
     this.showHourlyGraph1(element)
     this.show1 = !this.show1;

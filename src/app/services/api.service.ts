@@ -25,12 +25,12 @@ export class ApiService {
   // }
   domo1()
   {
-    return this.http.get<any>(`${this.new2}reports/allzones-dummy/`).pipe(catchError(this.errorHandler))
+    return this.http.get<any>(`${this.new}reports/allzones-dummy/`).pipe(catchError(this.errorHandler))
   }
 
   domo2()
   {
-    return this.http.get<any>(`${this.new2}forecast/loadzone-hourly-get/`).pipe(catchError(this.errorHandler))
+    return this.http.get<any>(`${this.new}forecast/loadzone-hourly-get/`).pipe(catchError(this.errorHandler))
   }
   newForecast(granularity, obj) {
     delete obj.granularity
