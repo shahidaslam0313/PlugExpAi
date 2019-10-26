@@ -549,6 +549,9 @@ Data = []
   chartData7;
 
   toggle() {
+
+
+    
     // row=this.a
     this.show = !this.show;
 
