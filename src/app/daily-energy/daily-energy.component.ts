@@ -49,7 +49,7 @@ export class DailyEnergyComponent implements OnInit {
              { 
                type:'line',
                data:{
-                 labels:['1-hour' ,
+                 labels:[
                  '1-hour' ,
                  '2-hour' ,
                  '3-hour' ,
@@ -106,13 +106,7 @@ export class DailyEnergyComponent implements OnInit {
                       this.viewhourly.message[22],
                       this.viewhourly.message[23],
 
-
-                      // this.viewhourly.last_week.day2,
-                      // this.viewhourly.last_week.day3,
-                      // this.viewhourly.last_week.day4,
-                      // this.viewhourly.last_week.day5,
-                      // this.viewhourly.last_week.day6,
-                      // this.viewhourly.last_week.day7
+ 
                       
                      ],
                      backgroundColor:[ 
@@ -140,44 +134,23 @@ export class DailyEnergyComponent implements OnInit {
                      '#AF7AC5',
                      '#AF7AC5',
                      '#AF7AC5',
-                    //  '#AF7AC5',
+                   '#AF7AC5',
                      
                     ]
                    },
-                  //  {
-                  //   label:'This Week',
-                  //   data:[
-                  //     this.viewhourly.this_week.day1,
-                  //     this.viewhourly.this_week.day2,
-                  //     this.viewhourly.this_week.day3,
-                  //     this.viewhourly.this_week.day4,
-                  //     this.viewhourly.this_week.day5,
-                  //     this.viewhourly.this_week.day6,
-                  //     this.viewhourly.this_week.day7
-                     
-                  //   ],
-                  //   backgroundColor:[ 
-                  //      '#7AE2E2', 
-                  //      '#7AE2E2', 
-                  //      '#7AE2E2', 
-                  //      '#7AE2E2', 
-                  //      '#7AE2E2', 
-                  //      '#7AE2E2', 
-                  //      '#7AE2E2', 
-                  //  ,
-                  // ]
-                  // },
+                  
     
                   ],
-                  //  background:['','',]
+                   
+                  // horizontalBar
                  
                },
                options: {
                 legend: {
                     display: true,
-                    // labels: {
-                    //     fontColor: 'rgb(255, 99, 132)'
-                    // }
+                    labels: {
+                        fontColor: 'rgb(255, 99, 132)'
+                    }
                 }
             }
 
