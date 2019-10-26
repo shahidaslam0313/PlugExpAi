@@ -1,0 +1,532 @@
+<!-- <mat-tab-group mat-align-tabs="center">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <div style="display: flex;"> -->
+<!-- <mat-icon>
+        <img src="https://cdn3.iconfinder.com/data/icons/real-estate-flat-icons-vol-2/256/73-512.png" alt="" width="30px">
+      </mat-icon> -->
+<!-- <label for="Monthly" style="color: #000; font-size: 16px; cursor: pointer;margin-left: 7px;margin-top: 5px;padding: 0 10px;">Monthly</label>
+            </div>
+        </ng-template> -->
+        <div class="d-flex">
+          <!-- <div class="col-lg-3 col-md-3 col-sm-10 col-xs-10">
+                    <mat-select #sum placeholder="Summarization" multiple>
+                        <mat-option *ngFor="let x of summarization" [value]="x.value">
+                            {{x.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </div> -->
+      
+          <!-- <div class="ml-auto p-2">
+              <mat-icon matTooltip="What if" (click)="togglePanel()">note_add</mat-icon>
+          </div> -->
+      </div>
+      <!-- <div class="Monthly"> -->
+      <!-- <form [formGroup]="ScheduleForm" (ngSubmit)="onSubmit(loadzone.value,weatherzone.value,customerprofile.value)"> -->
+          <h2  class="text-center heading_sh">Date Range Forecast</h2>
+      
+      <mat-card>
+          <form class="hourly_form" [formGroup]="ScheduleForm" (ngSubmit)="onSubmit()">
+              <!-- <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
+                <div>
+                    <mat-form-field >
+                        <!-- <input matInput (click)="dp.open()" (click)="checkvalue(date.value)" [min]="current" [max]="dateEnd?.value" [matDatepicker]="dp" placeholder="To"
+                        [formControl]="date" (ngModelChange)="checkvalue(date.value)">
+                      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                      <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event)" (monthSelected)="chosenMonthHandler($event, dp)"
+                        panelClass="example-month-picker">
+                      </mat-datepicker> -->
+                        <input [min]="current" #abc [max]="ScheduleForm.controls.dateEnd?.value" matInput [matDatepicker]="picker1" placeholder="From" formControlName="date">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                        <mat-error>
+                            required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field >
+                        <input [min]="start" #abc [min]="ScheduleForm.controls.date?.value" [max]="endDate" matInput [matDatepicker]="picker2" placeholder="To" formControlName="dateEnd">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                        <mat-error>
+                            required
+                        </mat-error>
+                    </mat-form-field>
+              </div>
+              <div>
+                  <mat-form-field >
+                      <mat-select placeholder="Granularity" formControlName="granularity">
+                          <!-- <mat-option value="null"> -- </mat-option> -->
+                          <mat-option *ngFor="let x of granularityValue" [value]="x.value">
+                              {{x.viewValue}}
+                          </mat-option>
+                      </mat-select>
+                      <mat-error>
+                          required
+                      </mat-error>
+                  </mat-form-field>
+              </div>
+              <div>
+                  <mat-form-field >
+                      <mat-select #sum placeholder="Forecast Type" multiple>
+                          <!-- <mat-option value="null"> -- </mat-option> -->
+                          <mat-option *ngFor="let x of summarization" [value]="x.value">
+                              {{x.viewValue}}
+                          </mat-option>
+                      </mat-select>
+                  </mat-form-field>
+              </div>
+            
+              <!-- <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
+              <!-- <input matInput (click)="dp2.open()" [min]="date?.value" [max]="endDate" [matDatepicker]="dp2" placeholder="From" [formControl]="dateEnd">
+                <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                <mat-datepicker #dp2 startView="multi-year" (yearSelected)="chosenYearHandler2($event)" (monthSelected)="chosenMonthHandler2($event, dp2)"
+                  panelClass="example-month-picker">
+                </mat-datepicker> -->
+              
+              <!-- <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> -->
+            
+              <!-- <mat-form-field class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> -->
+            
+              <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center"> -->
+              <div>
+                  <button (click)="toggle()" class=" btn-search font-styling" mat-raised-button>Search</button>
+              </div>
+              <!-- </div> -->
+          </form>
+      </mat-card>
+      <!-- <div class="row LoadType">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <mat-card>
+                <div class="Items">
+                  <div class="Heading">
+                    <span>Load Type</span>
+                    <div class="Button">
+                    </div>
+                  </div>
+                  <mat-error *ngIf="LoadtypeStatus==true" [@slideInOut]>
+                    required
+                  </mat-error>
+                  <span>
+                    <mat-checkbox (change)="valueLosses($event)"></mat-checkbox>
+                    Forecast (from Load Extracts): Losses
+                  </span>
+                  <span>
+                    <mat-checkbox (change)="valueSmoothedLooses($event)"></mat-checkbox>
+                    Forecast (from Load Extracts), Smoothed: with Losses
+                  </span>
+                  <span>
+                    <mat-checkbox (change)="valueMinimumLosses($event)"></mat-checkbox>
+                    Forecast (from Load Extracts), Minimum: with Losses
+                  </span>
+                  <span>
+                    <mat-checkbox (change)="valueMaximumLosses($event)"></mat-checkbox>
+                    Forecast (from Load Extracts), Maximum: with Losses
+                  </span>
+                  <span>
+                    <mat-checkbox (change)="valueBackcastLosses($event)"></mat-checkbox>
+                    Backcast (from Load Extracts): with Losses
+                  </span>
+                  <span>
+                    <mat-checkbox (change)="valueBackcastSmoothLosses($event)"></mat-checkbox>
+                    Backcast (from Load Extracts), Smoothed: with Losses
+                  </span>
+                  <span>
+                    <mat-checkbox (change)="valueBackcastMinimum($event)"></mat-checkbox>
+                    Backcast (from Load Extracts), Minimum: with Losses
+                  </span>
+                  <span>
+                    <mat-checkbox (change)="valueBackcastMaximum($event)"></mat-checkbox>
+                    Backcast (from Load Extracts), Maximum: with Losses
+                  </span>
+                  <span>
+                    <mat-checkbox (change)="valueExtractUnadjusted($event)"></mat-checkbox>
+                    Load Extracts: Unadjusted
+                  </span>
+                  <span>
+                    <mat-checkbox (change)="valueExtracts($event)"></mat-checkbox>
+                    Load Extracts: With Losses
+                  </span>
+                </div>
+              </mat-card>
+            </div>
+            <div style="padding:0px" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <mat-card>
+                  <div class="Items">
+                    <div class="Heading">
+                      <span>Restrict to</span>
+                    </div>
+                    <div style="padding:0px 0px !important;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <mat-select placeholder="Load Zones" #loadzone>
+                          <mat-option *ngFor="let x of loadZone" [value]="x.value">
+                            {{x.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error>
+                          required
+                        </mat-error>
+                      </mat-form-field>
+                      <mat-form-field class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <mat-select placeholder="Weather Zones" #weatherzone>
+                          <mat-option *ngFor="let x of weatherZone" [value]="x.value">
+                            {{x.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error>
+                          required
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <mat-form-field class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <mat-select placeholder="Customer Profile" #customerprofile>
+                        <mat-option *ngFor="let x of customerProfile" [value]="x.value">
+                          {{x.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error>
+                        required
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </mat-card>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <mat-card>
+                  <div class="Items">
+                    <div class="Heading">
+                      <span>Category</span>
+                    </div>
+                    <mat-error *ngIf="CategoryStatus==true" [@slideInOut]>
+                      required
+                    </mat-error>
+                    <span>
+                      <mat-checkbox (change)="valueUncategorized($event)"></mat-checkbox>
+                      Uncategorized
+                    </span>
+                    <span>
+                      <mat-checkbox (change)="valueCategoryFixed($event)"></mat-checkbox>
+                      Risk Category=Fixed
+                    </span>
+                    <span>
+                      <mat-checkbox (change)="valueCategoryVariable($event)"></mat-checkbox>
+                      Risk Category=Variable
+                    </span>
+                  </div>
+                </mat-card>
+              </div>
+            </div>
+          </div> -->
+      <!-- </div> -->
+      <!-- <mat-card>
+                    <div class="example-container table-container mat-elevation-z2">
+                        <table mat-table [dataSource]="demoDataSource" multiTemplateDataRows class="abc">
+                            <ng-container matColumnDef="1" sticky>
+                                <th mat-header-cell *matHeaderCellDef> Date</th>
+                                <td mat-cell *matCellDef="let element"> {{element?.date }} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="2">
+                                <th mat-header-cell *matHeaderCellDef> Month </th>
+                                <td mat-cell *matCellDef="let element"> {{element?.month }} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="3">
+                                <th mat-header-cell *matHeaderCellDef> Year </th>
+                                <td mat-cell *matCellDef="let element"> {{element?.year }} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="4">
+                                <th mat-header-cell *matHeaderCellDef>South </th>
+                                <td mat-cell *matCellDef="let element"> {{element?.predictions_south }} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="5">
+                                <th mat-header-cell *matHeaderCellDef>North </th>
+                                <td mat-cell *matCellDef="let element"> {{element?.predictions_north }} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="6">
+                                <th mat-header-cell *matHeaderCellDef> West</th>
+                                <td mat-cell *matCellDef="let element"> {{element?.predictions_west }} </td>
+                            </ng-container>
+                            <ng-container matColumnDef=7>
+                                <th mat-header-cell *matHeaderCellDef> Houstan</th>
+                                <td mat-cell *matCellDef="let element"> {{element?.predictions_houston }} </td>
+                            </ng-container>
+                            <ng-container matColumnDef=8>
+                                <th mat-header-cell *matHeaderCellDef> Total</th>
+                                <td mat-cell *matCellDef="let element"> {{element?.total }} </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="demoDisplayedColumns; sticky: true"></tr>
+                            <tr mat-row *matRowDef="let row; columns: demoDisplayedColumns;"></tr>
+                        </table>
+                        <table *ngIf="loading==true">
+                            <tbody>
+                                <tr>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                    <td class="td-1">
+                                        <span></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+             p       </div>
+                    <mat-progress-bar *ngIf="loading==true" mode="indeterminate" value="40" bufferValue="20">
+                    </mat-progress-bar>
+                </mat-card> -->
+      <!-- </mat-tab>
+      </mat-tab-group> -->
+      <div class="row">
+              <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                  <canvas id="myChart" width="5000" height="2500"></canvas>
+              </div>
+          </div>
+      <mat-card *ngIf="show">
+              
+          <div class="example-container table-container mat-elevation-z2">
+              <table mat-table [dataSource]="demoDataSource" multiTemplateDataRows class="abc">
+                  <!-- <ng-container matColumnDef="1">
+                    <th mat-header-cell *matHeaderCellDef> Date1</th>
+                    <td mat-cell *matCellDef="let element"> {{element?.date }} </td>
+                </ng-container>
+                <ng-container matColumnDef="2">
+                    <th mat-header-cell *matHeaderCellDef> Month </th>
+                    <td mat-cell *matCellDef="let element"> {{element?.month }} </td>
+                </ng-container>
+                <ng-container matColumnDef="3">
+                    <th mat-header-cell *matHeaderCellDef> Year </th>
+                    <td mat-cell *matCellDef="let element"> {{element?.year }} </td>
+                </ng-container>
+                <ng-container matColumnDef="4">
+                    <th mat-header-cell *matHeaderCellDef>South </th>
+                    <td mat-cell *matCellDef="let element"> {{element?.predictions_south }} </td>
+                </ng-container>
+                <ng-container matColumnDef="5">
+                    <th mat-header-cell *matHeaderCellDef>North </th>
+                    <td mat-cell *matCellDef="let element"> {{element?.predictions_north }} </td>
+                </ng-container>
+                <ng-container matColumnDef="6">
+                    <th mat-header-cell *matHeaderCellDef> West</th>
+                    <td mat-cell *matCellDef="let element"> {{element?.predictions_west }} </td>
+                </ng-container>
+                <ng-container matColumnDef=7>
+                    <th mat-header-cell *matHeaderCellDef> Houstan</th>
+                    <td mat-cell *matCellDef="let element"> {{element?.predictions_houston }} </td>
+                </ng-container>
+                <ng-container matColumnDef=8>
+                    <th mat-header-cell *matHeaderCellDef> Total</th>
+                    <td mat-cell *matCellDef="let element"> {{element?.total }} </td>
+                </ng-container> -->
+      
+                  <ng-container matColumnDef="222">
+                      <th mat-header-cell *matHeaderCellDef> View Details </th>
+                      <td mat-cell *matCellDef="let element">
+                          <a matTooltip="View Graph" color="accent" (click)="toggle1(element)">
+                              <img class="viewDetailsImg" src="../../assets/img/Add-Afinity-new.png">
+                          </a>
+                      </td>
+                  </ng-container>
+      
+                  <ng-container matColumnDef="1">
+                      <th mat-header-cell *matHeaderCellDef> Date</th>
+                      <td mat-cell *matCellDef="let element"> {{element?.date }} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="2">
+                      <th mat-header-cell *matHeaderCellDef> Month </th>
+                      <td mat-cell *matCellDef="let element"> {{element?.month }} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="3">
+                      <th mat-header-cell *matHeaderCellDef> Year </th>
+                      <td mat-cell *matCellDef="let element"> {{element?.year }} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="4">
+                      <th mat-header-cell *matHeaderCellDef>South </th>
+                      <td mat-cell *matCellDef="let element"> {{element?.predictions_south }} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="5">
+                      <th mat-header-cell *matHeaderCellDef>North </th>
+                      <td mat-cell *matCellDef="let element"> {{element?.predictions_north }} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="6">
+                      <th mat-header-cell *matHeaderCellDef> West</th>
+                      <td mat-cell *matCellDef="let element"> {{element?.predictions_west }} </td>
+                  </ng-container>
+                  <ng-container matColumnDef=7>
+                      <th mat-header-cell *matHeaderCellDef> Houstan</th>
+                      <td mat-cell *matCellDef="let element"> {{element?.predictions_houston }} </td>
+                  </ng-container>
+                  <ng-container matColumnDef=8>
+                      <th mat-header-cell *matHeaderCellDef> Total</th>
+                      <td mat-cell *matCellDef="let element"> {{element?.total }} </td>
+                  </ng-container>
+                  <!-- <ng-container matColumnDef="expandedDetail">
+                    <td mat-cell *matCellDef="let element" [attr.colspan]="demoDisplayedColumns.length">
+                        <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quasi voluptates laudantium et
+                                quam accusamus doloremque doloribus maxime, odio illum, ab nemo. Delectus, molestiae obcaecati
+                                velit enim odit eos sapiente?</p>
+                        </div>
+                    </td>
+                </ng-container> -->
+      
+                  <tr mat-header-row *matHeaderRowDef="demoDisplayedColumns; sticky: true"></tr>
+                  <tr mat-row *matRowDef="let row; columns: demoDisplayedColumns; "></tr>
+      
+              </table>
+          </div>
+      </mat-card>
+      
+      
+      
+      
+      
+      
+      <!-- </mat-card> -->

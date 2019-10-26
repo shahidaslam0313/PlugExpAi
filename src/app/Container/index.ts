@@ -61,6 +61,7 @@ import { LinegraphComponent } from '../linegraph/linegraph.component';
 import { MonthlyComponent } from '../monthly/monthly.component';
 import { HourlyComponent } from '../hourly/hourly.component';
 import { MonthlysComponent } from '../monthlys/monthlys.component';
+ import { DateRangeComponent } from '../date-range/date-range.component';
 import { DialogForecasterToolComponent } from './ercot/forcaster-tool/ReviewForcast/dialog-forecaster-tool/dialog-forecaster-tool.component';
 import { HourlysComponent } from '../hourlys/hourlys.component';
 
@@ -72,6 +73,7 @@ export const Containers = {
     HourlyComponent,
     DialogForecasterToolComponent,
     MonthlysComponent ,
+    DateRangeComponent,
     ForecasterToolComponent,
     EsiidDiscrepancyComponent,
     MaturityForcastComponent,

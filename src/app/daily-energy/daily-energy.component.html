@@ -1,12 +1,12 @@
 <section>
-  <div class="dashboard-header">
+  <!-- <div class="dashboard-header">
     <div class="member_side">
       <p>Member Since :
         <span class="ml-3">4/19/2019</span>
       </p>
     </div>
     <!--  -->
-    <div>
+    <!-- <div>
       <h4 class="heading_sh">
         <b> Daily Energy Monitoring  </b>
       </h4>
@@ -16,8 +16,12 @@
         <span class="ml-3">6/19/2020</span>
       </p>
     </div>
+  </div>  -->
+  <div>
+    <h4 class="heading_sh">
+      <b> Daily Energy Monitoring  </b>
+    </h4>
   </div>
-
   <div class="dashboard-body">
     <div class="upper-graphs">
       <!-- Graph Div start -->
@@ -25,30 +29,29 @@
         <!-- icon and heading  start-->
         <div class="this_week">
           <small>Minimum Usage </small>
-          <h4> {{viewhourly.min_usage.min_usage}} </h4>
-          <small class="font-12">AT {{viewhourly.min_usage.min_usage_hout}}</small>
+          <h4> {{viewhourly?.min_usage?.min_usage}} </h4>
+           
+          
+          <small class="font-12">AT 
+            <!-- {{viewhourly.min_usage.min_usage_hout}} -->
+            {{mintime}}
+          </small>
         </div>
       </div>
-      <!-- Graph Div end -->
-      <!-- Graph Div start -->
+     
       <div class="graph_div">
           <!-- icon and heading  start-->
           <div class="this_week">
             <small>Maximam Usage </small>
-            <h4> {{viewhourly.max_usage.max_usage}} </h4>
-            <small class="font-12">AT {{viewhourly.max_usage.max_usage_hout}}</small>
+            <h4> {{viewhourly?.max_usage?.max_usage}} </h4>
+            <small class="font-12">AT
+              <!-- {{viewhourly.max_usage.max_usage_hout}} -->
+            {{maxtime}}
+            </small>
         
           </div>
         </div>
-        <!-- Graph Div end -->
-              <!-- Graph Div start -->
-      <!-- <div class="graph_div">
-           
-          <div class="this_week">
-            <small>Avg Temp </small>
-            <h4> {{viewhourly}} </h4>
-          </div>
-        </div> -->
+     
       
     </div>
     <!--  -->
@@ -60,7 +63,7 @@
           <div class="graph_div">
               <!-- icon and heading  start-->
               <div class="this_week">
-                <p class="m-0 mb-1"><b>Heading will be displayed here.</b></p> 
+                <!-- <p class="m-0 mb-1"><b>Heading will be displayed here.</b></p>  -->
               </div>
               <!--  icon and heading end -->
               <div class="chart-100">

@@ -57,8 +57,9 @@ const routes: Routes = [
 
                   { path: 'review-mtm-trade-valuations', component: Containers.ReviewMTMTradeValuationsComponent },
                   { path: 'crrs', component: Containers.CRRsComponent },
-                  { path: 'hourly', component: Containers.HourlyComponent},
-                  { path:'monthlys', component: Containers.MonthlysComponent},
+                  { path: 'HourlyForecast', component: Containers.HourlyComponent},
+                  { path:'MonthlyForecast', component: Containers.MonthlysComponent},
+                  { path:'DateRangeForecast', component: Containers.DateRangeComponent },
                   { path: 'administration-crrs', component: Containers.CRRComponent },
 
                   { path: 'ercot-load', loadChildren: './Container/ercot/dashboard/ercot-load/module#Module' },

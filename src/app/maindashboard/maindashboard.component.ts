@@ -76,7 +76,7 @@ export class MaindashboardComponent implements OnInit {
             datasets: [
               // labels:'this.week',
               {
-                label: 'Last Week',
+                label: 'Last Week Usage',
                 data: [
                   this.viewhourly.message[0],
                   this.viewhourly.message[1],
@@ -114,30 +114,33 @@ export class MaindashboardComponent implements OnInit {
                 ],
                 backgroundColor: [
 
+                
+                  '#20c997',
+                  '#dc3545',
+                  '#6610f2',
+
+                  '#7AE2E2', 
+                  '#FF8BA4', 
+                  '#FFE29A', 
+                  '#2ECC71', 
+                  '#4C4C7C',
                   '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
+                  '#CB4335',
+                  '#FF8BA4',
+
+                  '#CB4335',
+                  '#7AE2E2', 
+                  '#FFE29A',
+                   '#2ECC71',
+                  '#FFE29A',
+                  '#FF8BA4',
+                  '#48C9B0',
+                  '#A04000',
+                  '#4C4C7C',
+                  '#B3B6B7',
+                  '#CB4335',
+                  '#D6DBDF',
+                  '#0E6251',
 
                 ]
               },
@@ -429,14 +432,22 @@ export class MaindashboardComponent implements OnInit {
 
                 backgroundColor: [
 
-                  '#17a2b8',
-                  '#007bff',
+                  // '#17a2b8',
+                  // '#007bff',
+                  // '#20c997',
+                  // '#e83e8c',
+                  // '#ffc107',
+                  // '#007bff',
+                  // '#AF7AC5',
                   '#20c997',
-                  '#e83e8c',
-                  '#ffc107',
-                  '#007bff',
-                  '#AF7AC5',
+                  '#dc3545',
+                  '#6610f2',
 
+                  '#7AE2E2', 
+                  '#FF8BA4', 
+                  '#FFE29A', 
+                  '#2ECC71', 
+                   
 
                 ]
               },
@@ -459,7 +470,7 @@ export class MaindashboardComponent implements OnInit {
 
       this.chart = new Chart('chart1',
         {
-          type: 'bar',
+          type: 'doughnut',
           data: {
             labels: [
               'Day-1',
@@ -490,16 +501,16 @@ export class MaindashboardComponent implements OnInit {
 
                 ],
                 backgroundColor: [
+                 
+                  '#FFE29A', 
 
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-
-
+                  '#7AE2E2', 
+                  
+                  
+                  '#dc3545',
+                  '#4C4C7C',
+                  '#2ECC71', 
+                  '#6610f2','#FF8BA4', 
                 ]
               },
 
@@ -520,7 +531,7 @@ export class MaindashboardComponent implements OnInit {
         })
       this.chart2 = new Chart('chart2',
         {
-          type: 'bar',
+          type: 'doughnut',
           data: {
             labels: [
               'Day-1',
@@ -551,14 +562,16 @@ export class MaindashboardComponent implements OnInit {
 
                 ],
                 backgroundColor: [
+                  
+                  '#dc3545',
+                  '#6610f2',
 
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
-                  '#AF7AC5',
+                  '#7AE2E2', 
+                  '#FF8BA4', 
+                  '#FFE29A', 
+                  '#2ECC71', 
+                  '#4C4C7C',
+                 
 
 
                 ]
@@ -571,7 +584,7 @@ export class MaindashboardComponent implements OnInit {
           },
           options: {
             legend: {
-              display: false,
+              display: true,
               // labels: {
               //     fontColor: 'rgb(255, 99, 132)'
               // }
@@ -623,13 +636,13 @@ export class MaindashboardComponent implements OnInit {
                   //  '#AF7AC5',
 
 
-                  '#007bff',
-                  '#007bff',
-                  '#AF7AC5',
-                  '#20c997',
-                  '#e83e8c',
-                  '#ffc107',
-                  '#17a2b8',
+                  // '#007bff',
+                  // '#007bff',
+                  // '#AF7AC5',
+                  '#20c997','#20c997','#20c997','#20c997','#20c997','#20c997','#20c997',
+                  // '#e83e8c',
+                  // '#ffc107',
+                  // '#17a2b8',
 
 
 

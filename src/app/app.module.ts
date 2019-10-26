@@ -67,6 +67,7 @@ import { MaindashboardComponent } from './maindashboard/maindashboard.component'
 import { EnergyWasteComponent } from './energy-waste/energy-waste.component';
 import { DailyEnergyComponent } from './daily-energy/daily-energy.component';
 import { WeeklyEnergyComponent } from './weekly-energy/weekly-energy.component';
+import { DateRangeComponent } from './date-range/date-range.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ Containers.HourlysComponent,
 Containers.MonthlyComponent,
 Containers.HourlyComponent,
 Containers.MonthlysComponent, 
+Containers.DateRangeComponent, 
 Containers.AlertDialogComponent,
     Containers.AlertMonitorComponent,
     Containers.AlertDialogComponent,
@@ -162,6 +164,7 @@ Containers.LourenComponent,
     EnergyWasteComponent,
     DailyEnergyComponent,
     WeeklyEnergyComponent,
+    DateRangeComponent,
 
   ],
   imports: [

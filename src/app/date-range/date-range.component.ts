@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { DialogWhatIfComponent } from '../Container/ercot/forcaster-tool/ReviewForcast/dialog-what-if/dialog-what-if.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -12,10 +13,11 @@ import { DialogWeatherzoneProfileComponent } from '../Container/ercot/forcaster-
 import { DialogHourlyComponent } from '../Container/ercot/forcaster-tool/ReviewForcast/dialog-hourly/dialog-hourly.component';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Chart } from 'chart.js'
+
 @Component({
-  selector: 'app-monthlys',
-  templateUrl: './monthlys.component.html',
-  styleUrls: ['./monthlys.component.scss'],
+  selector: 'app-date-range',
+  templateUrl: './date-range.component.html',
+  styleUrls: ['./date-range.component.scss'],
   animations: [
     trigger('slideInOut', [
       transition(':enter', [
@@ -28,7 +30,8 @@ import { Chart } from 'chart.js'
     ])
   ],
 })
-export class MonthlysComponent implements OnInit {
+ 
+export class DateRangeComponent implements OnInit {
   grad
   GraphData = []
   chartData2 = {
@@ -761,7 +764,7 @@ export class MonthlysComponent implements OnInit {
     //   }
   }  
   toggle1(element) {
-    // alert(element)
+    alert(element)
     console.log(element)
     this.showHourlyGraph1(element)
     this.show1 = !this.show1;
@@ -975,12 +978,9 @@ export class MonthlysComponent implements OnInit {
   ]
   summarize = new FormControl("")
   summarization = [
-
-       
     { value: 'Statistical', viewValue: 'Statistical' },
     { value: 'Machine-Learning', viewValue: 'Machine Learning' },
     { value: 'Hybrid', viewValue: 'Hybrid' }
-
     // { value: 'Peak', viewValue: 'Peak' },
     // { value: '7x16', viewValue: '7x16' },
     // { value: '5x16', viewValue: '5x16' },
@@ -1327,4 +1327,5 @@ export class MonthlysComponent implements OnInit {
   //   // this.endDate = moment(val, "DD-MM-YYYY").add(1, 'year').month('dec');
   //   // this.endDate = moment(val, "DD-MM-YYYY").add(1, 'year')
   // }
+
 }
