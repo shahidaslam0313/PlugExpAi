@@ -25,7 +25,8 @@
         }
     }
     .margin {
-        margin-left: 600px;
+        margin-left: auto;
+       
     }
     .menu-toggle-btn {
         border: 15px;
@@ -171,7 +172,6 @@
 .nav-side-menu mat-expansion-panel mat-expansion-panel-header mat-panel-title {
     color: #000;
     font-size: 15px;
-    font-weight: bold;
     align-items: center;
     font-family: 'Open Sans', sans-serif;
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-import{Chart} from 'chart.js'
+import {Chart} from 'chart.js';
 
 @Component({
   selector: 'app-weekly-energy',
