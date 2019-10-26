@@ -761,7 +761,7 @@ export class MonthlysComponent implements OnInit {
     //   }
   }  
   toggle1(element) {
-    alert(element)
+    // alert(element)
     console.log(element)
     this.showHourlyGraph1(element)
     this.show1 = !this.show1;
@@ -975,7 +975,12 @@ export class MonthlysComponent implements OnInit {
   ]
   summarize = new FormControl("")
   summarization = [
-    { value: 'Statistical', viewValue: 'Statistical' }
+
+       
+    { value: 'Statistical', viewValue: 'Statistical' },
+    { value: 'Machine-Learning', viewValue: 'Machine Learning' },
+    { value: 'Hybrid', viewValue: 'Hybrid' }
+
     // { value: 'Peak', viewValue: 'Peak' },
     // { value: '7x16', viewValue: '7x16' },
     // { value: '5x16', viewValue: '5x16' },

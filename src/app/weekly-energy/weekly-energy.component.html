@@ -27,7 +27,7 @@
             <small>This Week </small>
 
         <!-- this.viewhourly = data; -->
-        <h4> {{viewhourly.this_week_total_usage}}K</h4>
+        <h4> {{viewhourly.this_week_total_usage}}KWh</h4>
           </div>
         </div>
 
@@ -37,7 +37,7 @@
             <!-- icon and heading  start-->
             <div class="this_week" *ngIf="viewhourly.last_week_total_usage">
               <small>Always On </small>
-              <h4> {{viewhourly.last_week_total_usage}}K</h4>
+              <h4> {{viewhourly.last_week_total_usage}}KWh</h4>
             </div>
           </div>
           <!-- Graph Div end -->
@@ -45,8 +45,8 @@
         <div class="graph_div">
             <!-- icon and heading  start-->
             <div class="this_week">
-              <small>Compared To Last Week 12123</small>
-              <h4>{{viewhourly.percent_change | percent}}
+              <small>Compared To Last Week</small>
+              <h4>{{viewhourly.percent_change/100 | percent}}
                  <!-- <i class="fa fa-arrow-down downward_arrow"></i>  -->
                 </h4>
               <!-- <h4> 2% <i class="fa fa-arrow-up downward_arrow dp_none"></i> </h4> -->
@@ -65,7 +65,7 @@
             <div class="graph_div">
                 <!-- icon and heading  start-->
                 <div class="this_week">
-                  <p class="m-0 mb-1"><b>Heading will be displayed here.</b></p> 
+                  <!-- <p class="m-0 mb-1"><b>Heading will be displayed here.</b></p>  -->
                 </div>
                 <!--  icon and heading end -->
                 <div>

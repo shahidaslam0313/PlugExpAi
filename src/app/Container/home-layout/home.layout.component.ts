@@ -32,88 +32,82 @@ export class HomeLayoutComponent implements OnInit {
           ]
         },
        
-        // {
-        //   name: 'Trade Capture', route: '', icon: 'fas fa-boxes', submenu: [
-        //     { name: 'Block Graphs', route: '/block-graph', icon: 'fas fa-chart-line', submenu: [] },
-        //     { name: 'Fixed-for-Float Swaps', route: '/fixed-float-swaps', icon: 'fas fa-clipboard-check', submenu: [] },
-        //     // { name: 'Physical Power Option Trades', route: '/power-trade-option', icon: 'fas fa-layer-group', submenu: [] },
-        //     { name: 'Physical Power Trades', route: '/physical-power-trade', icon: 'fas fa-archive', submenu: [] },
-        //     // { name: 'CRRs', route: '/crrs', icon: ' ', submenu: [] },
-        //   ]
-        // },
-        // { name: 'Nodal Scheduling', route: '', icon: '', submenu: [] },
-       
-
-        // { name: 'Settlements & Invoicing', route: '', icon: '', submenu: [] },
-        // { name: 'Downloaded ERCOT Reports', route:'', icon: '', submenu: [] },
+        
         { name: 'ESIID Lookup', route: '/esiid-lookup', icon: 'fas fa-id-card-alt', submenu: [] },
       ]
     },
     {
-      name: 'Dashboard ', route: '', icon: 'fas fa-poo-storm', submenu: []
+      name: 'Dashboard ', route: '/', icon: 'fas fa-poo-storm', submenu: []
     },
     {
       name: 'WattExpert Forecast', route: '', icon: 'fas fa-poo-storm', submenu: [
         // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
-        { name: 'Monthly Forecast', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
-        { name: 'Hourly Forecast', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
-        // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [
-    
-        //   { name: 'Monthly', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
-        //   { name: 'Hourly', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
-
-        // ] }
-        // ,
-        // { name: 'Review Customer Counts', route: '/review-customer-count', icon: 'fa fa-clipboard', submenu: [] },
-        // { name: 'Import Customer Account', route: '/import-customer-account', icon: 'fa fa-upload', submenu: [] },
-        // { name: 'ESIID Discrepancy Reports', route: '/esiiddiscrepancy', icon: 'fa fa-file', submenu: [] },
-        // { name: 'Maturity Date Forecast Reports', route: '/maturity-forecast', icon: 'fas fa-file-signature', submenu: [] },
-        // { name: 'Retail Prices', route: '/retail-price', icon: 'fas fa-layer-group', submenu: [] },
-        // { name: 'Customer Report', route: '/viewcustomerreport', icon: '	fas fa-file-alt', submenu: [] },
-        // { name: 'Load Forecast Reports', route: '/load-forecast', icon: 'fa fa-file-contract', submenu: [] },
+        { name: 'Monthly Forecast', route: '/MonthlyForecast', icon: 'fas fa-window-restore', submenu: [] },
+        { name: 'Hourly Forecast', route: '/HourlyForecast', icon: 'fas fa-window-restore', submenu: [] },
+        { name: 'DateRange Forecast', route: '/DateRangeForecast', icon: 'fas fa-window-restore', submenu: [] },
+     
         { name: 'Weather Zone Forecast ', route: '/weather-zone-forecast', icon: 'fas fa-cloud-sun	', submenu: [] },
         { name: 'Weather Zone Actual', route: '/weather-zone-actual', icon: 'fas fa-cloud-meatball', submenu: [] },
       ]
     },
-    // {
-    //   name: 'Trade Capture', route: '', icon: 'fas fa-boxes', submenu: [
-    //     { name: 'Alert Monitor', route: '/alert-monitor', icon: '', submenu: [] },
-    //     { name: 'Shift Log Reports', route: '/shift-log-reports', icon: 'fas fa-tasks', submenu: [] },
-    //     {
-    //       name: 'Power', route: '', icon: '', submenu: [
-    //         { name: 'Fixed-For-Float Swaps', route: '/fixed-for-float', icon: 'fas fa-clipboard-check', submenu: [] },
-    //         { name: 'Physical Power Option Trades', route: '/physical-power-option-trade', icon: 'fas fa-layer-group', submenu: [] },
-    //         { name: 'Physical Power Trades', route: '/physical-power-trade', icon: 'fas fa-archive', submenu: [] },
-    //       ]
-    //     },
-    //     {
-    //       name: 'Risk Management', route: '', icon: '', submenu: [
-    //         { name: 'Import Forward Prices', route: '/import-forward-prices', icon: 'fa fa-upload', submenu: [] },
-    //         { name: 'Review Forward Prices', route: '/review-forward-prices', icon: 'fas fa-clipboard-list', submenu: [] },
-    //         { name: 'Review MtM Trade Valuations', route: '/review-mtm-trade-valuations', icon: '', submenu: [] },
-    //         { name: 'Review Notional Valuations', route: '/review-notional-valuations', icon: 'fa fa-clipboard', submenu: [] },
-    //         { name: 'ERCOT CRR P&L', route: '/ercot-crr', icon: '', submenu: [] },
-    //       ]
-    //     },
-    //     {
-    //       name: 'Wholesale Checkout & Billing', route: '', icon: '', submenu: [
-    //         { name: 'Generate Power Counterparty Invoices', route: '/generate-power-counterparty-invoices', icon: 'fas fa-window-restore', submenu: [] },
-    //         { name: 'Review Counterparty Invoices', route: '/review-counterparty-invoices', icon: 'fas fa-clipboard-list', submenu: [] },
-    //         { name: 'Review Uninvoiced Activity Reports', route: '/review-uninvoiced-authority-report', icon: 'fas fa-layer-group', submenu: [] },
-    //       ]
-    //     },
-    //   ]
-    // },
+    {
+      name: 'Individual Customer Forecast', route: '', icon: 'fas fa-poo-storm', submenu: [
+        {
+          name: 'Daily Energy Monitoring  ', route: '/dailyenergy', icon: 'fas fa-poo-storm', submenu: []
+        },
+        // {
+        //   name: 'Energy Wastage', route: '/energywaste', icon: 'fas fa-poo-storm', submenu: []
+        // },
+         {
+          name: 'Weekly Comparison', route: '/weekly-comparison', icon: 'fas fa-poo-storm', submenu: []
+        },
     
-    {
-      name: 'Daily Energy Monitoring  ', route: '/dailyenergy', icon: 'fas fa-poo-storm', submenu: []
+        {
+          name: 'Energy Spikes', route: '/#', icon: 'fas fa-poo-storm', submenu: []
+        },
+        {
+          name: 'Weather Related Events', route: '/#', icon: 'fas fa-poo-storm', submenu: []
+        },
+        
+      ]
     },
     {
-      name: 'Energy Wastage', route: '/energywaste', icon: 'fas fa-poo-storm', submenu: []
+      name: 'Company Forecast (For ALL Customers)', route: '', icon: 'fas fa-poo-storm', submenu: [
+        {
+          name: 'Daily Energy Monitoring  ', route: '/dailyenergy', icon: 'fas fa-poo-storm', submenu: []
+        },
+        // {
+        //   name: 'Energy Wastage', route: '/energywaste', icon: 'fas fa-poo-storm', submenu: []
+        // },
+         {
+          name: 'Weekly Comparison', route: '/weekly-comparison', icon: 'fas fa-poo-storm', submenu: []
+        },
+    
+        {
+          name: 'Energy Spikes', route: '/#', icon: 'fas fa-poo-storm', submenu: []
+        },
+        {
+          name: 'Weather Related Events', route: '/#', icon: 'fas fa-poo-storm', submenu: []
+        },
+        
+      ]
     },
-     {
-      name: 'Weekly Comparison', route: '/weekly-comparison', icon: 'fas fa-poo-storm', submenu: []
-    },
+
+
+
+
+
+     
+    
+    // {
+    //   name: 'Daily Energy Monitoring  ', route: '/dailyenergy', icon: 'fas fa-poo-storm', submenu: []
+    // },
+    // {
+    //   name: 'Energy Wastage', route: '/energywaste', icon: 'fas fa-poo-storm', submenu: []
+    // },
+    //  {
+    //   name: 'Weekly Comparison', route: '/weekly-comparison', icon: 'fas fa-poo-storm', submenu: []
+    // },
 
     
     
@@ -121,57 +115,6 @@ export class HomeLayoutComponent implements OnInit {
 
 
    
-    // {
-    //   name: 'Setup', route: '', icon: 'fas fa-user-edit', submenu: [
-        // {
-        //   name: 'User Access', route: '', icon: ' ', submenu: [
-        //   ]
-        // },
-        // {
-          // name: 'ERCOT', route: '', icon: 'fas fa-hospital-alt', submenu: [
-          //   { name: 'Alert Monitor', route: '/alert-monitor', icon: 'fas fa-bell', submenu: [] },
-          //   { name: 'CRRs', route: '/administration-crrs', icon: 'fas fa-poll-h', submenu: [] },
-            //     {
-            //       name: 'Nodal Market Configuration', route: '', icon: '', submenu: [
-            //         { name: 'Schedule Netting Flags', route: '', icon: '', submenu: [] },
-            //         { name: 'Maintain Administration Fee', route: '', icon: ' ', submenu: [] },
-            //         { name: 'Maintain Counterparties', route: '', icon: '', submenu: [] },
-            //         { name: 'Maintain Determinant Tolerances', route: '', icon: '', submenu: [] },
-            //       ]
-            //     },
-            //     { name: 'TMS Message Log', route: '', icon: '', submenu: [] },
-            //   ]
-            // },
-            // {
-            //   name: 'Trade Capture', route: '', icon: '', submenu: [
-            //     { name: 'Maintain Counterparties', route: '', icon: '', submenu: [] },
-            //     { name: 'Maintain DBAs', route: '', icon: ' ', submenu: [] },
-            //     { name: 'Maintain Enabling Agreements', route: '', icon: ' ', submenu: [] },
-            //     { name: 'Maintain Invoice Templates', route: '', icon: ' ', submenu: [] },
-            //     { name: 'Maintain Power Products', route: '', icon: ' ', submenu: [] },
-            //     { name: 'Maintain Traders', route: '', icon: ' ', submenu: [] },
-            //     { name: 'Maintain Trading Books', route: '', icon: ' ', submenu: [] },
-            //     { name: 'Maintain Trading Desk', route: '', icon: ' ', submenu: [] },
-            //     { name: 'Maintain Trading Location', route: '', icon: ' ', submenu: [] },
-            //     { name: 'Synchronize Configuration Updtaes', route: '', icon: ' ', submenu: [] },
-            //     {
-            //       name: 'Maintain Predefined Reasons', route: '', icon: ' ', submenu: [
-            //         { name: 'for Power Trade Editors', route: '', icon: ' ', submenu: [] },
-            //       ]
-            //     },
-            //     {
-            //       name: 'Market to Market', route: '', icon: ' ', submenu: [
-            //         { name: 'Force Re-evaluation', route: '', icon: ' ', submenu: [] },
-            //         { name: 'Maintain Power Price Curve sets', route: '', icon: ' ', submenu: [] },
-            //         { name: 'Review Forward Prices', route: '', icon: ' ', submenu: [] },
-            //         { name: 'Import Forward Prices', route: '', icon: ' ', submenu: [] },
-            //       ]
-            //     },
-    //       ]
-    //     },
-        
-    //   ]
-    // },
     
     {
       name: 'SCR-727 Data Mart', route: '', icon: 'fas fa-database', submenu: [
@@ -200,6 +143,9 @@ export class HomeLayoutComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
   ngOnInit() {
+  }
+  get(){
+    alert('usman')
   }
 
 }
