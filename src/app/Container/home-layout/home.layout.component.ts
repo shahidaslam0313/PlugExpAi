@@ -37,14 +37,15 @@ export class HomeLayoutComponent implements OnInit {
       ]
     },
     {
-      name: 'Dashboard ', route: '', icon: 'fas fa-poo-storm', submenu: []
+      name: 'Dashboard ', route: '/', icon: 'fas fa-poo-storm', submenu: []
     },
     {
       name: 'WattExpert Forecast', route: '', icon: 'fas fa-poo-storm', submenu: [
         // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
-        { name: 'Monthly Forecast', route: '/monthlys', icon: 'fas fa-window-restore', submenu: [] },
-        { name: 'Hourly Forecast', route: '/hourly', icon: 'fas fa-window-restore', submenu: [] },
-       
+        { name: 'Monthly Forecast', route: '/MonthlyForecast', icon: 'fas fa-window-restore', submenu: [] },
+        { name: 'Hourly Forecast', route: '/HourlyForecast', icon: 'fas fa-window-restore', submenu: [] },
+        { name: 'DateRange Forecast', route: '/DateRangeForecast', icon: 'fas fa-window-restore', submenu: [] },
+     
         { name: 'Weather Zone Forecast ', route: '/weather-zone-forecast', icon: 'fas fa-cloud-sun	', submenu: [] },
         { name: 'Weather Zone Actual', route: '/weather-zone-actual', icon: 'fas fa-cloud-meatball', submenu: [] },
       ]
@@ -62,10 +63,10 @@ export class HomeLayoutComponent implements OnInit {
         },
     
         {
-          name: 'Energy Spikes', route: '/', icon: 'fas fa-poo-storm', submenu: []
+          name: 'Energy Spikes', route: '/#', icon: 'fas fa-poo-storm', submenu: []
         },
         {
-          name: 'Weather Related Events', route: '/', icon: 'fas fa-poo-storm', submenu: []
+          name: 'Weather Related Events', route: '/#', icon: 'fas fa-poo-storm', submenu: []
         },
         
       ]
@@ -83,10 +84,10 @@ export class HomeLayoutComponent implements OnInit {
         },
     
         {
-          name: 'Energy Spikes', route: '/', icon: 'fas fa-poo-storm', submenu: []
+          name: 'Energy Spikes', route: '/#', icon: 'fas fa-poo-storm', submenu: []
         },
         {
-          name: 'Weather Related Events', route: '/', icon: 'fas fa-poo-storm', submenu: []
+          name: 'Weather Related Events', route: '/#', icon: 'fas fa-poo-storm', submenu: []
         },
         
       ]
@@ -94,20 +95,6 @@ export class HomeLayoutComponent implements OnInit {
 
 
 
-
-//     Individual Customer Forecast
-
-//  > Daily Energy Monitoring
-
-//  > Energy Wastage (Disable for now)
-
-//  > Weekly Comparison
-
-//  > Energy Wastage
-
-//  > Energy Spikes
-
-//  > Weather Related Events
 
 
      
@@ -156,6 +143,9 @@ export class HomeLayoutComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
   ngOnInit() {
+  }
+  get(){
+    alert('usman')
   }
 
 }
