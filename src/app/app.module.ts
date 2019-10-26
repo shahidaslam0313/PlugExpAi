@@ -97,7 +97,7 @@ Containers.LourenComponent,
     Containers.ImportforwardpricesComponent,
     Containers.ReviewForwardDialogComponent,
     HomeLayoutComponent,
-    Containers.DialogForecasterToolComponent,
+    // Containers.DialogForecasterToolComponent,
  
     // ForecasterToolComponent,
     // DialogForecasterToolComponent,
