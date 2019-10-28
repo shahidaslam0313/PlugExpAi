@@ -38,117 +38,143 @@ export class DailyEnergyComponent implements OnInit {
       this.viewhourly = data;
       this.mintime = data.min_usage.min_usage_hout;
       this.maxtime = data.max_usage.max_usage_hout;
+    
 
       if (this.maxtime == "hour_1") {
         this.maxtime = "00:00 AM to 1:00 AM"
+        
       }
       else if (this.maxtime == "hour_2") {
 
         this.maxtime = "1:00 AM to 2:00 AM "
+        
       }
       else if (this.maxtime == "hour_3") {
 
         this.maxtime = "2:00 AM to 3:00 AM "
+        
       }
 
       else if (this.maxtime == "hour_4") {
 
         this.maxtime = "3:00 AM to 4:00 AM"
+        
       }
 
       else if (this.maxtime == "hour_5") {
 
         this.maxtime = "4:00 AM to 5:00 AM "
+        
       }
 
       else if (this.maxtime == "hour_6") {
 
         this.maxtime = "5:00 AM to 6:00 AM"
+        
       }
 
       else if (this.maxtime == "hour_7") {
 
         this.maxtime = "6:00 AM to 7:00 AM"
+        
       }
 
       else if (this.maxtime == "hour_8") {
 
         this.maxtime = "7:00 AM to 8:00 AM "
+        
       }
 
       else if (this.maxtime == "hour_9") {
 
         this.maxtime = "8:00 AM to 9:00 AM "
+        
       }
 
       else if (this.maxtime == "hour_10") {
 
         this.maxtime = "9:00 AM to 10:00 AM"
+        
       }
 
       else if (this.maxtime == "hour_11") {
 
         this.maxtime = "10:00 AM to 11:00 AM"
+        
       }
 
       else if (this.maxtime == "hour_12") {
 
         this.maxtime = "11:00 AM to 12:00 AM "
+        
       }
 
       else if (this.maxtime == "hour_13") {
 
         this.maxtime = "12:00 PM to 1:00 PM"
+        
       }
 
       else if (this.maxtime == "hour_14") {
 
         this.maxtime = "1:00 PM to 2:00 PM "
+        
       }
 
       else if (this.maxtime == "hour_15") {
 
         this.maxtime = "2:00 PM to 3:00 PM"
+        
       }
       else if (this.maxtime == "hour_16") {
 
         this.maxtime = "3:00 PM to 4:00 PM"
+        
       }
       else if (this.maxtime == "hour_17") {
 
         this.maxtime = "4:00 PM to 5:00 PM"
+        
       }
       else if (this.maxtime == "hour_18") {
 
         this.maxtime = "5:00 PM to 6:00 PM"
+        
       }
       else if (this.maxtime == "hour_19") {
 
         this.maxtime = "6:00 PM to 7:00 PM"
+        
       }
-      else if (this.mintime == "hour_20") {
+      else if (this.maxtime == "hour_20") {
 
-        this.mintime = "7:00 PM to 8:00 PM"
+
+        this.maxtime = "7:00 PM to 8:00 PM"
+        
       }
 
       else if (this.maxtime == "hour_21") {
 
         this.maxtime = "8:00 PM to 9:00 PM"
+        
       }
 
       else if (this.maxtime == "hour_22") {
 
         this.maxtime = "9:00 PM to 10:00 PM"
+        
       }
 
       else if (this.maxtime == "hour_23") {
 
         this.maxtime = "10:00 PM to 11:00 PM"
+        
       }
 
       else if (this.maxtime == "hour_24") {
 
         this.maxtime = "11:00 PM to 12:00 PM"
+        
       }
 
 
