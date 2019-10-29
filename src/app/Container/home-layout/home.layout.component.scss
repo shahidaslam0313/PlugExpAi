@@ -25,7 +25,12 @@
         }
     }
     .margin {
-        margin-left: auto;
+      margin-left: auto;
+      width: auto;
+      display: flex;
+      .heading_sh{
+        margin-right: 200px;
+      }
        
     }
     .menu-toggle-btn {
