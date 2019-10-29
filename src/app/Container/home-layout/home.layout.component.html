@@ -92,22 +92,22 @@
             <mat-accordion displayMode="flat" multi="true">
                 <div *ngFor="let x of menuItems">
                     <mat-list *ngIf="x.submenu.length == 0">
-                        <a routerLink="{{x.route}}" routerLinkActive="is-active">
+                        <a routerLink="{{x.route}}" (click)="get_local(x.name)" routerLinkActive="is-active">
                             <mat-list-item>
                                 <i class="{{x.icon}}"></i>
-                                <span>{{x.name}}</span>
+                                <span >{{x.name}}</span>
                             </mat-list-item>
                         </a>
                     </mat-list>
                     <mat-expansion-panel class="sidePanels" *ngIf="x.submenu.length != 0">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                <i class="{{x.icon}}"></i> {{x.name}}
+                                <i class="{{x.icon}}"  ></i> {{x.name}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <div *ngFor="let y of x.submenu">
                             <mat-list *ngIf="y.submenu.length == 0">
-                                <a routerLink="{{y.route}}" routerLinkActive="is-active">
+                                <a routerLink="{{y.route}}" (click)="get_local(y.name)" routerLinkActive="is-active">
                                     <mat-list-item>
                                         <i class="{{y.icon}}"></i>
                                         <span>{{y.name}}</span>
@@ -123,7 +123,7 @@
                                 </mat-expansion-panel-header>
                                 <div *ngFor="let z of y.submenu">
                                     <mat-list *ngIf="z.submenu.length == 0">
-                                        <a routerLink="{{z.route}}" routerLinkActive="is-active">
+                                        <a routerLink="{{z.route}}" (click)="get_local(z.name)" routerLinkActive="is-active">
                                             <mat-list-item>
                                                 <i class="{{z.icon}}"></i>
                                                 <span>{{z.name}}</span>
@@ -138,7 +138,7 @@
                                         </mat-expansion-panel-header>
                                         <div *ngFor="let a of z.submenu">
                                             <mat-list *ngIf="a.submenu.length == 0">
-                                                <a routerLink="{{a.route}}" routerLinkActive="is-active">
+                                                <a routerLink="{{a.route}}" (click)="get_local(a.name)" routerLinkActive="is-active">
                                                     <mat-list-item>
                                                         <i class="{{z.icon}}"></i>
                                                         <span>{{a.name}}</span>

@@ -42,7 +42,7 @@ export class HomeLayoutComponent implements OnInit {
     {
       name: 'WattExpert Forecast', route: '', icon: 'fas fa-poo-storm', submenu: [
         // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
-        { name: 'Monthly Forecast', route: '/MonthlyForecast', icon: 'fas fa-window-restore', submenu: [] },
+        { name: 'Monthly Forecast', route: '/MonthlyForecast', icon: 'fas fa-window-restore', submenu: [], },
         { name: 'Hourly Forecast', route: '/HourlyForecast', icon: 'fas fa-window-restore', submenu: [] },
         { name: 'DateRange Forecast', route: '/DateRangeForecast', icon: 'fas fa-window-restore', submenu: [] },
      
@@ -92,29 +92,7 @@ export class HomeLayoutComponent implements OnInit {
         
       ]
     },
-
-
-
-
-
-     
-    
-    // {
-    //   name: 'Daily Energy Monitoring  ', route: '/dailyenergy', icon: 'fas fa-poo-storm', submenu: []
-    // },
-    // {
-    //   name: 'Energy Wastage', route: '/energywaste', icon: 'fas fa-poo-storm', submenu: []
-    // },
-    //  {
-    //   name: 'Weekly Comparison', route: '/weekly-comparison', icon: 'fas fa-poo-storm', submenu: []
-    // },
-
-    
-    
-
-
-
-   
+ 
     
     {
       name: 'SCR-727 Data Mart', route: '', icon: 'fas fa-database', submenu: [
@@ -142,10 +120,13 @@ export class HomeLayoutComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(["/login"]);
   }
+  header_name;
+  get_local(val1){
+val1=localStorage.setItem('header1',val1)
+  }
   ngOnInit() {
+    this.header_name = localStorage.getItem('header1')
   }
-  get(){
-    alert('usman')
-  }
+ 
 
 }
