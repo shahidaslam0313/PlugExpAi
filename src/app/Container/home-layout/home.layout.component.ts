@@ -63,10 +63,10 @@ export class HomeLayoutComponent implements OnInit {
         },
     
         {
-          name: 'Energy Spikes', route: '/#', icon: 'fas fa-poo-storm', submenu: []
+          name: 'Energy Spikes', route: '/', icon: 'fas fa-poo-storm', submenu: []
         },
         {
-          name: 'Weather Related Events', route: '/#', icon: 'fas fa-poo-storm', submenu: []
+          name: 'Weather Related Events', route: '/', icon: 'fas fa-poo-storm', submenu: []
         },
         
       ]
@@ -84,10 +84,10 @@ export class HomeLayoutComponent implements OnInit {
         },
     
         {
-          name: 'Energy Spikes', route: '/#', icon: 'fas fa-poo-storm', submenu: []
+          name: 'Energy Spikes', route: '/', icon: 'fas fa-poo-storm', submenu: []
         },
         {
-          name: 'Weather Related Events', route: '/#', icon: 'fas fa-poo-storm', submenu: []
+          name: 'Weather Related Events', route: '/', icon: 'fas fa-poo-storm', submenu: []
         },
         
       ]
@@ -121,11 +121,83 @@ export class HomeLayoutComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
   header_name;
-  get_local(val1){
-val1=localStorage.setItem('header1',val1)
+  get_local(val1): void{
+    this.header_name = val1
+
   }
+  
+   
   ngOnInit() {
-    this.header_name = localStorage.getItem('header1')
+ 
+  //  this.header_name= this.router.url;
+   if ( this.router.url == "/ercot-load"){
+     this.header_name= "ERCOT Load"
+   }else if ( this.router.url == "/louren"){
+    this.header_name = "Load Graphs"
+   }
+   else if ( this.router.url == "/esiid-lookup"){
+    this.header_name = "ESIID Lookup" 
+   }
+   else if ( this.router.url == "/"){
+    this.header_name = "Dashboard" 
+   }
+   else if ( this.router.url == "/MonthlyForecast"){
+    this.header_name = "Monthly Forecast"
+    
+   
+   }
+   else if ( this.router.url == "/HourlyForecast"){
+    this.header_name = "Hourly Forecast"
+     
+   }
+   else if ( this.router.url == "/DateRangeForecast"){
+    this.header_name = "DateRange Forecast"
+   }
+   else if ( this.router.url == "/DateRangeForecast"){
+    this.header_name = "DateRange Forecast"
+   }
+   else if ( this.router.url == "/weather-zone-forecast"){
+    this.header_name = "Weather Zone Forecast"
+   }
+   else if ( this.router.url == "/weather-zone-actual"){
+    this.header_name = "Weather Zone Actual"
+   }
+   else if ( this.router.url == "/dailyenergy"){
+    this.header_name = "Daily Energy Monitoring "
+   }
+   else if ( this.router.url == "/energywaste"){
+    this.header_name = "Energy Wastage"
+   }
+   else if ( this.router.url == "/weekly-comparison"){
+    this.header_name = "Weekly Comparison"
+   }
+  //  else if ( this.router.url == "/#"){
+  //   this.header_name = "Energy Spikes"
+  //  }
+  //  else if ( this.router.url == "/#"){
+  //   this.header_name = "Energy Spikes"
+  //  }
+  //  else if ( this.router.url == "/#"){
+  //   this.header_name = "Weather Related Events"
+  //  }
+   else if ( this.router.url == "/esiid-count"){
+    this.header_name = "ESIID Counts"
+   }
+   else if ( this.router.url == "/review-esiid-service-history-component"){
+    this.header_name = "Review ESIID Service History"
+   }
+   else if ( this.router.url == "/review-esiid-usage-meter-reads-component"){
+    this.header_name = "Review ESIID Usage (Meter Reads)"
+   }
+   else if ( this.router.url == "/review-ams-interval"){
+    this.header_name = "Review AMS Interval Data"
+   }
+
+ 
+
+
+
+    
   }
  
 
