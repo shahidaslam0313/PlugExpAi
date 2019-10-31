@@ -55,22 +55,23 @@
       
           </div>
           <button routerLink="/ercot-load" mat-button matTooltip="ERCOT Load">
-            <i style="font-size:18px;" class="fas fa-window-restore"></i>
+            <img src="../../../assets/img/sidebar/ERCOT Load.png" alt="img"/>
           </button>
           <button routerLink="/forecastertool" mat-button matTooltip="Review Forecast">
-            <i style="font-size:18px;" class="fab fa-wpforms"></i>
+            <img src="../../../assets/img/sidebar/review forecaste.png" alt="img"/>
           </button>
           <button routerLink="/review-customer-count" mat-button matTooltip="Review Customer Counts">
-            <i style="font-size:18px;" class="fa fa-clipboard"></i>
+            <img src="../../../assets/img/sidebar/review-ams-interval.png" alt="img"/>
           </button>
           <button routerLink="/maturity-forecast" mat-button matTooltip="Maturity Date Forecast Reports">
-            <i style="font-size:18px;" class="fas fa-file-signature"></i>
+            <img src="../../../assets/img/sidebar/review forecaste.png" alt="img"/>
           </button>
           <button routerLink="/weather-zone-forecast" mat-button matTooltip="Weather Zone Forecast">
-            <i style="font-size:18px;" class="fas fa-cloud-sun"></i>
+            <img src="../../../assets/img/sidebar/weather-zone-forecast.png" alt="img"/>
           </button>
           <button routerLink="/weather-zone-actual" mat-button matTooltip="Weather Zone Actual">
-            <i style="font-size:18px;" class="fas fa-cloud-meatball"></i>
+            <img src="../../../assets/img/sidebar/weather-zone-actual.png" alt="img"/>
+
           </button>
         </span>
         <!-- </mat-toolbar> -->
@@ -98,7 +99,7 @@
                     <mat-list *ngIf="x.submenu.length == 0">
                         <a routerLink="{{x.route}}" (click)="get_local(x.name)" routerLinkActive="is-active">
                             <mat-list-item>
-                                <i class="{{x.icon}}"></i>
+                                <img src="{{x.icon}}">
                                 <span >{{x.name}}</span>
                             </mat-list-item>
                         </a>
@@ -106,14 +107,14 @@
                     <mat-expansion-panel class="sidePanels" *ngIf="x.submenu.length != 0">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                <i class="{{x.icon}}"  ></i> {{x.name}}
+                              <img src="{{x.icon}}"> {{x.name}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <div *ngFor="let y of x.submenu">
                             <mat-list *ngIf="y.submenu.length == 0">
                                 <a routerLink="{{y.route}}" (click)="get_local(y.name)" routerLinkActive="is-active">
                                     <mat-list-item>
-                                        <i class="{{y.icon}}"></i>
+                                      <img src="{{y.icon}}">
                                         <span>{{y.name}}</span>
                                     </mat-list-item>
                                 </a>
@@ -121,7 +122,7 @@
                             <mat-expansion-panel class="sidePanels" *ngIf="y.submenu.length != 0">
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>
-                                        <i class="{{y.icon}}"></i>
+                                      <img src="{{y.icon}}">
                                         <span>{{y.name}}</span>
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
@@ -129,7 +130,7 @@
                                     <mat-list *ngIf="z.submenu.length == 0">
                                         <a routerLink="{{z.route}}" (click)="get_local(z.name)" routerLinkActive="is-active">
                                             <mat-list-item>
-                                                <i class="{{z.icon}}"></i>
+                                              <img src="{{z.icon}}">
                                                 <span>{{z.name}}</span>
                                             </mat-list-item>
                                         </a>
@@ -144,7 +145,7 @@
                                             <mat-list *ngIf="a.submenu.length == 0">
                                                 <a routerLink="{{a.route}}" (click)="get_local(a.name)" routerLinkActive="is-active">
                                                     <mat-list-item>
-                                                        <i class="{{z.icon}}"></i>
+                                                        <img src="{{a.icon}}">
                                                         <span>{{a.name}}</span>
                                                     </mat-list-item>
                                                 </a>
