@@ -63,10 +63,10 @@ export class HomeLayoutComponent implements OnInit {
         },
     
         {
-          name: 'Energy Spikes', route: '/', icon: '../../../assets/img/sidebar/review-esiid-service-history-component.png', submenu: []
+          name: 'Energy Spikes', route: '/#', icon: '../../../assets/img/sidebar/review-esiid-service-history-component.png', submenu: []
         },
         {
-          name: 'Weather Related Events', route: '/', icon: '../../../assets/img/sidebar/WattExpert Al Forecast.png', submenu: []
+          name: 'Weather Related Events', route: '/#', icon: '../../../assets/img/sidebar/WattExpert Al Forecast.png', submenu: []
         },
         
       ]
@@ -84,10 +84,10 @@ export class HomeLayoutComponent implements OnInit {
         },
     
         {
-          name: 'Energy Spikes', route: '/', icon: '../../../assets/img/sidebar/review-esiid-usage-meter-reads-component.png', submenu: []
+          name: 'Energy Spikes', route: '/#', icon: '../../../assets/img/sidebar/review-esiid-usage-meter-reads-component.png', submenu: []
         },
         {
-          name: 'Weather Related Events', route: '/', icon: '../../../assets/img/sidebar/WattExpert Al Forecast.png', submenu: []
+          name: 'Weather Related Events', route: '/#', icon: '../../../assets/img/sidebar/WattExpert Al Forecast.png', submenu: []
         },
         
       ]
