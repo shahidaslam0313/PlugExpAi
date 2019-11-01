@@ -617,17 +617,20 @@ export class MonthlysComponent implements OnInit {
   public buttonName:any = 'Show';
   toggle() {
     
+    alert('usman')
     this.show = !this.show;
 
     // CHANGE THE NAME OF THE BUTTON.
     if(this.show)  
       this.buttonName = "Hide";
+      
     else
       this.buttonName = "Show";
   }
 
 
   showHourlyGraph1(element) {
+
 
     this.GraphData = []
    
@@ -861,6 +864,7 @@ export class MonthlysComponent implements OnInit {
   
   
   demo() {
+
     // console.log(this.obj)
     // let obj={
     //     // date: '',
@@ -894,6 +898,7 @@ export class MonthlysComponent implements OnInit {
         // }
         // this.demoDataSource.data = this.dataResult
         this.demoDataSource.data = res['message']
+        this.showHourlyGraph1(res['message'][0])
         this.loading = false
         console.log(res)
       }

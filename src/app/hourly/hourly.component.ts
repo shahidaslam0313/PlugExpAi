@@ -944,6 +944,7 @@ Data = []
         // if (res['Status'] == true) {
         // this.demoDataSource.data = res['data']
         this.demoDataSource.data = res['message']
+        this.showHourlyGraph(res['message'][0])
         this.loading = false
         console.log(res)
       }
