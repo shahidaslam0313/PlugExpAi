@@ -897,6 +897,7 @@ export class DateRangeComponent implements OnInit {
         // }
         // this.demoDataSource.data = this.dataResult
         this.demoDataSource.data = res['message']
+        this.showHourlyGraph1(res['message'][0])
         this.loading = false
         console.log(res)
       }
