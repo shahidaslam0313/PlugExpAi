@@ -617,7 +617,6 @@ export class MonthlysComponent implements OnInit {
   public buttonName:any = 'Show';
   toggle() {
     
-    alert('usman')
     this.show = !this.show;
 
     // CHANGE THE NAME OF THE BUTTON.

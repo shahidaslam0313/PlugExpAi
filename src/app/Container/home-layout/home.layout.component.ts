@@ -18,6 +18,9 @@ export class HomeLayoutComponent implements OnInit {
   currentUrl = { route: null, cust_id: null };
   year = new Date().getFullYear();
   menuItems = [
+        {
+      name: 'Dashboard ', route: '/', icon: '../../../assets/img/sidebar/../../../assets/img/sidebar/Dashboard.png', submenu: []
+    },
     {
       // name: 'Home', route: '/louren', icon: 'fa fa-home', submenu: [
       name: 'Home', route: '', icon: '../../../assets/img/sidebar/Home.png', submenu: [
@@ -37,11 +40,8 @@ export class HomeLayoutComponent implements OnInit {
       ]
     },
     {
-      name: 'Dashboard ', route: '/', icon: '../../../assets/img/sidebar/../../../assets/img/sidebar/Dashboard.png', submenu: []
-    },
-    {
       name: 'WattExpert Forecast', route: '', icon: '../../../assets/img/sidebar/WattExpert Al Forecast.png', submenu: [
-        // { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
+       { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
         { name: 'Monthly Forecast', route: '/MonthlyForecast', icon: '../../../assets/img/sidebar/Monthly.png', submenu: [], },
         { name: 'Hourly Forecast', route: '/HourlyForecast', icon: '../../../assets/img/sidebar/Hourly.png', submenu: [] },
         { name: 'DateRange Forecast', route: '/DateRangeForecast', icon: '../../../assets/img/sidebar/review forecaste.png', submenu: [] },
@@ -147,9 +147,29 @@ export class HomeLayoutComponent implements OnInit {
     this.header_name = "Hourly Forecast"
      
    }
+
+  //  else if (){
+  //   { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
+  //  }
+   else if ( this.router.url == "/forecastertool"){
+    this.header_name = "WattExpert Al Review Forecast"
+   }
    else if ( this.router.url == "/DateRangeForecast"){
     this.header_name = "DateRange Forecast"
    }
+   else if ( this.router.url == "/review-customer-count"){
+    this.header_name = "Review Customer Count"
+   }
+   else if ( this.router.url == "/maturity-forecast"){
+    this.header_name = "Maturity Forecast"
+   }
+   else if ( this.router.url == "/weather-zone-forecast"){
+    this.header_name = "Weather Zone Forecast"
+   }
+   else if ( this.router.url == "/weather-zone-actual"){
+    this.header_name = "Weather Zone Actual"
+   }
+ 
    else if ( this.router.url == "/DateRangeForecast"){
     this.header_name = "DateRange Forecast"
    }

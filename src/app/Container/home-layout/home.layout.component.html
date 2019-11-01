@@ -53,22 +53,22 @@
           <div>
             <h2  class="text-center heading_sh">{{header_name}}</h2>
           </div>
-          <button routerLink="/ercot-load" mat-button matTooltip="ERCOT Load">
+          <button routerLink="/ercot-load" (click)="get_local('ERCOT Load')"  mat-button matTooltip="ERCOT Load">
             <img src="../../../assets/img/sidebar/ERCOT Load.png" alt="img"/>
           </button>
-          <button routerLink="/forecastertool" mat-button matTooltip="Review Forecast">
+          <button routerLink="/forecastertool" (click)="get_local('WattExpert Al Review Forecast')"  mat-button matTooltip="Review Forecast">
             <img src="../../../assets/img/sidebar/review forecaste.png" alt="img"/>
           </button>
-          <button routerLink="/review-customer-count" mat-button matTooltip="Review Customer Counts">
+          <button routerLink="/review-customer-count" (click)="get_local('Review Customer Count')"  mat-button matTooltip="Review Customer Counts">
             <img src="../../../assets/img/sidebar/review-ams-interval.png" alt="img"/>
           </button>
-          <button routerLink="/maturity-forecast" mat-button matTooltip="Maturity Date Forecast Reports">
+          <button routerLink="/maturity-forecast" (click)="get_local('Maturity Forecast')"  mat-button matTooltip="Maturity Date Forecast Reports">
             <img src="../../../assets/img/sidebar/review forecaste.png" alt="img"/>
           </button>
-          <button routerLink="/weather-zone-forecast" mat-button matTooltip="Weather Zone Forecast">
+          <button routerLink="/weather-zone-forecast" (click)="get_local('Weather Zone Forecast')"  mat-button matTooltip="Weather Zone Forecast">
             <img src="../../../assets/img/sidebar/weather-zone-forecast.png" alt="img"/>
           </button>
-          <button routerLink="/weather-zone-actual" mat-button matTooltip="Weather Zone Actual">
+          <button routerLink="/weather-zone-actual" (click)="get_local('Weather Zone Actual')" mat-button matTooltip="Weather Zone Actual">
             <img src="../../../assets/img/sidebar/weather-zone-actual.png" alt="img"/>
 
           </button>
