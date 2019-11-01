@@ -5,11 +5,11 @@
                 <label style="color: #000; font-size: 16px; cursor: pointer;margin-left: 7px;margin-top: 5px;padding: 0 10px;">Hourly</label>
             </div>
         </ng-template> -->
-<div class="d-flex">
+
     <!-- <div class="ml-auto p-2">
                 <mat-icon matTooltip="What if" (click)="togglePanel()">note_add</mat-icon>
             </div> -->
-</div>
+
 <mat-card>
     <form class="hourly_form" [formGroup]="hourly" (ngSubmit)="onSubmitHourly()">
         <!-- <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
@@ -232,8 +232,8 @@
         </table>
     </div>
 </mat-card>
-<div class="row">
-    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+<div class="row m-0" *ngIf="show">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 new_charts">
         <canvas id="myChart" width="900" height="400"></canvas>
     </div>
 </div>

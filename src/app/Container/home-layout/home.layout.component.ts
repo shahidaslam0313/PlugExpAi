@@ -41,7 +41,7 @@ export class HomeLayoutComponent implements OnInit {
     },
     {
       name: 'WattExpert Forecast', route: '', icon: '../../../assets/img/sidebar/WattExpert Al Forecast.png', submenu: [
-       { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
+       { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: '../../../assets/img/sidebar/review-esiid-service-history-component.png', submenu: [] },
         { name: 'Monthly Forecast', route: '/MonthlyForecast', icon: '../../../assets/img/sidebar/Monthly.png', submenu: [], },
         { name: 'Hourly Forecast', route: '/HourlyForecast', icon: '../../../assets/img/sidebar/Hourly.png', submenu: [] },
         { name: 'DateRange Forecast', route: '/DateRangeForecast', icon: '../../../assets/img/sidebar/review forecaste.png', submenu: [] },
