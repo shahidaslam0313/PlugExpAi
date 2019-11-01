@@ -51,14 +51,18 @@
         <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
             <button (click)="toggle()" class="btn-search font-styling" mat-raised-button>Search</button>
         </div> -->
-        
         <div >
           <button (click)="toggle()" class=" btn-search font-styling" mat-raised-button>Search</button>
         </div>
     </form>
-
 </mat-card>
-
+<div class="row m-0" *ngIf="show">
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 new_charts">
+     
+          <canvas id="myChart" width="900" height="400"></canvas>
+    
+  </div>
+</div>
 <mat-card class="t" *ngIf="show">
     <div class="example-container table-container mat-elevation-z2">
         <table mat-table [dataSource]="demoDataSource" multiTemplateDataRows class="abc">
@@ -232,11 +236,7 @@
         </table>
     </div>
 </mat-card>
-<div class="row m-0" *ngIf="show">
-    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 new_charts">
-        <canvas id="myChart" width="900" height="400"></canvas>
-    </div>
-</div>
+
 
 
 

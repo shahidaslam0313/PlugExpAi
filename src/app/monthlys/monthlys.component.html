@@ -425,7 +425,9 @@
 </mat-tab-group> -->
 <div class="row m-0" *ngIf="show">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 new_charts">
-        <canvas id="myChart" width="900" height="300"></canvas>
+        <div style="width: 80%; margin: 0 auto;">
+            <canvas id="myChart" width="900" height="300"></canvas>
+        </div>
     </div>
 </div>
 <mat-card *ngIf="show">
