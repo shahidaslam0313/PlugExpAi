@@ -93,7 +93,7 @@ export class HomeLayoutComponent implements OnInit {
       ]
     },
  
-    
+   
     {
       name: 'SCR-727 Data Mart', route: '', icon: '../../../assets/img/sidebar/SCR-727 Data Mart.png', submenu: [
         { name: 'ESIID Counts', route: '/esiid-count', icon: '../../../assets/img/sidebar/ESIID Lookup.png', submenu: [] },

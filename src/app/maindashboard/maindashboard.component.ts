@@ -18,6 +18,7 @@ export class MaindashboardComponent implements OnInit {
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
   }
+  image =' ../../../assets/img/fidget_red.svg'
   chart: any = [];
   chart4: any = [];
   chart2: any = [];
@@ -30,7 +31,7 @@ export class MaindashboardComponent implements OnInit {
     this.save();
     this.save1();
     this.save2();
-
+ 
   }
 
 
@@ -195,6 +196,7 @@ export class MaindashboardComponent implements OnInit {
   days6: any = []
   save() {
     this.service.lastweekweekenergymonitoring('17459928').subscribe(data => {
+ 
 
       this.viewhourly = data;
 
