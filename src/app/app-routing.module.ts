@@ -9,6 +9,7 @@ import { LourenComponent } from './Container/ercot/dashboard/louren/louren.compo
 import { DailyEnergyComponent } from './daily-energy/daily-energy.component';
 import { EnergyWasteComponent } from './energy-waste/energy-waste.component';
 import { WeeklyEnergyComponent } from './weekly-energy/weekly-energy.component';
+import { EnergySpikesComponent } from './energy-spikes/energy-spikes.component';
 // import { ReviewEsiIdUsageMeterReadsComponent } from './Container/ercot/SCR-727-ESIID-Database/review-esi-id-usage-meter-reads/review-esi-id-usage-meter-reads.component';
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
                   { path: 'louren',component:Containers.LourenComponent },
                   { path: 'energywaste',component:EnergyWasteComponent },
                   { path: 'dailyenergy',component:DailyEnergyComponent },
+                  { path: 'energy-spikes',component:EnergySpikesComponent },
                   { path: 'weekly-comparison',component:WeeklyEnergyComponent },
                   // RoutingModule
                   { path: 'home', component: Containers.HomeComponent },

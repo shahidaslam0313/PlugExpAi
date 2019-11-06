@@ -31,9 +31,137 @@ export class MaindashboardComponent implements OnInit {
     this.save();
     this.save1();
     this.save2();
+    this.Anomaious();
  
   }
+  show_anomalies;
+  show_graph
+  chart6;
+  Anomaious() {
+    this.service.anomaly('17459928').subscribe(data => {
 
+      this.viewhourly = data.anomalies;
+      this.show_anomalies = data.num_of_anomalies
+      this.show_graph = data.anomalies[0]['24_hours']
+      this.dates1 = this.viewhourly.last_week
+      this.dates2 = this.viewhourly.this_week
+      // this.dates = 90;
+
+
+      this.chart6 = new Chart('chart6',
+        {
+          type: 'line',
+          data: {
+            labels: ['1-hour',
+              '2-hour',
+              '3-hour',
+              '4-hour',
+              '5-hour',
+              '6-hour',
+              '7-hour',
+              '8-hour',
+              '9-hour',
+              '10-hour',
+              '11-hour',
+              '12-hour',
+              '13-hour',
+              '14-hour',
+              '15-hour',
+              '16-hour',
+              '17-hour',
+              '18-hour',
+
+              '19-hour',
+              '20-hour',
+              '21-hour',
+              '22-hour',
+              '23-hour',
+              '24-hour',
+            ],
+            datasets: [
+              // labels:'this.week',
+              {
+                label: 'Anomaious Energy Spikes',
+                data: [
+                  this.show_graph[0],
+                  this.show_graph[1],
+                  this.show_graph[2],
+                  this.show_graph[3],
+                  this.show_graph[4],
+                  this.show_graph[5],
+                  this.show_graph[6],
+                  this.show_graph[7],
+                  this.show_graph[8],
+                  this.show_graph[9],
+                  this.show_graph[10],
+                  this.show_graph[11],
+                  this.show_graph[12],
+                  this.show_graph[13],
+                  this.show_graph[14],
+                  this.show_graph[15],
+                  this.show_graph[16],
+                  this.show_graph[17],
+                  this.show_graph[18],
+                  this.show_graph[19],
+                  this.show_graph[20],
+                  this.show_graph[21],
+                  this.show_graph[22],
+                  this.show_graph[23],
+
+                ],
+                backgroundColor: [
+
+
+                  // '#4C4C7C',
+                  // '#A04000',
+                  // '#D6DBDF',
+                  '#17a2b8',
+                  // '#6610f2',
+
+                  // '#0E6251',
+
+                  // '#CB4335',
+                  // '#7AE2E2',
+                  // '#FFE29A',
+                  // '#2ECC71',
+                  // '#dc3545',
+                  // '#FFE29A',
+                  // '#FF8BA4',
+                  // '#48C9B0',
+                  // '#A04000',
+               
+                  // '#B3B6B7',
+                  // '#CB4335',
+                  // '#D6DBDF',
+                  // '#20c997',
+                  // '#7AE2E2',
+                  // '#FF8BA4',
+                  // '#FFE29A',
+                  // '#2ECC71',
+                  // '#4C4C7C',
+                  // '#AF7AC5',
+                  // '#CB4335',
+                  // '#FF8BA4',
+
+                ]
+              },
+             
+            ]
+
+          },
+          options: {
+            legend: {
+              display: false,
+              
+            
+            }
+          }
+
+        })
+
+    });
+
+  }
 
   save1() {
     this.service.dailyenergymonitoring('17459928').subscribe(data => {
@@ -104,14 +232,6 @@ export class MaindashboardComponent implements OnInit {
                   this.viewhourly.message[22],
                   this.viewhourly.message[23],
 
-
-                  // this.viewhourly.last_week.day2,
-                  // this.viewhourly.last_week.day3,
-                  // this.viewhourly.last_week.day4,
-                  // this.viewhourly.last_week.day5,
-                  // this.viewhourly.last_week.day6,
-                  // this.viewhourly.last_week.day7
-
                 ],
                 backgroundColor: [
 
@@ -145,40 +265,14 @@ export class MaindashboardComponent implements OnInit {
 
                 ]
               },
-              //  {
-              //   label:'This Week',
-              //   data:[
-              //     this.viewhourly.this_week.day1,
-              //     this.viewhourly.this_week.day2,
-              //     this.viewhourly.this_week.day3,
-              //     this.viewhourly.this_week.day4,
-              //     this.viewhourly.this_week.day5,
-              //     this.viewhourly.this_week.day6,
-              //     this.viewhourly.this_week.day7
-
-              //   ],
-              //   backgroundColor:[ 
-              //      '#7AE2E2', 
-              //      '#7AE2E2', 
-              //      '#7AE2E2', 
-              //      '#7AE2E2', 
-              //      '#7AE2E2', 
-              //      '#7AE2E2', 
-              //      '#7AE2E2', 
-              //  ,
-              // ]
-              // },
-
-            ],
-            //  background:['','',]
+             
+            ]
 
           },
           options: {
             legend: {
               display: true,
-              // labels: {
-              //     fontColor: 'rgb(255, 99, 132)'
-              // }
+            
             }
           }
 
@@ -390,13 +484,13 @@ export class MaindashboardComponent implements OnInit {
         this.viewhourly.usage_24_7[6][21] +
         this.viewhourly.usage_24_7[6][22] +
         this.viewhourly.usage_24_7[6][23]
-      console.log(this.days0, 'day0')
-      console.log(this.days1, 'day1')
-      console.log(this.days2, 'day2')
-      console.log(this.days3, 'day3')
-      console.log(this.days4, 'day4')
-      console.log(this.days5, 'day5')
-      console.log(this.days6, 'day6')
+      // console.log(this.days0, 'day0')
+      // console.log(this.days1, 'day1')
+      // console.log(this.days2, 'day2')
+      // console.log(this.days3, 'day3')
+      // console.log(this.days4, 'day4')
+      // console.log(this.days5, 'day5')
+      // console.log(this.days6, 'day6')
 
 
 

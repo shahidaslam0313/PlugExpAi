@@ -63,7 +63,7 @@ export class HomeLayoutComponent implements OnInit {
         },
     
         {
-          name: 'Energy Spikes', route: '/#', icon: '../../../assets/img/sidebar/review-esiid-service-history-component.png', submenu: []
+          name: 'Energy Spikes', route: '/energy-spikes', icon: '../../../assets/img/sidebar/review-esiid-service-history-component.png', submenu: []
         },
         {
           name: 'Weather Related Events', route: '/#', icon: '../../../assets/img/sidebar/WattExpert Al Forecast.png', submenu: []
@@ -84,7 +84,7 @@ export class HomeLayoutComponent implements OnInit {
         },
     
         {
-          name: 'Energy Spikes', route: '/#', icon: '../../../assets/img/sidebar/review-esiid-usage-meter-reads-component.png', submenu: []
+          name: 'Energy Spikes', route: '/energy-spikes', icon: '../../../assets/img/sidebar/review-esiid-usage-meter-reads-component.png', submenu: []
         },
         {
           name: 'Weather Related Events', route: '/#', icon: '../../../assets/img/sidebar/WattExpert Al Forecast.png', submenu: []
@@ -188,9 +188,9 @@ export class HomeLayoutComponent implements OnInit {
    else if ( this.router.url == "/weekly-comparison"){
     this.header_name = "Weekly Comparison"
    }
-  //  else if ( this.router.url == "/#"){
-  //   this.header_name = "Energy Spikes"
-  //  }
+   else if ( this.router.url == "/energy-spikes"){
+    this.header_name = "Energy Spikes"
+   }
   //  else if ( this.router.url == "/#"){
   //   this.header_name = "Energy Spikes"
   //  }

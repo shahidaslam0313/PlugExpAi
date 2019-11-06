@@ -68,6 +68,7 @@ import { EnergyWasteComponent } from './energy-waste/energy-waste.component';
 import { DailyEnergyComponent } from './daily-energy/daily-energy.component';
 import { WeeklyEnergyComponent } from './weekly-energy/weekly-energy.component';
 import { DateRangeComponent } from './date-range/date-range.component';
+import { EnergySpikesComponent } from './energy-spikes/energy-spikes.component';
 
 @NgModule({
   declarations: [
@@ -165,6 +166,7 @@ Containers.LourenComponent,
     DailyEnergyComponent,
     WeeklyEnergyComponent,
     DateRangeComponent,
+    EnergySpikesComponent,
 
   ],
   imports: [

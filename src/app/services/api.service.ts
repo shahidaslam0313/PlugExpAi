@@ -98,6 +98,14 @@ export class ApiService {
    
     return this.http.post<any>(`${this.new}reports/daily-energy-monitoring/`, {'u_id': hourlyValue1})
   }
+
+  anomaly(hourlyValue1) {
+   
+    return this.http.post<any>(`${this.new}reports/anomaly/`, {'u_id': hourlyValue1})
+  }
+
+
+ 
   lastweekweekenergymonitoring(hourlyValue1) {
    
     return this.http.post<any>(`${this.new}reports/last-week-monitoring/`, {'u_id': hourlyValue1})

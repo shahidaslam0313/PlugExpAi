@@ -1,14 +1,14 @@
 <section>
   <!-- <div class="dashboard-header"> -->
-    <!-- <div class="member_side">
+  <!-- <div class="member_side">
       <p>Member Since :
         <span class="ml-3">4/19/2019</span>
       </p>
     </div> -->
-    <!--  -->
-    <!-- <div> -->
-    <!-- </div> -->
-    <!-- <div  class=" member_side">
+  <!--  -->
+  <!-- <div> -->
+  <!-- </div> -->
+  <!-- <div  class=" member_side">
       <p class="m-0">Renewal Date :
         <span class="ml-3">6/19/2020</span>
       </p>
@@ -17,57 +17,57 @@
 
   <!--  -->
   <div class="dashboard-body">
-   
+
     <div class="upper-graphs">
-      
+
       <div class="graph_div">
-      
+
         <div class="this_week">
           <div class="icon_div blue_icon">
             <i class="fa fa-plug"></i>
           </div>
           <small>Weekly Comparison </small>
         </div>
-       
+
         <div class="compare_start">
-            <canvas id="chart4">
-                {{chart4}}
-              </canvas>
-          
+          <canvas id="chart4">
+            {{chart4}}
+          </canvas>
+
         </div>
-       
+
       </div>
-      
+
       <div class="graph_div">
-      
+
         <div class="this_week">
           <div class="icon_div green_icon">
             <i class="fa fa-cloud" aria-hidden="true"></i>
           </div>
           <small>Last Week Monitoring</small>
         </div>
-       
+
         <div class="compare_start">
-       
-            <canvas id="chart5">
-              {{chartdays}}
-            </canvas>
+
+          <canvas id="chart5">
+            {{chartdays}}
+          </canvas>
         </div>
-        
-      
+
+
       </div>
-      
+
     </div>
- 
+
     <div class="lower_graphs">
       <div class="d-flex w-100 m-0">
 
-        
+
         <div class="graph_div">
-          
+
           <div class="this_week">
-           
-            <small class="m-0 mb-1">Daily  Min Usages</small>
+
+            <small class="m-0 mb-1">Daily Min Usages</small>
             <!-- <small class="m-0 mb-1"> Avg Temp</small> -->
           </div>
           <!--  icon and heading end -->
@@ -102,47 +102,88 @@
         <!-- Graph Div end -->
       </div>
     </div>
-    <!--  -->
     <div class="lower_graphs">
-      <div class="d-flex w-100 mt-3">
-        <!-- Graph Div start -->
-        <div class="graph_div  w-100">
-          <!-- icon and heading  start-->
+      <div class="d-flex w-100 m-0">
+
+
+        <div class="graph_div">
+
           <div class="this_week">
-            <p class="m-0 mb-1">
-              <b>Last Week Usage</b></p>
+
+            <small class="m-0 mb-1">Last Week Usage</small>
+            <!-- <small class="m-0 mb-1"> Avg Temp</small> -->
           </div>
           <!--  icon and heading end -->
           <div class="chart-100">
             <div>
-                <!-- <canvas id="chart5"style="display: block; height: 300px; width: 600px;">
-                    {{chartdays}}
-                  </canvas> -->
-                  <canvas id="chart3">
-                    {{chart3}}
-                  </canvas>
+              <!-- <h4>show Graph here</h4>     -->
+              <canvas id="chart3">
+                {{chart3}}
+              </canvas>
+            </div>
+          </div>
+        </div>
+        <!-- Graph Div end -->
+        <!-- Graph Div start -->
+        <div class="graph_div ">
+          <!-- icon and heading  start-->
+          <div class="this_week">
+            <!-- <p class="m-0 mb-1"><b>Peak 45 kWh at 10:00 PM On Wed</b></p> -->
+            <small class="m-0 mb-1">Anomaious Energy Spikes</small>
+            <!-- <small class="m-0 mb-1"> Avg Temp</small> -->
+          </div>
+          <!--  icon and heading end -->
+          <div class="chart-100">
+            <div>
+              <!-- <h4>show Graph here</h4>  -->
+              <canvas id="chart6">
+                {{chart6}}
+              </canvas>
             </div>
           </div>
         </div>
         <!-- Graph Div end -->
       </div>
+    </div>
+    <!--  -->
+    <!-- <div class="lower_graphs">
       <div class="d-flex w-100 mt-3">
-      <!-- Graph Div start -->
-      <div class="graph_div w-100">
-        <!-- icon and heading  start-->
-        <div class="this_week">
-          <p class="m-0 mb-1"><b>Weather Impact</b></p>
-        </div>
-        <!--  icon and heading end -->
-        <div class="chart-100">
-          <div>
-            <h4>show Graph here</h4>
+        
+        <div class="graph_div  w-100">
+          
+          <div class="this_week">
+            <p class="m-0 mb-1">
+              <b>Last Week Usage</b></p>
+          </div>
+        
+          <div class="chart-100">
+            <div>
+            
+              <canvas id="chart3">
+                {{chart3}}
+              </canvas>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Graph Div end -->
-      </div>
-    </div>
+        
+      </div> -->
+      <!-- <div class="d-flex w-100 mt-3">
+      
+        <div class="graph_div w-100">
+       
+          <div class="this_week">
+            <p class="m-0 mb-1"><b>Weather Impact</b></p>
+          </div>
+           
+          <div class="chart-100">
+            <div>
+              <h4>show Graph here</h4>
+            </div>
+          </div>
+        </div>
+         
+      </div> -->
+    <!-- </div> -->
     <!--  -->
   </div>
 </section>
