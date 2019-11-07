@@ -44,7 +44,7 @@ export class HomeLayoutComponent implements OnInit {
        { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: '../../../assets/img/sidebar/review-esiid-service-history-component.png', submenu: [] },
         { name: 'Monthly Forecast', route: '/MonthlyForecast', icon: '../../../assets/img/sidebar/Monthly.png', submenu: [], },
         { name: 'Hourly Forecast', route: '/HourlyForecast', icon: '../../../assets/img/sidebar/Hourly.png', submenu: [] },
-        { name: 'DateRange Forecast', route: '/DateRangeForecast', icon: '../../../assets/img/sidebar/review forecaste.png', submenu: [] },
+        { name: 'Date Range Forecast', route: '/DateRangeForecast', icon: '../../../assets/img/sidebar/review forecaste.png', submenu: [] },
      
         { name: 'Weather Zone Forecast ', route: '/weather-zone-forecast', icon: '../../../assets/img/sidebar/weather-zone-forecast.png', submenu: [] },
         { name: 'Weather Zone Actual', route: '/weather-zone-actual', icon: '../../../assets/img/sidebar/weather-zone-actual.png', submenu: [] },

@@ -58,13 +58,13 @@ export class WeeklyEnergyComponent implements OnInit {
                      ],
                      backgroundColor:[ 
                      
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
-                     '#AF7AC5',
+                     '#20c997',
+                     '#20c997',
+                     '#20c997',
+                     '#20c997',
+                     '#20c997',
+                     '#20c997',
+                     '#20c997',
                      
                     ]
                    },

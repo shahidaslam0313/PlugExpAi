@@ -56,7 +56,6 @@ const routes: Routes = [
                   { path: 'weather-zone-forecast', loadChildren: './Container/ercot/forcaster-tool/weatherzone-forecast/module#Module' },
                   { path: 'retail-price', loadChildren: './Container/ercot/forcaster-tool/retail-price/module#Module' },
                   { path: 'esiid-lookup', loadChildren: './Container/ercot/esiid-lookup/module#Module' },
-
                   { path: 'review-mtm-trade-valuations', component: Containers.ReviewMTMTradeValuationsComponent },
                   { path: 'crrs', component: Containers.CRRsComponent },
                   { path: 'HourlyForecast', component: Containers.HourlyComponent},
@@ -65,7 +64,6 @@ const routes: Routes = [
                   { path: 'administration-crrs', component: Containers.CRRComponent },
 
                   { path: 'ercot-load', loadChildren: './Container/ercot/dashboard/ercot-load/module#Module' },
-
                   { path: 'ercot-outlook', component: Containers.ErcotOutlookComponent },
                   { path: 'shift-log-reports', component: Containers.ShiftLogReportsComponent },
                   { path: 'physical-power-trade', component: Containers.PhysicalPowerTradeComponent },

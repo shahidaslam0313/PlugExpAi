@@ -76,6 +76,10 @@ export class ApiService {
     console.log(obj)
     return this.http.get<any>(`${this.new}forecast/weather-zone-actual-get/${obj.timezone}/${obj.to}/${obj.to}/`).pipe(catchError(this.errorHandler))
   }
+  // weatherZoneActual(obj): Observable<any> {
+  //   console.log(obj)
+  //   return this.http.post<any>(`${this.new}reports/weather-zone-actual-data/`,obj).pipe(catchError(this.errorHandler))
+  // }
   weatherZoneForecast(obj): Observable<any> {
     return this.http.get<any>(`${this.new}forecast/weather-zone-forecast-get/${obj.timezone}/${obj.to}/${obj.to}/`).pipe(catchError(this.errorHandler))
   }
