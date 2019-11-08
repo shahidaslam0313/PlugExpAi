@@ -109,6 +109,7 @@ export class MaindashboardComponent implements OnInit {
                   this.show_graph[23],
 
                 ],
+                // fill: 'none',
                 backgroundColor: [
 
 
@@ -150,8 +151,10 @@ export class MaindashboardComponent implements OnInit {
 
           },
           options: {
+            
             legend: {
               display: false,
+             
               
             
             }
@@ -566,7 +569,8 @@ export class MaindashboardComponent implements OnInit {
 
       this.chart = new Chart('chart1',
         {
-          type: 'doughnut',
+          type: 'bar',
+          // doughnut
           data: {
             labels: [
               'Day-1',
@@ -706,11 +710,17 @@ export class MaindashboardComponent implements OnInit {
         {
           type: 'bar',
           data: {
-            labels: ['day1', 'day2', 'day3', 'day4', 'day5', 'day6', 'day7'],
+            labels: [ 'Day-1',
+            'Day-2',
+            'Day-3',
+            'Day-4',
+            'Day-5',
+            'Day-6',
+            'Day-7'],
             datasets: [
               // labels:'this.week',
               {
-                label: 'daliy hour',
+                label: 'Daily',
                 data: [
                   this.viewhourly.last_week.day1,
                   this.viewhourly.last_week.day2,
@@ -722,24 +732,9 @@ export class MaindashboardComponent implements OnInit {
 
                 ],
                 backgroundColor: [
-
-                  //  '#AF7AC5',
-                  //  '#AF7AC5',
-                  //  '#AF7AC5',
-                  //  '#AF7AC5',
-                  //  '#AF7AC5',
-                  //  '#AF7AC5',
-                  //  '#AF7AC5',
-
-
-                  // '#007bff',
-                  // '#007bff',
-                  // '#AF7AC5',
+ 
                   '#20c997', '#20c997', '#20c997', '#20c997', '#20c997', '#20c997', '#20c997',
-                  // '#e83e8c',
-                  // '#ffc107',
-                  // '#17a2b8',
-
+                  
 
 
                 ]
