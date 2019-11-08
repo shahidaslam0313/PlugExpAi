@@ -8,7 +8,7 @@
 }
 
 .mat-card {
-    padding: 20px 20px;
+    padding: 5px 15px;
 }
 
 .abc {
@@ -141,7 +141,7 @@ th {
     color: #fff;
     // margin-left: 1100px;
     // margin-top: 200px;
-    border-radius: 15px;
+    border-radius: 50px;
 }
 
 //rest of the buttons
@@ -277,9 +277,6 @@ table {
 .hourly_form>div {
   margin: 0 10px;
   width: 200px;
-  .btn-search{
-    width: 200px;
-  }
   mat-form-field {
     width: 100%;
   }
@@ -291,11 +288,7 @@ table {
 
     mat-form-field {
       width: 100%;
-    }
-
-    .btn-search {
-      width: 100%;
-    }
+    }    
   }
 }
 

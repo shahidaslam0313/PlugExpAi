@@ -12,7 +12,7 @@ canvas {
 }
 
 .mat-card {
-  padding: 20px 20px;
+  padding: 5px 15px;
 }
 
 .abc {
@@ -145,7 +145,7 @@ th {
   background: linear-gradient(90deg, #042863 0, #0a97d2 100%) !important;
   color: #fff;
   margin: 5px 3px;
-  border-radius: 20px;
+  border-radius: 50px;
 }
 
 //rest of the buttons
@@ -286,9 +286,6 @@ table {
 }
 .hourly_form>div {
   margin: 0 10px;
-  .btn-search{
-    width: 200px;
-  }
   mat-form-field {
     width: 100%;
   }
@@ -302,9 +299,7 @@ table {
       width: 100%;
     }
 
-    .btn-search {
-      width: 100%;
-    }
+    
   }
 }
 

@@ -1,5 +1,5 @@
 <div class="my-container">
-  <!-- <mat-card> -->
+  <mat-card class="mb-2">
     <form [formGroup]="Form" (ngSubmit)="searchValue()">
       <div class="row">
         <mat-form-field class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
@@ -11,50 +11,15 @@
         <mat-form-field class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
           <input matInput placeholder="Read status" formControlName="readstatus">
         </mat-form-field>
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 ">
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 d-flex align-items-center">
           <button class="btn-search font-styling" mat-raised-button>Search</button>
         </div>
       </div>
     </form>
+  </mat-card>
     <mat-card>
-    <!-- <div class="outer-container">
-      <button mat-icon-button class="bts">
-        <i class="material-icons">
-          refresh
-        </i>
-      </button>
-      <button mat-icon-button class="bts">
-        <i class="material-icons">
-          file_copy
-        </i>
-      </button>
-      <button mat-raised-button class="btn1 font-styling">Export Data</button>
-      <button mat-raised-button class="btn1 font-styling">Restore Grid</button>
-      <button mat-raised-button class="btn1 font-styling" (click)="openSelectionDialog()">Selection Criteria
-      </button>dialo
-    </div> -->
-
-    <!-- <div class="row">
-      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-        <button mat-icon-button class="bts">
-          <i class="material-icons">
-            refresh
-          </i>
-        </button>
-        <button mat-icon-button class="bts">
-          <i class="material-icons">
-            file_copy
-          </i>
-        </button>
-        <button mat-raised-button class="btn1 font-styling">Export Data</button>
-        <button mat-raised-button class="btn1 font-styling">Restore Grid</button>
-        <button mat-raised-button class="btn1 font-styling" (click)="openSelectionDialog()">Selection Criteria
-        </button>
-      </div>
-      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12"> -->
+    
         <mat-paginator #Paginator [pageSizeOptions]="[20, 40]" showFirstLastButtons></mat-paginator>
-      <!-- </div>
-    </div> -->
 
     <div class="my-table">
       <div class="table-container">

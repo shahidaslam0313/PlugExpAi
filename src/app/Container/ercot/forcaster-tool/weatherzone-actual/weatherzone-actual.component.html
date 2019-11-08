@@ -1,8 +1,7 @@
 
-<form [formGroup]="Form" (ngSubmit)="onSubmit()">
-  <!-- <mat-card> -->
-  <div style="margin:0 auto;" class="row">
-    <mat-form-field class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+<mat-card class="mb-2">
+<form class="row" [formGroup]="Form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
       <mat-select placeholder="Time Zones" formControlName="timezone">
         <mat-option *ngFor="let x of timeZone" [value]="x.value">
           {{x.viewValue}}
@@ -29,14 +28,11 @@
         <span *ngIf="differenceActive==true">max 7 days</span>
       </mat-error>
     </mat-form-field>
-
-
-    <div style="text-align:center" class="col-lg-1 col-md-1 col-sm-6 col-xs-12">
-      <button style="margin-top:10px;" type="submit" mat-raised-button class="btn-search font-styling">Search</button>
+    <div  class="col-lg-3 col-md-3 col-sm-6 col-xs-12 d-flex align-items-center">
+      <button  type="submit" mat-raised-button class="btn-search font-styling">Search</button>
     </div>
-  </div>
-  <!-- </mat-card> -->
 </form>
+</mat-card>
 
 <mat-tab-group class="vertical-tabs">
   <mat-tab>

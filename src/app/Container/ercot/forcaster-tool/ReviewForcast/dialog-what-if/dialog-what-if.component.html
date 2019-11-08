@@ -34,7 +34,7 @@
   </div>
 </div> -->
 
-<div class="d-flex card-header col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="d-flex align-items-center card-header col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <div>
     <h5> Customer Count Adjustment</h5>
   </div>
@@ -42,7 +42,7 @@
     <mat-slide-toggle (change)="onValChange($event)" [checked]="toggle">Drop/Add Customer</mat-slide-toggle>
   </div>
 </div>
-<form [formGroup]="form">
+<form [formGroup]="form" class="row">
   <mat-form-field class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
     <input matInput [matDatepicker]="picker2" placeholder="From" formControlName="from">
     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
