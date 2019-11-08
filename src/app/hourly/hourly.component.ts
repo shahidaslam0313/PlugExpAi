@@ -637,11 +637,11 @@ Data = []
         
       
           
-          fill: 'none',
-          // backgroundColor: 'rgba(255, 99, 132, 1)',
-          // borderColor: 'rgba(255, 99, 132, 1)',
-          backgroundColor: "rgba(63, 81, 181, 1)",
-            borderColor: "rgba(63, 81, 181, 1)",
+          // fill: 'none',
+          backgroundColor: 'rgba(255, 99, 132, 1)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          // backgroundColor: "rgba(63, 81, 181, 1)",
+            // borderColor: "rgba(63, 81, 181, 1)",
           borderWidth: 2
         },
 //         {
