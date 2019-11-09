@@ -32,7 +32,7 @@ export class EsiidDiscrepancyComponent implements OnInit {
         }
       } else {
         if (res["status"] === false) {
-          this.error1 = "No Data Found"
+          this.error1 = "No data found"
         }
       }
     })

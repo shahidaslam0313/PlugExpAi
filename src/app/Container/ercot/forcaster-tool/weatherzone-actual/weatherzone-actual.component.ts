@@ -69,7 +69,7 @@ export class WeatherzoneActualComponent implements OnInit {
 
   ngOnInit() {
 
-    this.service.weatherZoneActual(this.obj = { timezone: 'Atlantic Standard Time', to: '2019-3-19' }).subscribe(res => {
+    this.service.weatherZoneActual(this.obj = { end_date: '2019-3-19' }).subscribe(res => {
       console.log(res)
       this.day1 = true
       this.date1 =this.obj['end_date']
@@ -81,7 +81,7 @@ export class WeatherzoneActualComponent implements OnInit {
         this.DataSource1.data = res['actual']
       } else {
         if (res["status"] === false) {
-          this.error1 = "No Data Found"
+          this.error1 = "No data found"
         }
       }
     })
@@ -110,10 +110,16 @@ export class WeatherzoneActualComponent implements OnInit {
         this.date1 = date
         if (res['status'] === true) {
           console.log(res['status'])
+          var countofarray=res['actual'].length
+          console.log(countofarray)
+           
           this.DataSource1.data = res['actual']
+          for (let data of res){
+            console.log(data.lenth)
+          }
         } else {
           if (res["status"] === false) {
-            this.error1 = "No Data Found"
+            this.error1 = "No data found"
           }
         }
       } else if (i === 1) {
@@ -122,10 +128,12 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource2.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
+          var countofarray=res['actual'].length
+          console.log(countofarray)
           this.DataSource2.data = res['actual']
         } else {
           if (res["status"] === false) {
-            this.error2 = "No Data Found"
+            this.error2 = "No data found"
           }
         }
       }
@@ -135,10 +143,12 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource3.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
+          var countofarray=res['actual'].length
+          console.log(countofarray)
           this.DataSource3.data = res['actual']
         } else {
           if (res["status"] === false) {
-            this.error3 = "No Data Found"
+            this.error3 = "No data found"
           }
         }
       }
@@ -148,10 +158,12 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource4.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
+          var countofarray=res['actual'].length
+          console.log(countofarray)
           this.DataSource4.data = res['actual']
         } else {
           if (res["status"] === false) {
-            this.error4 = "No Data Found"
+            this.error4 = "No data found"
           }
         }
       }
@@ -161,10 +173,12 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource5.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
+          var countofarray=res['actual'].length
+          console.log(countofarray)
           this.DataSource5.data = res['actual']
         } else {
           if (res["status"] === false) {
-            this.error5 = "No Data Found"
+            this.error5 = "No data found"
           }
         }
       }
@@ -174,10 +188,12 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource6.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
+          var countofarray=res['actual'].length
+          console.log(countofarray)
           this.DataSource6.data = res['actual']
         } else {
           if (res["status"] === false) {
-            this.error6 = "No Data Found"
+            this.error6 = "No data found"
           }
         }
       } else if (i === 6) {
@@ -186,10 +202,12 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource7.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
+          var countofarray=res['actual'].length
+          console.log(countofarray)
           this.DataSource7.data = res['actual']
         } else {
           if (res["status"] === false) {
-            this.error7 = "No Data Found"
+            this.error7 = "No data found"
           }
         }
       }
@@ -204,6 +222,7 @@ export class WeatherzoneActualComponent implements OnInit {
       // console.log(this.total)
     })
   }
+  
   error1
   error2
   error3

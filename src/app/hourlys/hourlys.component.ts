@@ -95,7 +95,7 @@ export class HourlysComponent implements OnInit {
     //     this.DataSource1.data = res['message']
     //   } else {
     //     if (res["status"] === false) {
-    //       this.error1 = "No Data Found"
+    //       this.error1 = "No data found"
     //     }
     //   }
     // })
@@ -153,7 +153,7 @@ export class HourlysComponent implements OnInit {
       }
       //   else {
       //         if (res["status"] === false) {
-      //           this.error1 = "No Data Found"
+      //           this.error1 = "No data found"
       //         }
       //   // this.loading = false
       //   console.log(res)
@@ -189,7 +189,7 @@ export class HourlysComponent implements OnInit {
           this.DataSource1.data = res['message']
         } else {
           if (res["status"] === false) {
-            this.error1 = "No Data Found"
+            this.error1 = "No data found"
           }
         }
       } else if (i === 1) {
@@ -202,7 +202,7 @@ export class HourlysComponent implements OnInit {
           this.DataSource2.data = res['message']
         } else {
           if (res["status"] === false) {
-            this.error2 = "No Data Found"
+            this.error2 = "No data found"
           }
         }
       }
@@ -215,7 +215,7 @@ export class HourlysComponent implements OnInit {
           this.DataSource3.data = res['message']
         } else {
           if (res["status"] === false) {
-            this.error3 = "No Data Found"
+            this.error3 = "No data found"
           }
         }
       }
@@ -228,7 +228,7 @@ export class HourlysComponent implements OnInit {
           this.DataSource4.data = res['message']
         } else {
           if (res["status"] === false) {
-            this.error4 = "No Data Found"
+            this.error4 = "No data found"
           }
         }
       }
@@ -241,7 +241,7 @@ export class HourlysComponent implements OnInit {
           this.DataSource5.data = res['message']
         } else {
           if (res["status"] === false) {
-            this.error5 = "No Data Found"
+            this.error5 = "No data found"
           }
         }
       }
@@ -254,7 +254,7 @@ export class HourlysComponent implements OnInit {
           this.DataSource6.data = res['message']
         } else {
           if (res["status"] === false) {
-            this.error6 = "No Data Found"
+            this.error6 = "No data found"
           }
         }
       } else if (i === 6) {
@@ -266,7 +266,7 @@ export class HourlysComponent implements OnInit {
           this.DataSource7.data = res['message']
         } else {
           if (res["status"] === false) {
-            this.error7 = "No Data Found"
+            this.error7 = "No data found"
           }
         }
       }
