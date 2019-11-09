@@ -58,7 +58,7 @@ export class ErcotLoadComponent implements OnInit {
       } else {
         this.status = false
         this.DataSource1.data = null
-        this.error = "No record found"
+        this.error = "No data found"
       }
     })
   }

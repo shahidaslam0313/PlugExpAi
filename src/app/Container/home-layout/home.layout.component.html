@@ -102,14 +102,14 @@
       <ul class="d-flex flex-column p-2 sidebarUl">
         <!--  -->
         <li class="">
-          <a>
+         <a  routerLink="/">
             <img src="../../../assets/img/sidebar/Dashboard.png" alt="img"> Dashboard
           </a>
         </li>
         <!--  -->
         <li>
           <div class="d-flex align-items-center justify-content-between " (click)="toggleHome()">
-            <a>
+            <a >
               <img src="../../../assets/img/sidebar/Home.png" alt="img"> Home
             </a>
             <span>
@@ -120,7 +120,7 @@
           <ul class="dropdown2">
             <li>
               <div class="d-flex align-items-center justify-content-between" (click)="toggledashboard()">
-                <a>
+               <a   (click)="get_local('Dashboard')">
                   <img src="../../../assets/img/sidebar/Dashboard.png" alt="img"> Dashboard
                 </a>
                 <span>
@@ -128,15 +128,14 @@
                 </span>
               </div>
 
-              <!--  -->
               <ul class="dropdown3">
                 <li>
-                  <a>
+                 <a  href="http://www.ercot.com/content/cdr/html/actual_loads_of_weather_zones" target="_blank">
                     <img src="../../../assets/img/sidebar/ERCOT Load.png" alt="img"> ERCOT Load
                   </a>
                 </li>
                 <li>
-                  <a>
+                 <a  routerLink="/louren" (click)="get_local('Load Graphs')">
                     <img src="../../../assets/img/sidebar/Load Graphs.png" alt="img"> Load Graphs
                   </a>
                 </li>
@@ -144,7 +143,7 @@
               <!--  -->
             </li>
             <li>
-              <a>
+             <a  routerLink="/esiid-lookup" (click)="get_local('ESIID Lookup')">
                 <img src="../../../assets/img/sidebar/ESIID Lookup.png" alt="img"> ESIID Lookup
               </a>
             </li>
@@ -154,7 +153,7 @@
         <!--  -->
         <li>
           <div class="d-flex align-items-center justify-content-between" (click)="toggleWattExpertForecast()">
-            <a>
+           <a  >
               <img src="../../../assets/img/sidebar/WattExpert Al Forecast.png" alt="img"> WattExpert Forecast
             </a>
             <span>
@@ -164,7 +163,7 @@
           <!--  -->
           <ul class="dropdown4">
             <li>
-              <a class="d-flex align-items-center">
+              <a  routerLink="/forecastertool" (click)="get_local('WattExpert Al Review Forecast')" class="d-flex align-items-center">
                 <div>
                   <img src="../../../assets/img/sidebar/review-esiid-service-history-component.png" alt="img">
                 </div>
@@ -174,27 +173,27 @@
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/MonthlyForecast" (click)="get_local('Monthly Forecast')">
                 <img src="../../../assets/img/sidebar/Monthly.png" alt="img"> Monthly Forecast
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/HourlyForecast" (click)="get_local('Hourly Forecast')">
                 <img src="../../../assets/img/sidebar/Hourly.png" alt="img"> Hourly Forecast
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/DateRangeForecast" (click)="get_local('DateRange Forecast')">
                 <img src="../../../assets/img/sidebar/review forecaste.png" alt="img"> DateRange Forecast
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/weather-zone-forecast" (click)="get_local('Weather Zone Forecast')">
                 <img src="../../../assets/img/sidebar/weather-zone-forecast.png" alt="img"> Weather Zone Forecast
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/weather-zone-actual" (click)="get_local('Weather Zone Actual')">
                 <img src="../../../assets/img/sidebar/weather-zone-actual.png" alt="img"> Weather Zone Actual
               </a>
             </li>
@@ -205,7 +204,7 @@
         <!--  -->
         <li>
           <div class="d-flex align-items-center justify-content-between" (click)="toggleIndividualCustomerForecast()">
-            <a>
+           <a>
               <img src="../../../assets/img/sidebar/maturity-forecast.png" alt="img"> Individual Customer Forecast
             </a>
             <span>
@@ -216,23 +215,23 @@
           <!--  -->
           <ul class="dropdown5">
             <li>
-              <a>
+             <a  routerLink="/dailyenergy" (click)="get_local('Daily Energy Monitoring')">
                 <img src="../../../assets/img/sidebar/Monthly.png" alt="img"> Daily Energy Monitoring
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/weekly-comparison" (click)="get_local('Weekly Comparison')">
                 <img src="../../../assets/img/sidebar/SCR-727 Data Mart.png" alt="img"> Weekly Comparison
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/energy-spikes" (click)="get_local('Energy Spikes')">
                 <img src="../../../assets/img/sidebar/review-esiid-service-history-component.png" alt="img"> Energy
                 Spikes
               </a>
             </li>
             <li>
-              <a>
+             <a >
                 <img src="../../../assets/img/sidebar/WattExpert Al Forecast.png" alt="img"> Weather Related Events
               </a>
             </li>
@@ -258,23 +257,23 @@
           <!--  -->
           <ul class="dropdown6">
             <li>
-              <a>
+             <a  routerLink="/dailyenergy" (click)="get_local('Daily Energy Monitoring')">
                 <img src="../../../assets/img/sidebar/weather-zone-actual.png" alt="img"> Daily Energy Monitoring
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/weekly-comparison" (click)="get_local('Weekly Comparison')">
                 <img src="../../../assets/img/sidebar/maturity-forecast.png" alt="img"> Weekly Comparison
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/energy-spikes" (click)="get_local('Energy Spikes')">
                 <img src="../../../assets/img/sidebar/review-esiid-usage-meter-reads-component.png" alt="img"> Energy
                 Spikes
               </a>
             </li>
             <li>
-              <a>
+             <a  routerLink="/" (click)="get_local('Weather Related Events')">
                 <img src="../../../assets/img/sidebar/WattExpert Al Forecast.png" alt="img"> Weather Related Events
               </a>
             </li>
@@ -285,7 +284,7 @@
         <!--  -->
         <li>
           <div class="d-flex align-items-center justify-content-between" (click)="toggleDataMart()">
-            <a>
+           <a   >
               <img src="../../../assets/img/sidebar/SCR-727 Data Mart.png" alt="img"> SCR-727 Data Mart
             </a>
             <span>
@@ -296,12 +295,12 @@
           <ul class="dropdown7">
             <li>
               
-              <a>
+             <a  routerLink="/esiid-count" (click)="get_local('ESIID Counts')">
                 <img src="../../../assets/img/sidebar/ESIID Lookup.png" alt="img"> ESIID Counts
               </a>
             </li>
             <li>
-              <a class="d-flex align-items-center">
+              <a   routerLink="/review-esiid-service-history-component"  (click)="get_local('Review ESIID Service History')" class="d-flex align-items-center">
                 <div>
                   <img src="../../../assets/img/sidebar/esiid-count.png" alt="img">
                 </div>
@@ -311,7 +310,7 @@
               </a>
             </li>
             <li>
-                <a class="d-flex align-items-center">
+                <a  routerLink="/review-esiid-usage-meter-reads-component" (click)="get_local('  Review ESIID Usage (Meter Reads)')" class="d-flex align-items-center">
                     <div>
                         <img src="../../../assets/img/sidebar/maturity-forecast.png" alt="img">
                     </div>
@@ -321,7 +320,7 @@
                   </a>
             </li>
             <li>
-              <a class="d-flex align-items-center">
+              <a routerLink="/review-ams-interval"  (click)="get_local('Review AMS Interval Data')" class="d-flex align-items-center">
                 <div>
                   <img src="../../../assets/img/sidebar/review-ams-interval.png" alt="img">
                 </div>
@@ -335,7 +334,7 @@
         </li>
         <!--  -->
         <li>
-          <a>
+         <a  routerLink="/">
             <i class="fas fa-sign-out-alt"></i> Sign Out
           </a>
         </li>
