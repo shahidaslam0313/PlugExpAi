@@ -4,7 +4,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material';
 import { filter } from 'rxjs/operators';
 import { Location } from '@angular/common';
-
+declare const $: any;
 @Component({
   selector: 'home-layout',
   templateUrl: './home.layout.component.html',
@@ -19,7 +19,7 @@ export class HomeLayoutComponent implements OnInit {
   year = new Date().getFullYear();
   menuItems = [
         {
-      name: 'Dashboard ', route: '/', icon: '../../../assets/img/sidebar/../../../assets/img/sidebar/Dashboard.png', submenu: []
+      name: 'Dashboard ', route: '/', icon: '../../../assets/img/sidebar', submenu: []
     },
     {
       // name: 'Home', route: '/louren', icon: 'fa fa-home', submenu: [
@@ -125,6 +125,31 @@ export class HomeLayoutComponent implements OnInit {
   get_local(val1): void{
     this.header_name = val1
   }
+  toggleHome() {
+    $('.dropdown2').slideToggle('slow');
+    $('.Dropdown-icon1').toggleClass('fa-angle-down fa-angle-up');
+  }
+  toggledashboard() {
+    $('.dropdown3').slideToggle('slow');
+    $('.Dropdown-icon3').toggleClass('fa-angle-down fa-angle-up');
+  }
+  toggleWattExpertForecast() {
+    $('.dropdown4').slideToggle('slow');
+    $('.Dropdown-icon4').toggleClass('fa-angle-down fa-angle-up');
+  }
+  toggleIndividualCustomerForecast(){
+    $('.dropdown5').slideToggle('slow');
+    $('.Dropdown-icon5').toggleClass('fa-angle-down fa-angle-up');
+  }
+  toggleCompanyForecast() {
+    $('.dropdown6').slideToggle('slow');
+    $('.Dropdown-icon6').toggleClass('fa-angle-down fa-angle-up');
+  }
+  toggleDataMart() {
+    $('.dropdown7').slideToggle('slow');
+    $('.Dropdown-icon7').toggleClass('fa-angle-down fa-angle-up');
+  }
+  
   ngOnInit() {
  
   //  this.header_name= this.router.url;
@@ -210,14 +235,8 @@ export class HomeLayoutComponent implements OnInit {
    }
    else if ( this.router.url == "/review-ams-interval"){
     this.header_name = "Review AMS Interval Data"
-   }
-
- 
-
-
-
-    
+   }    
   }
- 
+
 
 }

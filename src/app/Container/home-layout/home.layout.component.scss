@@ -76,6 +76,29 @@
   }
 }
 
+.nav-side-menu{
+  ul{
+    padding-left: 30px;
+    li{
+      list-style: none;
+      padding: 5px;
+      cursor: pointer;
+      a{
+        font-size: 14px;
+        &:hover{
+          background-color: #f4f4f4;
+        }
+      }
+      div:hover{
+        background-color: #f4f4f4;
+      }
+    }
+  }
+  .sidebarUl >li{
+    border-bottom: 1px  solid #ccc;
+  }
+}
+
 .mat-drawer.mat-drawer-side {
   top: -10px !important;
 }
@@ -102,7 +125,6 @@
 .nav-side-menu {
   width: 280px;
   height: 100%;
-  margin-top: 10px;
 }
 
 .nav-side-menu mat-list mat-list-item {
@@ -129,7 +151,7 @@
   transition: 0.2s;
 }
 
-.sidebar-dashboard-title {
+.sidebar-dropdown-title {
   padding: 25px 0px;
   text-align: center;
   font-size: 30px;
@@ -181,7 +203,7 @@
 
 .nav-side-menu mat-expansion-panel mat-expansion-panel-header mat-panel-title {
   color: #000;
-  font-size: 15px;
+  font-size: 14px;
   align-items: center;
   font-family: 'Open Sans', sans-serif;
 }
@@ -199,6 +221,7 @@
     font-size: 20px;
     margin-right: 5px;
     color: #042863;
+    text-align: right;
   }
 }
 
@@ -295,7 +318,9 @@
     top: -10px !important;
   }
 }
-
+.dropdown2,.dropdown3,.dropdown4,.dropdown5,.dropdown6,.dropdown7{
+  display: none;
+}
 ::ng-deep .mat-list.fit .mat-list-item .mat-list-item-content {
   padding: 10px !important;
 }
