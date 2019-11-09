@@ -222,6 +222,7 @@ export class WeatherzoneActualComponent implements OnInit {
       // console.log(this.total)
     })
   }
+  
   error1
   error2
   error3

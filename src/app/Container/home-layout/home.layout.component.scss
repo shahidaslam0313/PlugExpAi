@@ -81,16 +81,19 @@
     padding-left: 30px;
     li{
       list-style: none;
-      padding: 5px;
+      padding:10px 5px;
       cursor: pointer;
       a{
         font-size: 14px;
         &:hover{
-          background-color: #f4f4f4;
+          color: #042863;
         }
       }
+      div{
+        padding: 5px 0;
+      }
       div:hover{
-        background-color: #f4f4f4;
+        color: #042863;
       }
     }
   }
