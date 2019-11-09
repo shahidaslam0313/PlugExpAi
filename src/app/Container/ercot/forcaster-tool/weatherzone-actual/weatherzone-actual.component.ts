@@ -36,9 +36,9 @@ export class WeatherzoneActualComponent implements OnInit {
   DataSource7 = new MatTableDataSource()
 
   Form = new FormGroup({
-    timezone: new FormControl("", Validators.required),
-    to: new FormControl("", Validators.required),
-    from: new FormControl("", Validators.required),
+    // timezone: new FormControl("", Validators.required),
+    start_date: new FormControl("", Validators.required),
+    end_date: new FormControl("", Validators.required),
   })
 
   total = 0
@@ -72,13 +72,13 @@ export class WeatherzoneActualComponent implements OnInit {
     this.service.weatherZoneActual(this.obj = { timezone: 'Atlantic Standard Time', to: '2019-3-19' }).subscribe(res => {
       console.log(res)
       this.day1 = true
-      this.date1 = this.obj['to']
+      this.date1 =this.obj['end_date']
 
       this.obj['timezone'] = ''
-      this.obj['to'] = ''
+     this.obj['end_date'] = ''
       if (res['status'] === true) {
         console.log(res['status'])
-        this.DataSource1.data = res['message']
+        this.DataSource1.data = res['actual']
       } else {
         if (res["status"] === false) {
           this.error1 = "No record found"
@@ -91,6 +91,7 @@ export class WeatherzoneActualComponent implements OnInit {
   DataSource
   getZoneActual(i, date) {
 
+    console.log(this.obj)
     this.error1 = ''
     this.error2 = ''
     this.error3 = ''
@@ -109,7 +110,7 @@ export class WeatherzoneActualComponent implements OnInit {
         this.date1 = date
         if (res['status'] === true) {
           console.log(res['status'])
-          this.DataSource1.data = res['message']
+          this.DataSource1.data = res['actual']
         } else {
           if (res["status"] === false) {
             this.error1 = "No record found"
@@ -121,7 +122,7 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource2.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
-          this.DataSource2.data = res['message']
+          this.DataSource2.data = res['actual']
         } else {
           if (res["status"] === false) {
             this.error2 = "No record found"
@@ -134,7 +135,7 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource3.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
-          this.DataSource3.data = res['message']
+          this.DataSource3.data = res['actual']
         } else {
           if (res["status"] === false) {
             this.error3 = "No record found"
@@ -147,7 +148,7 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource4.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
-          this.DataSource4.data = res['message']
+          this.DataSource4.data = res['actual']
         } else {
           if (res["status"] === false) {
             this.error4 = "No record found"
@@ -160,7 +161,7 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource5.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
-          this.DataSource5.data = res['message']
+          this.DataSource5.data = res['actual']
         } else {
           if (res["status"] === false) {
             this.error5 = "No record found"
@@ -173,7 +174,7 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource6.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
-          this.DataSource6.data = res['message']
+          this.DataSource6.data = res['actual']
         } else {
           if (res["status"] === false) {
             this.error6 = "No record found"
@@ -185,7 +186,7 @@ export class WeatherzoneActualComponent implements OnInit {
         // this.DataSource7.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
-          this.DataSource7.data = res['message']
+          this.DataSource7.data = res['actual']
         } else {
           if (res["status"] === false) {
             this.error7 = "No record found"
@@ -274,10 +275,10 @@ export class WeatherzoneActualComponent implements OnInit {
 
     this.obj = this.Form.value
 
-    this.obj['to'] = this.datePatternYMD(this.Form.controls.to.value)
-    this.obj['from'] = this.datePatternYMD(this.Form.controls.from.value)
+    this.obj['end_date'] = this.datePatternYMD(this.Form.controls.end_date.value)
+    this.obj['start_date'] = this.datePatternYMD(this.Form.controls.start_date.value)
 
-    this.differnce(this.obj['to'], this.obj['from'])
+    this.differnce( this.obj['start_date'],this.obj['end_date'])
 
     if (this.difference <= 6) {
 
@@ -298,70 +299,70 @@ export class WeatherzoneActualComponent implements OnInit {
       this.day7 = false
 
       for (let i = 0; i <= this.difference; i++) {
-        let date = new Date(this.Form.controls.to.value)
+        let date = new Date(this.Form.controls.start_date.value)
 
         // let date2 = new Date(this.Form.controls.from.value)
 
         if (`${this.to.getFullYear() === this.from.getFullYear()}`) {
           if (this.month1 === this.month2) {
-            this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + i}`
+           this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + i}`
           }
           else if (this.month1 + 1 == this.month2) {
             if (this.month1 === 1 || this.month1 === 3 || this.month1 === 5 || this.month1 === 7 || this.month1 === 8 || this.month1 === 10 || this.month1 === 12) {
               let condition = `${(date.getDate() + i) < 32}`
               if (condition == 'true') {
-                this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + i}`
+               this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + i}`
               } else {
                 if (i % 2 == 0) {
                   console.log(i)
-                  this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
-                  console.log(this.obj['to'])
+                 this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
+                  console.log(this.obj['end_date'])
                   this.rough = 1 + this.rough
                 } else if (i % 2 != 0) {
                   console.log(i)
-                  this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
-                  console.log(this.obj['to'])
+                 this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
+                  console.log(this.obj['end_date'])
                   this.rough = 1 + this.rough
                 }
               }
             } else if (this.month1 === 4 || this.month1 === 6 || this.month1 === 9 || this.month1 === 11) {
               let condition = `${(date.getDate() + i) < 31}`
               if (condition == 'true') {
-                this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + i}`
+               this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + i}`
               } else {
                 if (i % 2 == 0) {
                   console.log(i)
-                  this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
-                  console.log(this.obj['to'])
+                 this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
+                  console.log(this.obj['end_date'])
                   this.rough = 1 + this.rough
                 } else if (i % 2 != 0) {
                   console.log(i)
-                  this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
-                  console.log(this.obj['to'])
+                 this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
+                  console.log(this.obj['end_date'])
                   this.rough = 1 + this.rough
                 }
               }
             } else if (this.month1 === 2) {
               let condition = `${(date.getDate() + i) < 29}`
               if (condition == 'true') {
-                this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + i}`
+               this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() + i}`
               } else {
                 if (i % 2 == 0) {
                   console.log(i)
-                  this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
-                  console.log(this.obj['to'])
+                 this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
+                  console.log(this.obj['end_date'])
                   this.rough = 1 + this.rough
                 } else if (i % 2 != 0) {
                   console.log(i)
-                  this.obj['to'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
-                  console.log(this.obj['to'])
+                 this.obj['end_date'] = `${date.getFullYear()}-${date.getMonth() + 1 + 1}-${1 + this.rough}`
+                  console.log(this.obj['end_date'])
                   this.rough = 1 + this.rough
                 }
               }
             }
           }
         }
-        this.getZoneActual(i, this.obj['to'])
+        this.getZoneActual(i,this.obj['end_date'])
       }
     } else {
       this.Form.controls.from.setValue('')

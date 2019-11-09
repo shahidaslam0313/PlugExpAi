@@ -27,8 +27,9 @@ export class HomeLayoutComponent implements OnInit {
         {
           name: 'Dashboard', route: '', icon: '../../../assets/img/sidebar/Dashboard.png', submenu: [
 
-            { name: 'ERCOT Load',  route: 'http://www.ercot.com/content/cdr/html/actual_loads_of_weather_zones', icon: '../../../assets/img/sidebar/ERCOT Load.png', submenu: [] },
+            { name: 'ERCOT Load',  RouternavigateByUrl: 'http://www.ercot.com/content/cdr/html/actual_loads_of_weather_zones', icon: '../../../assets/img/sidebar/ERCOT Load.png', submenu: [] },
             // Ercot Load 
+            // link.this.router.navigateByUrl('/home');
             // { name: 'ERCOT Outlook', route: '/ercot-outlook', icon: 'fas fa-clipboard-list', submenu: [] },
             // { name: 'Weather zones', route: '/weather-zones', icon: 'fas fa-cloud-meatball', submenu: [] },
             // { name: 'Prices', route: '/prices', icon: '', submenu: [] },
@@ -128,9 +129,9 @@ export class HomeLayoutComponent implements OnInit {
   ngOnInit() {
  
   //  this.header_name= this.router.url;
-  //  if ( this.router.url == "/ercot-load"){
-  //    this.header_name= "ERCOT Load"
-  //  }else 
+   if ( this.router.url == "/ercot-load"){
+     this.header_name= "ERCOT Load"
+   }else 
    if ( this.router.url == "/louren"){
     this.header_name = "Load Graphs"
    }
