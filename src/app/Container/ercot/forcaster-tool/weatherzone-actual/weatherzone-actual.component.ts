@@ -13,26 +13,26 @@ export class WeatherzoneActualComponent implements OnInit {
   // minDate = new Date();
   // maxDate = new Date();
 
-  DisplayedColumns1: string[] = ['2', 'total', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
+  DisplayedColumns1: string[] = ['2',   '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
   DataSource1 = new MatTableDataSource()
 
-  DisplayedColumns2: string[] = ['2', 'total', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
+  DisplayedColumns2: string[] = ['2',   '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
   DataSource2 = new MatTableDataSource()
 
-  DisplayedColumns3: string[] = ['2', 'total', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
+  DisplayedColumns3: string[] = ['2',   '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
   DataSource3 = new MatTableDataSource()
 
-  DisplayedColumns4: string[] = ['2', 'total', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
+  DisplayedColumns4: string[] = ['2',   '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
   DataSource4 = new MatTableDataSource()
 
-  DisplayedColumns5: string[] = ['2', 'total', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
+  DisplayedColumns5: string[] = ['2',   '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
   DataSource5 = new MatTableDataSource()
 
-  DisplayedColumns6: string[] = ['2', 'total', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
+  DisplayedColumns6: string[] = ['2',   '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
   DataSource6 = new MatTableDataSource()
+  // 'total',
 
-
-  DisplayedColumns7: string[] = ['2', 'total', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
+  DisplayedColumns7: string[] = ['2',  '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
   DataSource7 = new MatTableDataSource()
 
   Form = new FormGroup({
@@ -113,7 +113,7 @@ export class WeatherzoneActualComponent implements OnInit {
           var countofarray=res['actual'].length
           console.log(countofarray)
            
-          this.DataSource1.data = res['actual']
+          this.DataSource1.data = res['actual'].slice([0],[8])
           for (let data of res){
             console.log(data.lenth)
           }
@@ -130,7 +130,7 @@ export class WeatherzoneActualComponent implements OnInit {
           console.log(res['status'])
           var countofarray=res['actual'].length
           console.log(countofarray)
-          this.DataSource2.data = res['actual']
+          this.DataSource2.data = res['actual'].slice([8], [16])
         } else {
           if (res["status"] === false) {
             this.error2 = "No data found"
@@ -145,7 +145,7 @@ export class WeatherzoneActualComponent implements OnInit {
           console.log(res['status'])
           var countofarray=res['actual'].length
           console.log(countofarray)
-          this.DataSource3.data = res['actual']
+          this.DataSource3.data = res['actual'].slice([16], [24])
         } else {
           if (res["status"] === false) {
             this.error3 = "No data found"
@@ -160,7 +160,7 @@ export class WeatherzoneActualComponent implements OnInit {
           console.log(res['status'])
           var countofarray=res['actual'].length
           console.log(countofarray)
-          this.DataSource4.data = res['actual']
+          this.DataSource4.data = res['actual'].slice([24], [32])
         } else {
           if (res["status"] === false) {
             this.error4 = "No data found"
@@ -175,7 +175,7 @@ export class WeatherzoneActualComponent implements OnInit {
           console.log(res['status'])
           var countofarray=res['actual'].length
           console.log(countofarray)
-          this.DataSource5.data = res['actual']
+          this.DataSource5.data = res['actual'].slice([32], [40])
         } else {
           if (res["status"] === false) {
             this.error5 = "No data found"
@@ -190,7 +190,7 @@ export class WeatherzoneActualComponent implements OnInit {
           console.log(res['status'])
           var countofarray=res['actual'].length
           console.log(countofarray)
-          this.DataSource6.data = res['actual']
+          this.DataSource6.data = res['actual'].slice([40], [48])
         } else {
           if (res["status"] === false) {
             this.error6 = "No data found"
@@ -204,7 +204,7 @@ export class WeatherzoneActualComponent implements OnInit {
           console.log(res['status'])
           var countofarray=res['actual'].length
           console.log(countofarray)
-          this.DataSource7.data = res['actual']
+          this.DataSource7.data = res['actual'].slice([48], [56])
         } else {
           if (res["status"] === false) {
             this.error7 = "No data found"
@@ -318,7 +318,10 @@ export class WeatherzoneActualComponent implements OnInit {
 
       for (let i = 0; i <= this.difference; i++) {
         let date = new Date(this.Form.controls.start_date.value)
-
+        // var temp=date
+        
+        // date.setDate(date.getDate()+i)
+console.log(date)
         // let date2 = new Date(this.Form.controls.from.value)
 
         if (`${this.to.getFullYear() === this.from.getFullYear()}`) {
