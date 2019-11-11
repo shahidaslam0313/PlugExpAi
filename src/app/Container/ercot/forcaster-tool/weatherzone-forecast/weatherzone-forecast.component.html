@@ -16,11 +16,15 @@
       </div> -->
       <div class="col-sm-3">
           <mat-form-field >
-              <input [min]="Form.controls.start_date?.value" matInput [matDatepicker]="picker1" placeholder="From" formControlName="start_date">
+              <input [max]="Form.controls.start_date?.value" matInput [matDatepicker]="picker1" placeholder="From" formControlName="start_date">
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
-              <mat-error>
+              <!-- <mat-error>
                 required
+              </mat-error> -->
+              <mat-error>
+                <span *ngIf="differenceActive==false">required</span>
+                <span *ngIf="differenceActive==true">max 7 days</span>
               </mat-error>
             </mat-form-field>
       </div>
@@ -48,7 +52,7 @@
     </mat-form-field> -->
       <div class="col-sm-3">
           <mat-form-field >
-              <input [max]="Form.controls.end_date?.value" matInput [matDatepicker]="picker2" placeholder="To" formControlName="end_date">
+              <input [min]="Form.controls.end_date?.value" matInput [matDatepicker]="picker2" placeholder="To" formControlName="end_date">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
               <mat-error>

@@ -69,8 +69,11 @@ export class ApiService {
     return this.http.get<any>(`${this.new}reports/loadforecast-file-list/`).pipe(catchError(this.errorHandler))
   }
   @Cacheable()
+  // customerReport(): Observable<any> {
+  //   return this.http.get<any>(`${this.new}reports/customer-file-list/`).pipe(catchError(this.errorHandler))
+  // }
   customerReport(): Observable<any> {
-    return this.http.get<any>(`${this.new}reports/customer-file-list/`).pipe(catchError(this.errorHandler))
+    return this.http.get<any>(`${this.new}reports/discrepancy_report/`).pipe(catchError(this.errorHandler))
   }
   // weatherZoneActual(obj): Observable<any> {
   //   console.log(obj)
