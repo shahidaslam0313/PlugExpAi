@@ -14,7 +14,7 @@
     </mat-form-field> -->
     <!-- [max]="Form.controls.start_date?.value" -->
     <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <input  matInput [matDatepicker]="picker2" placeholder="From" formControlName="start_date">
+      <input [min]="Form.controls.start_date?.value"   matInput [matDatepicker]="picker2" placeholder="From" formControlName="start_date">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
       <mat-error>
@@ -23,7 +23,7 @@
     </mat-form-field>
     <!-- [min]="Form.controls.end_date?.value" -->
     <mat-form-field class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <input  matInput [matDatepicker]="picker1" placeholder="To" formControlName="end_date">
+      <input [max]="Form.controls.end_date?.value"  matInput [matDatepicker]="picker1" placeholder="To" formControlName="end_date">
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
      

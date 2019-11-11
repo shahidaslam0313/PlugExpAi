@@ -197,13 +197,21 @@ export class WeatherzoneActualComponent implements OnInit {
           }
         }
       } else if (i === 6) {
+        // alert(date)
+        // alert(i)
         this.day7 = true
         this.date7 = date
         // this.DataSource7.data = res['message']
         if (res['status'] === true) {
           console.log(res['status'])
-          var countofarray=res['actual'].length
-          console.log(countofarray)
+      
+          for ( let data of res['actual'])
+          {
+            // console.log(data.date,'usman khan ')
+            if (date ==  data.date ){
+              console.log( date==data.date,'usman')
+            } 
+          }     
           this.DataSource7.data = res['actual'].slice([48], [56])
         } else {
           if (res["status"] === false) {
