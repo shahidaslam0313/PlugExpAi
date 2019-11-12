@@ -15,18 +15,18 @@
             </mat-form-field>
       </div>
       <div class="col-sm-3">
-          <mat-form-field >
-              <input [max]="Form.controls.from?.value" matInput [matDatepicker]="picker1" placeholder="To" formControlName="to">
-              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
-              <mat-error>
-                required
-              </mat-error>
-            </mat-form-field>
-      </div>
+        <mat-form-field >
+            <input [max]="Form.controls.from?.value" matInput [matDatepicker]="picker1" placeholder="From" formControlName="to">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error>
+              required
+            </mat-error>
+          </mat-form-field>
+    </div>
       <div class="col-sm-3">
           <mat-form-field >
-              <input [min]="Form.controls.to?.value" matInput [matDatepicker]="picker2" placeholder="From" formControlName="from">
+              <input [min]="Form.controls.to?.value" matInput [matDatepicker]="picker2" placeholder="To" formControlName="from">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
               <mat-error>
@@ -35,6 +35,8 @@
               </mat-error>
             </mat-form-field>
       </div>
+
+
       <div class="col-sm-3 d-flex align-items-center">
           <button type="submit" mat-raised-button class="btn-search font-styling">Search</button>
       </div>

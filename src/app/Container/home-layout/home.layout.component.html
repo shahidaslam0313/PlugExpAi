@@ -204,8 +204,13 @@
         <!--  -->
         <li>
           <div class="d-flex align-items-center justify-content-between" (click)="toggleIndividualCustomerForecast()">
-           <a>
-              <img src="../../../assets/img/sidebar/maturity-forecast.png" alt="img"> Individual Customer Forecast
+              <a class="d-flex align-items-center">
+                <div>
+                    <img src="../../../assets/img/sidebar/maturity-forecast.png" alt="img"> 
+                </div>
+                <div>
+                    Individual Customer Forecast
+                </div>
             </a>
             <span>
               <i class="fa fa-angle-down Dropdown-icon5"></i>
@@ -404,7 +409,7 @@
   <mat-toolbar class="footerEnd">
     <span>
       <h4> Copyright © {{year}} Powered by WattExpert.AI, All Rights Reserved.
-        <span style="color:#000;font-weight:bold;">
+        <span >
           <a routerLink="/" style="color:#000;text-decoration: none;">Terms of Use</a> |
           <a routerLink="/" style="color:#000;text-decoration:none;">Privacy Policy</a>
         </span>
