@@ -150,6 +150,10 @@ export class HomeLayoutComponent implements OnInit {
     $('.dropdown7').slideToggle('slow');
     $('.Dropdown-icon7').toggleClass('fa-angle-down fa-angle-up');
   }
+  toggleDataMart1() {
+    $('.dropdown8').slideToggle('slow');
+    $('.Dropdown-icon8').toggleClass('fa-angle-down fa-angle-up');
+  }
   
   ngOnInit() {
  
@@ -218,6 +222,10 @@ export class HomeLayoutComponent implements OnInit {
    }
    else if ( this.router.url == "/energy-spikes"){
     this.header_name = "Energy Spikes"
+   }
+   else if (this.router.url == "/viewcustomerreport"){
+     
+    this.header_name = "View Customer Reports"
    }
   //  else if ( this.router.url == "/#"){
   //   this.header_name = "Energy Spikes"

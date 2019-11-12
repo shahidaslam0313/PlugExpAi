@@ -135,6 +135,13 @@
                   </a>
                 </li>
                 <li>
+                    <a  href="http://www.ercot.com/content/cdr/main/currentDayForecastSystemLoad.html" target="_blank">
+                       <img src="../../../assets/img/sidebar/ERCOT Load.png" alt="img"> Ercot Outlook
+                     </a>
+                   </li>
+   
+                 
+                <li>
                  <a  routerLink="/louren" (click)="get_local('Load Graphs')">
                     <img src="../../../assets/img/sidebar/Load Graphs.png" alt="img"> Load Graphs
                   </a>
@@ -338,6 +345,38 @@
           <!--  -->
         </li>
         <!--  -->
+        <li>
+          <div class="d-flex align-items-center justify-content-between" (click)="toggleDataMart1()">
+           <a   >
+              <img src="../../../assets/img/sidebar/SCR-727 Data Mart.png" alt="img"> Reports
+            </a>
+            <span>
+              <i class="fa fa-angle-down Dropdown-icon7"></i>
+            </span>
+          </div>
+          <!--  -->
+          <ul class="dropdown8">
+            <li>
+              
+             <a  routerLink="/viewcustomerreport" (click)="get_local('View Customer Reports')">
+                <img src="../../../assets/img/sidebar/ESIID Lookup.png" alt="img"> View Customer Report
+              </a>
+            </li>
+            <!-- <li>
+              <a   routerLink="/review-esiid-service-history-component"  (click)="get_local('Review ESIID Service History')" class="d-flex align-items-center">
+                <div>
+                  <img src="../../../assets/img/sidebar/esiid-count.png" alt="img">
+                </div>
+                <div>
+                  Review ESIID Service History
+                </div>
+              </a>
+            </li> -->
+            
+          </ul>
+          <!--  -->
+        </li>
+        <!-- viewcustomerreport -->
         <li>
          <a  routerLink="/">
             <i class="fas fa-sign-out-alt"></i> Sign Out

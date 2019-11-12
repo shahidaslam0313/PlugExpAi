@@ -69,8 +69,11 @@ export class ApiService {
     return this.http.get<any>(`${this.new}reports/loadforecast-file-list/`).pipe(catchError(this.errorHandler))
   }
   @Cacheable()
+  // customerReport(): Observable<any> {
+  //   return this.http.get<any>(`${this.new}reports/customer-file-list/`).pipe(catchError(this.errorHandler))
+  // }
   customerReport(): Observable<any> {
-    return this.http.get<any>(`${this.new}reports/customer-file-list/`).pipe(catchError(this.errorHandler))
+    return this.http.get<any>(`${this.new}reports/discrepancy_report/`).pipe(catchError(this.errorHandler))
   }
   // weatherZoneActual(obj): Observable<any> {
   //   console.log(obj)
@@ -81,8 +84,11 @@ export class ApiService {
     return this.http.post<any>(`${this.new}reports/weather-zone-actual-data/`,obj).pipe(catchError(this.errorHandler))
   }
   weatherZoneForecast(obj): Observable<any> {
-    return this.http.get<any>(`${this.new}forecast/weather-zone-forecast-get/${obj.timezone}/${obj.to}/${obj.to}/`).pipe(catchError(this.errorHandler))
+    return this.http.post<any>(`${this.new}reports/hourly-prediction-with-actual-data/`,obj).pipe(catchError(this.errorHandler))
   }
+  // weatherZoneForecast(obj): Observable<any> {
+  //   return this.http.get<any>(`${this.new}forecast/weather-zone-forecast-get/${obj.timezone}/${obj.to}/${obj.to}/`).pipe(catchError(this.errorHandler))
+  // }
   weatherZoneForecast1(obj): Observable<any> {
     return this.http.get<any>(`${this.new2}reports/hourly-prediction-date-range-get/${obj.timezone}/${obj.to}/${obj.to}/`).pipe(catchError(this.errorHandler))
   }
