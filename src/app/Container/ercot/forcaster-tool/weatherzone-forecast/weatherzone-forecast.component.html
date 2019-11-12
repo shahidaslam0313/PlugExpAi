@@ -23,7 +23,7 @@
                 required
               </mat-error> -->
               <mat-error>
-                <span *ngIf="differenceActive==false">required</span>
+                <span *ngIf="differenceActive==false">Required</span>
                 <span *ngIf="differenceActive==true">max 7 days</span>
               </mat-error>
             </mat-form-field>
@@ -61,6 +61,8 @@
               </mat-error>
             </mat-form-field>
       </div>
+
+
       <div class="col-sm-3 d-flex align-items-center">
           <button type="submit" mat-raised-button class="btn-search font-styling">Search</button>
       </div>
