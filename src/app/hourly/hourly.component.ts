@@ -632,7 +632,7 @@ Data = []
       data: {
         labels: ['H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13','H14','H15','H16','H17','H18','H19','H20','H21','H22','H23','H24'],
         datasets:[{
-          label: 'Hourly Values',
+          label: 'Actual Hourly Values',
           data: this.GraphData,
         
       
@@ -743,9 +743,133 @@ Data = []
     //     ]
     //   }
   }
+  showHourlyGraph1(element) {
+    // console.log(element)
+    this.GraphData = []
+    this.Data=[]
+    // this.chartData7.barChartLabels.push(`hour1`)
+    this.GraphData.push(element[`hour_1`])
+    
+    this.Data.push(element[`hour_1`])
+
+    // this.chartData7.barChartLabels.push(`hour2`)
+    // this.GraphData.push(element[`hour_2`])
+    this.GraphData.push[`hour_2`]
+    // this.GraphData.push(element[`hour_6`])
+
+    // this.chartData7.barChartLabels.push(`hour3`)
+    this.GraphData.push(element[`hour_3`])
+    // this.chartData7.barChartLabels.push(`hour4`)
+    this.GraphData.push(element[`hour_4`])
+    // this.chartData7.barChartLabels.push(`hour5`)
+    this.GraphData.push(element[`hour_5`])
+    // this.chartData7.barChartLabels.push(`hour6`)
+    this.GraphData.push(element[`hour_6`])
+    // this.chartData7.barChartLabels.push(`hour7`)
+    this.GraphData.push(element[`hour_7`])
+    // this.chartData7.barChartLabels.push(`hour8`)
+    this.GraphData.push(element[`hour_8`])
+    // this.chartData7.barChartLabels.push(`hour9`)
+    this.GraphData.push(element[`hour_9`])
+    // this.chartData7.barChartLabels.push(`hour10`)
+    this.GraphData.push(element[`hour_10`])
+    // this.chartData7.barChartLabels.push(`hour11`)
+    this.GraphData.push(element[`hour_11`])
+    // this.chartData7.barChartLabels.push(`hour12`)
+    this.GraphData.push(element[`hour_12`])
+    // this.chartData7.barChartLabels.push(`hour13`)
+    this.GraphData.push(element[`hour_13`])
+    // this.chartData7.barChartLabels.push(`hour14`)
+    this.GraphData.push(element[`hour_14`])
+    // this.chartData7.barChartLabels.push(`hour15`)
+    this.GraphData.push(element[`hour_15`])
+    // this.chartData7.barChartLabels.push(`hour16`)
+    this.GraphData.push(element[`hour_16`])
+    // this.chartData7.barChartLabels.push(`hour17`)
+    this.GraphData.push(element[`hour_17`])
+    // this.chartData7.barChartLabels.push(`hour18`)
+    this.GraphData.push(element[`hour_18`])
+    // this.chartData7.barChartLabels.push(`hour19`)
+    this.GraphData.push(element[`hour_19`])
+    // this.chartData7.barChartLabels.push(`hour20`)
+    this.GraphData.push(element[`hour_20`])
+    // this.chartData7.barChartLabels.push(`hour21`)
+    this.GraphData.push(element[`hour_21`])
+    // this.chartData7.barChartLabels.push(`hour22`)
+    this.GraphData.push(element[`hour_22`])
+    // this.chartData7.barChartLabels.push(`hour23`)
+    this.GraphData.push(element[`hour_23`])
+    // this.chartData7.barChartLabels.push(`hour24`)
+    this.GraphData.push(element[`hour_24`])
+
+    console.log(this.GraphData)
+
+    // console.log(this.chartData7.barChartData)
+
+    let ctx = 'myChart1';
+    new Chart(ctx, {
+      type: 'line',
+      
+      data: {
+        labels: ['H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12','H13','H14','H15','H16','H17','H18','H19','H20','H21','H22','H23','H24'],
+        datasets:[{
+          label: 'Predicted Hourly Values',
+          data: this.GraphData,
+        
+      
+          
+          // fill: 'none',
+          // background: linear-gradient(90deg,#a91f73 0,#ff4270 100%);
+
+          backgroundColor: 'rgb(234,143,214)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          // backgroundColor: "rgba(63, 81, 181, 1)",
+            // borderColor: "rgba(63, 81, 181, 1)",
+          borderWidth: 2
+        },
+//         {
+// data:this.Data,
+//    backgroundColor: 'rgba(255, 99, 132, 1)',
+//           borderColor: 'rgba(255, 99, 132, 1)',
+//         },
+        
+      ],
+      
+
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+     
+  }
   toggle1(element) {
     console.log(element)
     this.showHourlyGraph(element)
+
+    
+    // this.showHourly()
+    // this.getLineGraph1()
+    this.show1 = !this.show1;
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if (this.show1)
+      this.buttonName = "Hide";
+    else
+      this.buttonName = "Show";
+  }
+  toggle2(element) {
+    console.log(element)
+    this.showHourlyGraph1(element)
+
+    
     // this.showHourly()
     // this.getLineGraph1()
     this.show1 = !this.show1;
@@ -935,7 +1059,7 @@ Data = []
   //   // delete this.chartData7.barChartData[0]['data'].push
 
   // }
-
+show_demodata:any=[]
   showHourly() {
 
     console.log(this.obj)
@@ -946,9 +1070,12 @@ Data = []
         // if (res['Status'] == true) {
         // this.demoDataSource.data = res['data']
         this.demoDataSource.data = res['actual']
-        // this.demoDataSource.data = res['predicted']
+this.show_demodata =res;
+        this.demoDataSource1.data = res['predicted']
         
         this.showHourlyGraph(res['actual'][0])
+        this.showHourlyGraph1(res['predicted'][0])
+        
         this.loading = false
         console.log(res)
       }
@@ -1043,6 +1170,7 @@ Data = []
   // demoDisplayedColumns: string[] = ['1', '2', '3', '4', '5', '6', '7', '8']
   demoDisplayedColumns: string[] = ['222', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '18', '20', '21', '22', '23', '24', '25', '26', '27']
   demoDataSource = new MatTableDataSource()
+  demoDataSource1 = new MatTableDataSource()
 
   loading = true
 

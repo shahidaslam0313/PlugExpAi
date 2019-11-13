@@ -41,6 +41,10 @@
     </div>
   </form>
 </mat-card>
+
+<div *ngIf="show">
+    <h2 class="text-center heading_sh">Actual Hourly ForeCast</h2>
+  </div>
 <div class="row m-0" *ngIf="show">
   <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 new_charts">
 
@@ -50,7 +54,7 @@
 </div>
 <mat-card class="t" *ngIf="show">
   <div class="example-container table-container mat-elevation-z2">
-    <table mat-table [dataSource]="demoDataSource" multiTemplateDataRows class="abc">
+    <table class="table" mat-table [dataSource]="demoDataSource" multiTemplateDataRows class="abc">
       <ng-container matColumnDef="222">
         <th mat-header-cell *matHeaderCellDef> View Details </th>
         <td mat-cell *matCellDef="let element">
@@ -181,3 +185,449 @@
     </table>
   </div>
 </mat-card>
+
+<div  *ngIf="show">
+    <h2 class="text-center heading_sh">Predicted Hourly ForeCast</h2>
+  </div>
+
+<div class="row m-0" *ngIf="show">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 new_charts">
+  
+      <canvas id="myChart1" width="900" height="400"></canvas>
+  
+    </div>
+  </div>
+  <mat-card class="t" *ngIf="show">
+    <div class="example-container table-container mat-elevation-z2">
+      <table class="table" mat-table [dataSource]="demoDataSource1" multiTemplateDataRows class="abc">
+        <ng-container matColumnDef="222">
+          <th mat-header-cell *matHeaderCellDef> View Details </th>
+          <td mat-cell *matCellDef="let element">
+            <a matTooltip="View Graph" color="accent" (click)="toggle2(element)">
+              <i class="fa fa-file-signature " style="font-size: 24px;color:#3d6889!important"></i>
+            </a>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="2">
+          <th mat-header-cell *matHeaderCellDef> Zone </th>
+          <td mat-cell *matCellDef="let element"> {{element?.ercot_load_zone ? element?.ercot_load_zone :'--' }} Predicted </td>
+        </ng-container>
+        <ng-container matColumnDef="3">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{(element?.predicted_date| date) ? (element?.predicted_date | date) :'--' }} </td>
+        </ng-container>
+        <ng-container matColumnDef="4">
+          <th mat-header-cell *matHeaderCellDef> 1hr </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_1 | number : '1.2' }}</td>
+        </ng-container>
+        <ng-container matColumnDef="5">
+          <th mat-header-cell *matHeaderCellDef> 2h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_2  | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="6">
+          <th mat-header-cell *matHeaderCellDef> 3h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_3 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="7">
+          <th mat-header-cell *matHeaderCellDef> 4h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_4 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="8">
+          <th mat-header-cell *matHeaderCellDef> 5h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_5 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="9">
+          <th mat-header-cell *matHeaderCellDef> 6h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_6 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="10">
+          <th mat-header-cell *matHeaderCellDef> 7h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_7 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="11">
+          <th mat-header-cell *matHeaderCellDef> 8h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_8 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="12">
+          <th mat-header-cell *matHeaderCellDef> 9h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_9 | number : '1.2'  }}</td>
+        </ng-container>
+        <ng-container matColumnDef="13">
+          <th mat-header-cell *matHeaderCellDef> 10h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_10 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="14">
+          <th mat-header-cell *matHeaderCellDef> 11h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_11 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="15">
+          <th mat-header-cell *matHeaderCellDef> 12h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_12 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="16">
+          <th mat-header-cell *matHeaderCellDef> 13h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_13 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="17">
+          <th mat-header-cell *matHeaderCellDef> 14h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_14 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="18">
+          <th mat-header-cell *matHeaderCellDef> 15h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_15 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="19">
+          <th mat-header-cell *matHeaderCellDef> 16h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_16 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="20">
+          <th mat-header-cell *matHeaderCellDef> 17h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_17 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="21">
+          <th mat-header-cell *matHeaderCellDef> 18h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_18 | number : '1.2'    }}</td>
+        </ng-container>
+        <ng-container matColumnDef="22">
+          <th mat-header-cell *matHeaderCellDef> 19h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_19 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="23">
+          <th mat-header-cell *matHeaderCellDef> 20h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_20 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="24">
+          <th mat-header-cell *matHeaderCellDef> 21h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_21 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="25">
+          <th mat-header-cell *matHeaderCellDef> 22h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_22 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="26">
+          <th mat-header-cell *matHeaderCellDef> 23h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_23 | number : '1.2'   }}</td>
+        </ng-container>
+        <ng-container matColumnDef="27">
+          <th mat-header-cell *matHeaderCellDef> 24h </th>
+          <td mat-cell *matCellDef="let element"> {{element?.hour_24 | number : '1.2'   }}</td>
+        </ng-container>
+        <!-- <ng-container matColumnDef="total" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef> Total </th>
+          <td mat-cell *matCellDef="let element"> {{element?.total ? element?.total :'--' }} </td>
+        </ng-container> -->
+        <!-- <ng-container matColumnDef="expandedDetail">
+          <td mat-cell *matCellDef="let element" [attr.colspan]="demoDisplayedColumns.length">
+            <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quasi voluptates laudantium et quam accusamus
+                doloremque doloribus maxime, odio illum, ab nemo. Delectus, molestiae obcaecati velit enim odit eos sapiente?</p>
+            </div>
+          </td>
+        </ng-container> -->
+        <tr mat-header-row *matHeaderRowDef="demoDisplayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: demoDisplayedColumns;"></tr>
+  
+      </table>
+    </div>
+  </mat-card>
+<!-- <div class="table-box" *ngIf="show">
+  <table class="table2 table-responsive">
+    <thead>
+      <tr>
+        <th>
+          H1
+        </th>
+        <th>
+          H2
+        </th>
+        <th>
+          H4
+        </th>
+        <th>
+          H5
+        </th>
+        <th>
+          H6
+        </th>
+        <th>
+            H7
+          </th>
+          <th>
+            H8
+          </th>
+          <th>
+            H9
+          </th>
+          <th>
+            H10
+          </th>
+          <th>
+            H11
+          </th>
+          <th>
+              H12
+            </th>
+            <th>
+              H13
+            </th>
+            <th>
+              H14
+            </th>
+            <th>
+              H15
+            </th>
+            <th>
+              H16
+            </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <table>
+                <thead>
+                  <tr>
+                      <th>Act</th>
+                    <th>PRT</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of show_demodata">
+                    <td>{{data.actual | number }}</td>
+                    <td>{{data.predicted | number }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>PRT</th>
+                      <th>Act</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>PRT</th>
+                        <th>Act</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>PRT</th>
+                          <th>Act</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>2</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>PRT</th>
+                            <th>Act</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>2</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                    <td>
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>PRT</th>
+                              <th>Act</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>2</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td>
+                          <table>
+                            <thead>
+                              <tr>
+                                <th>PRT</th>
+                                <th>Act</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>2</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td>
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th>PRT</th>
+                                  <th>Act</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td>2</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                          <td>
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th>PRT</th>
+                                    <th>Act</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>1</td>
+                                    <td>2</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td>
+                                <table>
+                                  <thead>
+                                    <tr>
+                                      <th>PRT</th>
+                                      <th>Act</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>1</td>
+                                      <td>2</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                              <td>
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                        <th>PRT</th>
+                                        <th>Act</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                                <td>
+                                    <table>
+                                      <thead>
+                                        <tr>
+                                          <th>PRT</th>
+                                          <th>Act</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>1</td>
+                                          <td>2</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                  <td>
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th>PRT</th>
+                                            <th>Act</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>1</td>
+                                            <td>2</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                    <td>
+                                        <table>
+                                          <thead>
+                                            <tr>
+                                              <th>PRT</th>
+                                              <th>Act</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>1</td>
+                                              <td>2</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                      <td>
+                                          <table>
+                                            <thead>
+                                              <tr>
+                                                <th>PRT</th>
+                                                <th>Act</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>1</td>
+                                                <td>2</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                       
+                                         
+                                           
+        </tr>
+    </tbody>
+  </table>
+</div> -->

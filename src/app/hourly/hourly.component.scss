@@ -49,9 +49,8 @@ canvas {
 .mat-column-m_sep,
 .mat-column-m_oct,
 .mat-column-m_nov,
-.mat-column-m_dec,
-  {
-  word-wrap: break-word !important;
+.mat-column-m_dec
+  {  word-wrap: break-word !important;
   white-space: unset !important;
   flex: 0 0 28% !important;
   width: 0% !important;
@@ -224,7 +223,7 @@ th {
 //     0% { background-position: -250px 0; }
 //     100% { background-position: 250px 0; }
 // }
-table {
+.table {
   max-width: 100%;
   min-width: 1500px;
   width: 100%;
@@ -288,6 +287,14 @@ table {
   margin: 0 10px;
   mat-form-field {
     width: 100%;
+  }
+}
+.table2{
+  min-width: auto !important;
+  width: 100%;
+  max-width: 100% !important;
+  th , td{
+    padding: 10px;
   }
 }
 @media (max-width:1150px) {
