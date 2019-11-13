@@ -3,11 +3,12 @@ import { MatTableDataSource } from '@angular/material';
 import { ApiService } from '../../../../services/api.service';
 
 @Component({
-  selector: 'app-view-customer-report',
-  templateUrl: './view-customer-report.component.html',
-  styleUrls: ['./view-customer-report.component.scss', '../../../table.scss', '../../../table-animation.scss']
+  selector: 'app-view-discrpancy-report',
+  templateUrl: './view-discrpancy-report.component.html',
+  styleUrls: ['./view-discrpancy-report.component.scss', '../../../table.scss', '../../../table-animation.scss']
 })
-export class ViewCustomerReportComponent implements OnInit {
+export class ViewDiscrpancyReportComponent implements OnInit {
+
   DisplayedColumns: string[] = ['1', '2',
   //  '3', '4'
   ]
@@ -19,7 +20,7 @@ export class ViewCustomerReportComponent implements OnInit {
     this.getEsiid()
   }
   getEsiid() {
-    this.service.customerReport().subscribe(res => {
+    this.service.discrepancy_report().subscribe(res => {
       console.log(res)
       this.loading = false
       this.DataSource.data = res['message']

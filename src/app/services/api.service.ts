@@ -39,10 +39,15 @@ export class ApiService {
   //hourly review forcast
   hourlyLoadzone(hourlyValue) {
     let val = {
-      from_date:hourlyValue.from_date,
-      to_date:hourlyValue.to_date
+      start_date:hourlyValue.start_date,
+      end_date:hourlyValue.end_date
     }
-    return this.http.post<any>(`${this.new}forecast/${'loadzone-hourly-get'}/`, val)
+    // let val = {
+    //   from_date:hourlyValue.from_date,
+    //   to_date:hourlyValue.to_date
+    // }
+    // return this.http.post<any>(`${this.new}forecast/${'loadzone-hourly-get'}/`, val)
+    return this.http.post<any>(`${this.new}reports/hourly-prediction-with-actual-data/`, val)
   }
   ForecastCount(granularity, obj) {
     delete obj.granularity
@@ -73,6 +78,9 @@ export class ApiService {
   //   return this.http.get<any>(`${this.new}reports/customer-file-list/`).pipe(catchError(this.errorHandler))
   // }
   customerReport(): Observable<any> {
+    return this.http.get<any>(`${this.new}reports/customer_report/`).pipe(catchError(this.errorHandler))
+  }
+  discrepancy_report(): Observable<any> {
     return this.http.get<any>(`${this.new}reports/discrepancy_report/`).pipe(catchError(this.errorHandler))
   }
   // weatherZoneActual(obj): Observable<any> {

@@ -59,6 +59,8 @@ import { AlertComponent } from './administration/ercot/alert/alert.component';
 import { DialogHourlyComponent } from './ercot/forcaster-tool/ReviewForcast/dialog-hourly/dialog-hourly.component';
 import { LinegraphComponent } from '../linegraph/linegraph.component';
 import { MonthlyComponent } from '../monthly/monthly.component';
+
+// import { ViewDiscrpancyReportComponent } from './Container/ercot/forcaster-tool/view-discrpancy-report/view-discrpancy-report.component';
 import { HourlyComponent } from '../hourly/hourly.component';
 import { MonthlysComponent } from '../monthlys/monthlys.component';
  import { DateRangeComponent } from '../date-range/date-range.component';
@@ -79,6 +81,7 @@ export const Containers = {
     MaturityForcastComponent,
     ReviewCustomerCountComponent,
     ViewCustomerReportComponent,
+    
     LoginComponent,
     LoadForecastComponent,
     FixedFloatSwapsComponent,
@@ -132,5 +135,6 @@ export const Containers = {
     EsiidCountComponent,
     AmsIntervalDataComponent,
     ReviewAmsIntervalComponent,
-    DialogHourlyComponent
+    DialogHourlyComponent,
+
 }

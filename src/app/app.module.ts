@@ -69,6 +69,7 @@ import { DailyEnergyComponent } from './daily-energy/daily-energy.component';
 import { WeeklyEnergyComponent } from './weekly-energy/weekly-energy.component';
 import { DateRangeComponent } from './date-range/date-range.component';
 import { EnergySpikesComponent } from './energy-spikes/energy-spikes.component';
+import { ViewDiscrpancyReportComponent } from './Container/ercot/forcaster-tool/view-discrpancy-report/view-discrpancy-report.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ Containers.MonthlyComponent,
 Containers.HourlyComponent,
 Containers.MonthlysComponent, 
 Containers.DateRangeComponent, 
+ViewDiscrpancyReportComponent,
 Containers.AlertDialogComponent,
     Containers.AlertMonitorComponent,
     Containers.AlertDialogComponent,
@@ -167,6 +169,7 @@ Containers.LourenComponent,
     WeeklyEnergyComponent,
     DateRangeComponent,
     EnergySpikesComponent,
+    
 
   ],
   imports: [

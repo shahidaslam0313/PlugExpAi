@@ -184,7 +184,7 @@ export class HomeLayoutComponent implements OnInit {
   //   { name: 'WattExpert Al Review Forecast', route: '/forecastertool', icon: 'fab fa-wpforms', submenu: [] },
   //  }
    else if ( this.router.url == "/forecastertool"){
-    this.header_name = "WattExpert Al Review Forecast"
+    this.header_name = "WattExpert Al Forecast"
    }
    else if ( this.router.url == "/DateRangeForecast"){
     this.header_name = "DateRange Forecast"
@@ -225,7 +225,7 @@ export class HomeLayoutComponent implements OnInit {
    }
    else if (this.router.url == "/viewcustomerreport"){
      
-    this.header_name = "View Customer Reports"
+    this.header_name = "Customer Reports"
    }
   //  else if ( this.router.url == "/#"){
   //   this.header_name = "Energy Spikes"
@@ -244,7 +244,14 @@ export class HomeLayoutComponent implements OnInit {
    }
    else if ( this.router.url == "/review-ams-interval"){
     this.header_name = "Review AMS Interval Data"
-   }    
+   }   
+   else if ( this.router.url == "/viewdiscrepancyreport"){
+    this.header_name = "Discrepancy Report"
+   }   
+   
+   
+
+   
   }
 
 

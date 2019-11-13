@@ -10,6 +10,9 @@ import { DailyEnergyComponent } from './daily-energy/daily-energy.component';
 import { EnergyWasteComponent } from './energy-waste/energy-waste.component';
 import { WeeklyEnergyComponent } from './weekly-energy/weekly-energy.component';
 import { EnergySpikesComponent } from './energy-spikes/energy-spikes.component';
+
+import { ViewDiscrpancyReportComponent } from './Container/ercot/forcaster-tool/view-discrpancy-report/view-discrpancy-report.component';
+
 // import { ReviewEsiIdUsageMeterReadsComponent } from './Container/ercot/SCR-727-ESIID-Database/review-esi-id-usage-meter-reads/review-esi-id-usage-meter-reads.component';
 
 
@@ -39,7 +42,10 @@ const routes: Routes = [
                   { path: 'maturity-forecast', loadChildren: './Container/ercot/forcaster-tool/maturity-forcast/module#Module' },
                   { path: 'review-customer-count', loadChildren: './Container/ercot/forcaster-tool/ReviewCustomerCounts/review-customer-count/module#Module' },
                   { path: 'viewcustomerreport', loadChildren: './Container/ercot/forcaster-tool/view-customer-report/module#Module' },
+                  { path: 'viewdiscrepancyreport', component: ViewDiscrpancyReportComponent },
+
                   { path: 'load-forecast', loadChildren: './Container/ercot/forcaster-tool/load-forecast/module#Module' },
+                  
 
                   { path: 'fixed-float-swaps', component: Containers.FixedFloatSwapsComponent },
                   { path: 'physical-power', component: Containers.PhysicalPowerComponent },
